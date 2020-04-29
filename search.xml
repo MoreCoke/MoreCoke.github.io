@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>第一篇文章</title>
+    <url>/2020/04/28/2020-4-28-first-post/</url>
+    <content><![CDATA[<h2 id="為什麼要用-hexo-呢"><a href="#為什麼要用-hexo-呢" class="headerlink" title="為什麼要用 hexo 呢?"></a>為什麼要用 hexo 呢?</h2><p>因為它免費，而且又能練習 git 的指令和 markdown 的寫法。<br>我主要使用 Medium 作筆記，雖然 Medium 程式碼呈現很差，但線上編輯很好用，加上它的簡潔風格我非常喜歡，目前沒有考慮要換平台。<br>其實我一直沒有很想架 hexo，我懶的用，而且 medium 用的好好的，可是又覺得不架好像會被別人認為我不會架，東想西想還是架吧!所以說~這次架 hexo 只是一時興起，搞不好寫個幾篇，會回到 medium 繼續寫吧。</p>
+<a id="more"></a>
+<h2 id="目前想到的問題"><a href="#目前想到的問題" class="headerlink" title="目前想到的問題?"></a>目前想到的問題?</h2><p>其實還滿多的，像是</p>
+<ul>
+<li>試試把 medium 文章搬過來，應該有套件能用要找找。</li>
+<li>圖片要另外存在資料夾還滿麻煩的，因為我圖片用完就刪掉，這樣還要放在本地端。目前想到的方法是放在 imgur 上。</li>
+</ul>
+<p>圖片測試:<br><img src="https://i.imgur.com/d8haCa9.png" alt="Imgur"></p>
+<p>影片測試:<br>我很常看 youtube 找資源學習，所以也常會把有幫助的影片貼上來，這邊簡單介紹怎麼貼，這邊用卑鄙源之助介紹。<br>youtube 網址長這樣 <code>https://www.youtube.com/watch?v=WVwlR_vni6k</code>，youtube 的 id 是 <code>?v=</code> 後面的亂碼。</p>
+<p>方法1 : 用 <a href="https://hexo.io/zh-tw/docs/tag-plugins#iframe" target="_blank" rel="noopener">hexo 文件</a>的 iframe 模板，把網址中的 <code>watch?v=</code> 換成 <code>embed/</code> 就能用，有試過調寬高但沒效。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#123;% iframe https:&#x2F;&#x2F;www.youtube.com&#x2F;embed&#x2F;WVwlR_vni6k [640] [360] %&#125;</span><br></pre></td></tr></table></figure>
+<iframe src="https://www.youtube.com/embed/WVwlR_vni6k" width="[640]" height="[360]" frameborder="0" loading="lazy" allowfullscreen></iframe>
+
+<p>方法2 : 用 <a href="https://hexo.io/zh-tw/docs/tag-plugins#Youtube" target="_blank" rel="noopener">hexo 文件</a>的 youtube 模板。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#123;% youtube video_id %&#125;</span><br></pre></td></tr></table></figure>
+<div class="video-container"><iframe src="https://www.youtube.com/embed/WVwlR_vni6k" frameborder="0" loading="lazy" allowfullscreen></iframe></div>
+<p>方法3: 用 <a href="https://developers.google.com/youtube/player_parameters#Embedding_a_Player" target="_blank" rel="noopener">youtube 文件</a>的 iframe ，同方法 1 ，把網址中的 <code>watch?v=</code> 換成 <code>embed/</code> 就能用了，也能調整寬高。原本以為寬高是寫死的，但用開發檢查工具看響應式發現不會破版，應該根部落格內部設定也有關，還要找找。</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">iframe</span> <span class="attr">id</span>=<span class="string">"ytplayer"</span> <span class="attr">type</span>=<span class="string">"text/html"</span> <span class="attr">width</span>=<span class="string">"640"</span> <span class="attr">height</span>=<span class="string">"360"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">src</span>=<span class="string">"https://www.youtube.com/embed/WVwlR_vni6k"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">frameborder</span>=<span class="string">"0"</span>&gt;</span><span class="tag">&lt;/<span class="name">iframe</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<iframe id="ytplayer" type="text/html" width="640" height="360"
+  src="https://www.youtube.com/embed/WVwlR_vni6k"
+  frameborder="0"></iframe>
+
+
+<p>codepen 測試:<br>使用 codepen 內建的 embed 功能就可以了，html 或 iframe 都行。</p>
+<p class="codepen" data-height="265" data-theme-id="dark" data-default-tab="js,result" data-user="moreCoke" data-slug-hash="aboPGwB" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="print a number with commas as thousands separators in regular expression">
+  <span>See the Pen <a href="https://codepen.io/moreCoke/pen/aboPGwB" target="_blank" rel="noopener">
+  print a number with commas as thousands separators in regular expression</a> by Donkle (<a href="https://codepen.io/moreCoke" target="_blank" rel="noopener">@moreCoke</a>)
+  on <a href="https://codepen.io" target="_blank" rel="noopener">CodePen</a>.</span>
+</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+
+
+
+<h2 id="部屬遇到的問題"><a href="#部屬遇到的問題" class="headerlink" title="部屬遇到的問題"></a>部屬遇到的問題</h2><h3 id="路徑問題"><a href="#路徑問題" class="headerlink" title="路徑問題"></a>路徑問題</h3><p>repository 的命名當時是叫 myblog ，部屬上 github page 時因為路徑關係 css 和 js 載不出來，等了一個晚上一開始還以為是 github 的問題，後來看到這篇<a href="https://riverye.com/2019/10/23/%E5%BE%9E%E7%84%A1%E5%88%B0%E6%9C%89%E7%9A%84-Blog-%E5%BB%BA%E7%BD%AE%E6%95%99%E5%AD%B8-%E5%90%AB-domain-%E8%B3%BC%E8%B2%B7%E8%BD%89%E5%9D%80/" target="_blank" rel="noopener">從無到有的 Blog 建置教學 (含 domain 購買轉址)</a>，稍微有了概念。</p>
+<p>如果是在 master 上那 repository 要用這樣的形式命名: (username).github.io ，其實在 <a href="https://hexo.io/zh-tw/docs/github-pages" target="_blank" rel="noopener">hexo</a> 就有說了，但看到文件說用 Travis CI 部屬，就跳過整段沒看了，就跟著文件下方的私人儲存庫做，然後兜了一大圈 debug ，還是找不到原因。</p>
+<p>現在找到了，我根目錄的 yml 中的 url 沒配…。<br>在<a href="https://hexo.io/zh-tw/docs/configuration#%E7%B6%B2%E5%9D%80" target="_blank" rel="noopener">文件</a>中找到答案，以我的為例:</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">url:</span> <span class="string">https://github.com/MoreCoke</span></span><br><span class="line"><span class="attr">root:</span> <span class="string">/myblog/</span></span><br></pre></td></tr></table></figure>
+<h3 id="程式碼的複製功能怎麼做"><a href="#程式碼的複製功能怎麼做" class="headerlink" title="程式碼的複製功能怎麼做?"></a>程式碼的複製功能怎麼做?</h3><p>到 next 的 _config.yml 設定，<a href="https://mtwmt.github.io/hexo/hexo_next_copybutton/" target="_blank" rel="noopener">hexo：Next 一鍵複製程式碼</a></p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">copy_button:</span></span><br><span class="line">    <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">    <span class="comment"># Show text copy result.</span></span><br><span class="line">    <span class="attr">show_result:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>]]></content>
+  </entry>
+</search>
