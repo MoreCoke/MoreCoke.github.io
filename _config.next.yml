@@ -373,7 +373,9 @@ codeblock:
     dark: prism-dark
   # Add copy button on codeblock
   copy_button:
-    enable: false
+    enable: true
+    # Show text copy result.
+    show_result: true
     # Available values: default | flat | mac
     style:
 
