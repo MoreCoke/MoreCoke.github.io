@@ -10,6 +10,7 @@ tags:
 
 在 redux 的官方文件中建議我們設計 store 的變數時盡量用 array 、 object 或是 primitive type value 進行管理。
 
+<!-- more -->
 ### 參考資料
 
 - [序列化 維基百科](https://zh.m.wikipedia.org/zh-tw/%E5%BA%8F%E5%88%97%E5%8C%96)
