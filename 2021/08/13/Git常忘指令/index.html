@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"morecoke.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.11.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜尋...","empty":"我們無法找到任何有關 ${query} 的搜索結果","hits_time":"${hits} 找到 ${time} 個結果","hits":"找到 ${hits} 個結果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="git rebase  不管目前位在哪個分支，把 bugfix 分支移到 master 上，也能用 git checkout master gitrebase bugfix 解決。 注意 : 別在 master 上用，這樣別人的 git history 會被你影響。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Git 常忘指令">
+<meta property="og:url" content="https://morecoke.github.io/2021/08/13/Git%E5%B8%B8%E5%BF%98%E6%8C%87%E4%BB%A4/index.html">
+<meta property="og:site_name" content="MoreCoke Blog">
+<meta property="og:description" content="git rebase  不管目前位在哪個分支，把 bugfix 分支移到 master 上，也能用 git checkout master gitrebase bugfix 解決。 注意 : 別在 master 上用，這樣別人的 git history 會被你影響。">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2021-08-13T17:33:06.000Z">
+<meta property="article:modified_time" content="2022-12-04T10:07:30.129Z">
+<meta property="article:author" content="MoreCoke">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://morecoke.github.io/2021/08/13/Git%E5%B8%B8%E5%BF%98%E6%8C%87%E4%BB%A4/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-TW","comments":true,"permalink":"https://morecoke.github.io/2021/08/13/Git%E5%B8%B8%E5%BF%98%E6%8C%87%E4%BB%A4/","path":"2021/08/13/Git常忘指令/","title":"Git 常忘指令"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Git 常忘指令 | MoreCoke Blog</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">MoreCoke Blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">前端嬰兒</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>歸檔</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜尋
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜尋..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#git-rebase"><span class="nav-number">1.</span> <span class="nav-text">git rebase  </span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%88%E4%BD%B5%E9%8C%AF%E4%BA%86%E8%A6%81%E6%80%8E%E9%BA%BC%E5%8F%96%E6%B6%88"><span class="nav-number">2.</span> <span class="nav-text">合併錯了要怎麼取消?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#git-diff-%E2%80%93cached-HEAD"><span class="nav-number">3.</span> <span class="nav-text">git diff –cached HEAD</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#git-commit-%E2%80%93amend"><span class="nav-number">4.</span> <span class="nav-text">git commit –amend</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%8E%E9%BA%BC%E6%8D%A8%E6%A3%84%E7%9B%AE%E5%89%8D%E5%81%9A%E7%9A%84%E4%BF%AE%E6%94%B9"><span class="nav-number">5.</span> <span class="nav-text">怎麼捨棄目前做的修改?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E6%9B%B4%E6%96%B0-master-%E5%88%86%E6%94%AF%E9%80%B2%E5%BA%A6"><span class="nav-number">6.</span> <span class="nav-text">如何更新 master 分支進度?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#git-tag-%E5%90%8D%E5%AD%97-commit%E7%AF%80%E9%BB%9E"><span class="nav-number">7.</span> <span class="nav-text">git tag 名字 commit節點</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#git-describe-commit%E7%AF%80%E9%BB%9E"><span class="nav-number">8.</span> <span class="nav-text">git describe commit節點</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#git-%E9%81%A0%E7%AB%AF%E6%B5%81%E7%A8%8B"><span class="nav-number">9.</span> <span class="nav-text">git 遠端流程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%AA%E9%99%A4%E9%81%A0%E7%AB%AF%E5%88%86%E6%94%AF"><span class="nav-number">10.</span> <span class="nav-text">刪除遠端分支</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8A%8A%E9%81%A0%E7%AB%AF%E5%88%86%E6%94%AF%E6%8A%93%E5%88%B0%E6%9C%AC%E5%9C%B0%E7%AB%AF"><span class="nav-number">11.</span> <span class="nav-text">把遠端分支抓到本地端</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%8E%E9%BA%BC%E6%94%B9-branch-%E5%90%8D%E7%A8%B1"><span class="nav-number">12.</span> <span class="nav-text">怎麼改 branch 名稱</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%92%8C-%E7%9A%84%E5%B7%AE%E5%88%A5"><span class="nav-number">13.</span> <span class="nav-text">~ 和 ^ 的差別</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E8%B7%9F-Lidemy-%E7%9A%84%E5%84%B2%E5%AD%98%E5%BA%AB%E5%90%8C%E6%AD%A5%EF%BC%8C%E6%9B%B4%E6%96%B0%E8%87%AA%E5%B7%B1%E9%81%A0%E7%AB%AF%E7%9A%84%E5%84%B2%E5%AD%98%E5%BA%AB"><span class="nav-number">14.</span> <span class="nav-text">如何跟 Lidemy 的儲存庫同步，更新自己遠端的儲存庫?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9A%AB%E5%AD%98%E7%9B%AE%E5%89%8D%E9%80%B2%E5%BA%A6"><span class="nav-number">15.</span> <span class="nav-text">暫存目前進度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#git-revert-%E5%8F%8D%E8%BD%89-commit"><span class="nav-number">16.</span> <span class="nav-text">git revert 反轉 commit</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%A8-git-bisect-%E6%8A%93-bug"><span class="nav-number">17.</span> <span class="nav-text">用 git bisect 抓 bug</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="MoreCoke"
+      src="https://avatars.githubusercontent.com/u/52279841?v=4">
+  <p class="site-author-name" itemprop="name">MoreCoke</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">24</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/MoreCoke" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;MoreCoke" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://medium.com/@seed45699" title="Medium → https:&#x2F;&#x2F;medium.com&#x2F;@seed45699" rel="noopener" target="_blank"><i class="fa-brands fa-medium fa-fw"></i></a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="回到頂端">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/MoreCoke" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://morecoke.github.io/2021/08/13/Git%E5%B8%B8%E5%BF%98%E6%8C%87%E4%BB%A4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://avatars.githubusercontent.com/u/52279841?v=4">
+      <meta itemprop="name" content="MoreCoke">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MoreCoke Blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Git 常忘指令 | MoreCoke Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Git 常忘指令
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">發表於</span>
+
+      <time title="創建時間：2021-08-14 01:33:06" itemprop="dateCreated datePublished" datetime="2021-08-14T01:33:06+08:00">2021-08-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新於</span>
+      <time title="修改時間：2022-12-04 18:07:30" itemprop="dateModified" datetime="2022-12-04T18:07:30+08:00">2022-12-04</time>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="文章字數">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">文章字數：</span>
+      <span>2.2k</span>
+    </span>
+    <span class="post-meta-item" title="所需閱讀時間">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">所需閱讀時間 &asymp;</span>
+      <span>2 分鐘</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h3 id="git-rebase"><a href="#git-rebase" class="headerlink" title="git rebase  "></a>git rebase <bugfix> <master></h3><p>不管目前位在哪個分支，把 bugfix 分支移到 master 上，也能用 <code>git checkout master</code> <code>gitrebase bugfix</code> 解決。</p>
+<p><strong>注意</strong> : 別在 master 上用，這樣別人的 git history 會被你影響。</p>
+<span id="more"></span>
+
+<h3 id="合併錯了要怎麼取消"><a href="#合併錯了要怎麼取消" class="headerlink" title="合併錯了要怎麼取消?"></a>合併錯了要怎麼取消?</h3><p>兩種方法</p>
+<ol>
+<li>使用 git reflog 調紀錄，再用 git reset。</li>
+<li>使用 git reset ORIG_HEAD –hard ，ORIG_HEAD 這參數會記錄這類的重大事件。</li>
+</ol>
+<h3 id="git-diff-–cached-HEAD"><a href="#git-diff-–cached-HEAD" class="headerlink" title="git diff –cached HEAD"></a>git diff –cached HEAD</h3><p>比對現在修改了什麼，現在 commit 的狀態和當前 HEAD 內容進行比對，指令也能省略呈 git diff –cached 。</p>
+<h3 id="git-commit-–amend"><a href="#git-commit-–amend" class="headerlink" title="git commit –amend"></a>git commit –amend</h3><p>主要用來修改最新 commit 的內容，有時 -m 的文字內容會打錯，可以用這修改。</p>
+<h3 id="怎麼捨棄目前做的修改"><a href="#怎麼捨棄目前做的修改" class="headerlink" title="怎麼捨棄目前做的修改?"></a>怎麼捨棄目前做的修改?</h3><p>用 git checkout –檔名，把這個檔案目前修改的內容全都捨棄不要了。</p>
+<h3 id="如何更新-master-分支進度"><a href="#如何更新-master-分支進度" class="headerlink" title="如何更新 master 分支進度?"></a>如何更新 master 分支進度?</h3><p>在使用 git rebase 時會發生接上去的分支進度比 master 前面，可以在 master 上用 git merge 分支來觸發 fast forward。</p>
+<h3 id="git-tag-名字-commit節點"><a href="#git-tag-名字-commit節點" class="headerlink" title="git tag 名字 commit節點"></a>git tag 名字 commit節點</h3><p>標上去的 tag 可以用來記錄 commit 的重大事件，假如我想在現在的進度貼個標籤可以這樣做， git tag new_version master，這樣我現在的 commit 節點就會有 new_version 的節點。</p>
+<h3 id="git-describe-commit節點"><a href="#git-describe-commit節點" class="headerlink" title="git describe commit節點"></a>git describe commit節點</h3><p>會找出距離該節點最近的 tag，假如有個 finish 的 tag，這時在 master 上用 git describe master，會得到類似這樣的回覆 finish_3_2jdfe3 ，意思是距離現在 master HEAD 的節點再經過 3 個 commit 會有個 finish 的 tag ，然後它的 SHA 值會是 2jdfe3。</p>
+<h3 id="git-遠端流程"><a href="#git-遠端流程" class="headerlink" title="git 遠端流程"></a>git 遠端流程</h3><p>git fetch + git merge &#x3D; git pull</p>
+<p>git fetch 是用來更新本地儲存庫，在本地端儲存庫遠端的分支會用 o&#x2F;master 來表示， git fetch 就是用來更新這些遠端進度的。</p>
+<p>有時想將本地資料推送到遠端時會失敗是因為 o&#x2F;master 進度不同，這時要先將本地 commit 更新至相同進度。記得要在本地的 master 分支用 pull 才能拉到遠端的 master 分支。想讓 commit 的歷史更好看可以加入 –rebase 參數。</p>
+<ul>
+<li>git push origin 來源(本地):目的地(遠端)。</li>
+<li>git pull origin 來源(遠端):目的地(本地端)。</li>
+<li>git fetch origin 來源(遠端):目的地(本地端)。</li>
+</ul>
+<h3 id="刪除遠端分支"><a href="#刪除遠端分支" class="headerlink" title="刪除遠端分支"></a>刪除遠端分支</h3><p>有兩個方法</p>
+<ol>
+<li>git push origin :分支名，來源不放東西即可。</li>
+<li>git push origin –delete 分支名 。</li>
+</ol>
+<h3 id="把遠端分支抓到本地端"><a href="#把遠端分支抓到本地端" class="headerlink" title="把遠端分支抓到本地端"></a>把遠端分支抓到本地端</h3><p>用 git checkout 遠端分支名 就可以了。</p>
+<h3 id="怎麼改-branch-名稱"><a href="#怎麼改-branch-名稱" class="headerlink" title="怎麼改 branch 名稱"></a>怎麼改 branch 名稱</h3><p>名字不小心打錯藥怎麼改? git checkout 到分支後用 git branch -m 新名字 ，這樣就成功喽。</p>
+<h3 id="和-的差別"><a href="#和-的差別" class="headerlink" title="~ 和 ^ 的差別"></a>~ 和 ^ 的差別</h3><p>都是相對位置的設定，差在哪呢?<br>~ 是往上爬找父 commit。<br>^ 只有一個的話是往上找一個父 commit，如果是像 ^^ 這樣連續使用就是要跨分支，這部分挺抽象的，可以看 <a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/2221658/whats-the-difference-between-head-and-head-in-git">What’s the difference between HEAD^ and HEAD~ in Git?</a>。</p>
+<h3 id="如何跟-Lidemy-的儲存庫同步，更新自己遠端的儲存庫"><a href="#如何跟-Lidemy-的儲存庫同步，更新自己遠端的儲存庫" class="headerlink" title="如何跟 Lidemy 的儲存庫同步，更新自己遠端的儲存庫?"></a>如何跟 Lidemy 的儲存庫同步，更新自己遠端的儲存庫?</h3><p>方法 1<br>更改自己 remote 的 url，用 <code>git remote set-url origin 網址</code> 更改，可以使用 <code>git remote -v</code> 確認目前指向的網址，接著 <code>git pull origin master</code>。改完後再 <code>git remote set-url origin 網址</code> 改回自己的網址。</p>
+<p>方法 2<br><code>git pull Lidemy網址 master</code>，接著會跳到 Vim 介面再 <code>:wq</code> 就能離開。</p>
+<p>最後不管用哪個方法都要記得 <code>git push origin master</code> 推回自己的 master 分支上。</p>
+<h3 id="暫存目前進度"><a href="#暫存目前進度" class="headerlink" title="暫存目前進度"></a>暫存目前進度</h3><p>常會有事情做到一半被 PM 通知有 bug 要修，這時可以用 <code>git stash</code> 把現在的進度暫存，之後回來再用 <code>git stash pop</code> 就能繼續處理原本在做的事。</p>
+<h3 id="git-revert-反轉-commit"><a href="#git-revert-反轉-commit" class="headerlink" title="git revert 反轉 commit"></a>git revert 反轉 commit</h3><p>跟 reset 有點像，都是用來取消 commit 用的，差別在 reset 會 <strong>直接清除</strong> 要取消的 commit ，而 revert 會 <strong>保留</strong> 要取消的 commit，並再推出一個新的 commit，這個 commit 用來清除要取消的 commit。<br>revert 在多人開發和需求變動頻繁的情況下滿常用的。</p>
+<h3 id="用-git-bisect-抓-bug"><a href="#用-git-bisect-抓-bug" class="headerlink" title="用 git bisect 抓 bug"></a>用 git bisect 抓 bug</h3><p>遇到一個 bug 但是不知道是哪個 commit 改壞，除了一個個看 commit message 外，還有其他方法嗎?<br>可以透過 <code>git bisect start &lt;bad&gt; &lt;good&gt;</code> 先設定範圍， bad 指的是出現 bug 的 commit，good 是沒有 bug 的 commit，加入這兩個 commit 的 SHA 值後，git 會利用二分搜尋法透過指令 <code>git checkout</code> 到 bad 和 good 中間的 commit，如果這 commit 沒有 bug 就輸入 <code>git bisect good</code>，反之 <code>git bisect bad</code>。最後就能得知 bug 是在哪支 commit 中出現的。如果已經有頭緒知道是哪支 commit 改壞，想提前結束搜尋可以用 <code>git bisect reset</code>，git 會恢復成使用 git bisect 前的狀態。<br>文件: <a target="_blank" rel="noopener" href="https://git-scm.com/docs/git-bisect">git bisect 指令</a></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/08/12/git-cherry-pick/" rel="prev" title="Git cherry pick 實戰">
+                  <i class="fa fa-chevron-left"></i> Git cherry pick 實戰
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/05/28/js-execution-context/" rel="next" title="JS Execution Context">
+                  JS Execution Context <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">MoreCoke</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 強力驅動
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

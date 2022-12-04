@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"morecoke.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.11.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜尋...","empty":"我們無法找到任何有關 ${query} 的搜索結果","hits_time":"${hits} 找到 ${time} 個結果","hits":"找到 ${hits} 個結果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="前言現在是用 windows 系統， CMD 不支援 ls 阿、 pwd 呀，目前都是用 git bash 來操作，來複習有哪些常用指令吧~  pwd(windows cd) 目前位置。 cat(windows type ，中文會印出亂碼) 可以連接多個檔案印出來，只放一個檔案也行。 ls(windows dir) 查看當前目錄下有哪些檔案。 cd 移動路徑。 touch(windows type">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CLI 常用指令整理">
+<meta property="og:url" content="https://morecoke.github.io/2020/06/14/command-line/index.html">
+<meta property="og:site_name" content="MoreCoke Blog">
+<meta property="og:description" content="前言現在是用 windows 系統， CMD 不支援 ls 阿、 pwd 呀，目前都是用 git bash 來操作，來複習有哪些常用指令吧~  pwd(windows cd) 目前位置。 cat(windows type ，中文會印出亂碼) 可以連接多個檔案印出來，只放一個檔案也行。 ls(windows dir) 查看當前目錄下有哪些檔案。 cd 移動路徑。 touch(windows type">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2020-06-14T17:33:06.000Z">
+<meta property="article:modified_time" content="2022-12-04T10:07:30.129Z">
+<meta property="article:author" content="MoreCoke">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://morecoke.github.io/2020/06/14/command-line/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-TW","comments":true,"permalink":"https://morecoke.github.io/2020/06/14/command-line/","path":"2020/06/14/command-line/","title":"CLI 常用指令整理"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>CLI 常用指令整理 | MoreCoke Blog</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">MoreCoke Blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">前端嬰兒</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>歸檔</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜尋
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜尋..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Vim-%E7%B0%A1%E5%96%AE%E4%BB%8B%E7%B4%B9"><span class="nav-number">2.</span> <span class="nav-text">Vim 簡單介紹</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LIOJ-%E5%95%8F%E9%A1%8C"><span class="nav-number">3.</span> <span class="nav-text">LIOJ 問題</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="MoreCoke"
+      src="https://avatars.githubusercontent.com/u/52279841?v=4">
+  <p class="site-author-name" itemprop="name">MoreCoke</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">24</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/MoreCoke" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;MoreCoke" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://medium.com/@seed45699" title="Medium → https:&#x2F;&#x2F;medium.com&#x2F;@seed45699" rel="noopener" target="_blank"><i class="fa-brands fa-medium fa-fw"></i></a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="回到頂端">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/MoreCoke" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://morecoke.github.io/2020/06/14/command-line/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://avatars.githubusercontent.com/u/52279841?v=4">
+      <meta itemprop="name" content="MoreCoke">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MoreCoke Blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="CLI 常用指令整理 | MoreCoke Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          CLI 常用指令整理
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">發表於</span>
+
+      <time title="創建時間：2020-06-15 01:33:06" itemprop="dateCreated datePublished" datetime="2020-06-15T01:33:06+08:00">2020-06-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新於</span>
+      <time title="修改時間：2022-12-04 18:07:30" itemprop="dateModified" datetime="2022-12-04T18:07:30+08:00">2022-12-04</time>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="文章字數">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">文章字數：</span>
+      <span>963</span>
+    </span>
+    <span class="post-meta-item" title="所需閱讀時間">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">所需閱讀時間 &asymp;</span>
+      <span>1 分鐘</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>現在是用 windows 系統， CMD 不支援 ls 阿、 pwd 呀，目前都是用 git bash 來操作，來複習有哪些常用指令吧~</p>
+<ul>
+<li><code>pwd</code>(windows <code>cd</code>) 目前位置。</li>
+<li><code>cat</code>(windows <code>type</code> ，中文會印出亂碼) 可以連接多個檔案印出來，只放一個檔案也行。</li>
+<li><code>ls</code>(windows <code>dir</code>) 查看當前目錄下有哪些檔案。</li>
+<li><code>cd</code> 移動路徑。</li>
+<li><code>touch</code>(windows <code>type nul &gt; your_file.txt</code> 建立 0 byte 檔案) 如果沒有這檔案就建立一個新的，有的話就更新最後的修改時間。</li>
+<li><code>explorer .</code> windows 打開當前資料夾的視窗。</li>
+<li><code>open .</code> mac 打開當前資料夾視窗。</li>
+<li><code>mkdir</code> 新增資料夾。</li>
+<li><code>rmdir</code> 只能刪除空資料夾，資料夾內部沒東西才能刪除成功。</li>
+<li><code>rm</code> 刪除檔案或資料夾。<ul>
+<li><code>rm 檔案</code> 刪除檔案。</li>
+<li><code>rm -r 資料夾</code> 刪除整個資料夾和裡面的東西。</li>
+</ul>
+</li>
+<li><code>-f</code> 強制執行的參數，沒事別亂用。</li>
+<li><code>mv</code> 移動檔案位置或是改檔名。<ul>
+<li>移動位置 : <code>mv 1號 2號</code> 將 <code>1號</code> 檔案移到 <code>2號</code> 位置，<code>2號</code> 可以是資料夾或路徑。</li>
+<li>改檔名 : <code>mv 1號 2號</code> 將 <code>1號</code> 檔案移到 <code>2號</code> 名字。</li>
+</ul>
+</li>
+<li><code>cp</code> 複製檔案。<ul>
+<li><code>mv 1號 2號</code> 將複製的 <code>1號</code> 檔案命名為 <code>2號</code>。</li>
+<li><code>mv -r 1號 2號</code> 將複製的 <code>1號</code> 資料夾命名為 <code>2號</code>。</li>
+</ul>
+</li>
+<li>相對路徑， <code>..</code> 上一頁。</li>
+<li>絕對路徑， 前面有加 <code>/</code> 都是絕對路徑。</li>
+<li><code>grep</code> 在檔案中抓取關鍵字 <code>grep apple a.txt</code> ，如果 a.txt 中有 apple 的關鍵字就把那行全印下來。</li>
+<li><code>wget</code> 下載檔案用的，windows 系統沒有這功能，可以跟著這連結的 <a target="_blank" rel="noopener" href="https://gist.github.com/evanwill/0207876c3243bbb6863e65ec5dc3f058">教學</a> 做。</li>
+<li><code>curl</code> 用來發出 request ，加入參數 <code>-I</code> 可以看請求的相關細節。</li>
+<li><code>echo</code> 印出字串。</li>
+<li><code>&gt;</code> 重新導向，可以搭配 <code>echo</code> 指令將想要更改的值導入檔案 ， <code>echo &quot;123&quot; &gt; a.txt</code>，這樣 a.txt 檔中的內容全部會砍掉，然後再改成 123。</li>
+<li><code>&gt;&gt;</code> 也是重新導向，差別在於不會砍掉原本的內容，而是新增在下一行。</li>
+<li><code>|</code> 將左方回傳的結果輸入到右邊去，是指令的組合技</li>
+</ul>
+<span id="more"></span>
+
+<h3 id="Vim-簡單介紹"><a href="#Vim-簡單介紹" class="headerlink" title="Vim 簡單介紹"></a>Vim 簡單介紹</h3><ol>
+<li>按 <code>i</code> 後可以進入編輯模式。</li>
+<li>按 <code>esc</code> 離開編輯模式，這時不能更改檔案，輸入無效。</li>
+<li>在唯讀模式下輸入 <code>:q</code> 能離開 Vim。</li>
+<li>如果想將編輯模式下所做的修改儲存，要在唯讀模式輸入 <code>:wq</code> 才會成功。</li>
+</ol>
+<h3 id="LIOJ-問題"><a href="#LIOJ-問題" class="headerlink" title="LIOJ 問題"></a>LIOJ 問題</h3><p>在 git bash 要使用 node 時記得在前面加 <code>env</code> 像這樣 <code>cat input.txt | env node code.js</code>。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2020/04/27/2020-4-28-first-post/" rel="prev" title="hexo 教學">
+                  <i class="fa fa-chevron-left"></i> hexo 教學
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2020/06/18/js101/" rel="next" title="JS101 隨筆">
+                  JS101 隨筆 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">MoreCoke</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 強力驅動
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

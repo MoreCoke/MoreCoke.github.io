@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"morecoke.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.11.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜尋...","empty":"我們無法找到任何有關 ${query} 的搜索結果","hits_time":"${hits} 找到 ${time} 個結果","hits":"找到 ${hits} 個結果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="前言簡單紀錄我在這堂課學到甚麼東西，大部分的內容都能往下挖講更深，但我現在的目標是搞懂基礎並能夠運用，所以就不會講太多關於底層的觀念，哪天心血來潮再獨立個主題來寫。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JS101 隨筆">
+<meta property="og:url" content="https://morecoke.github.io/2020/06/18/js101/index.html">
+<meta property="og:site_name" content="MoreCoke Blog">
+<meta property="og:description" content="前言簡單紀錄我在這堂課學到甚麼東西，大部分的內容都能往下挖講更深，但我現在的目標是搞懂基礎並能夠運用，所以就不會講太多關於底層的觀念，哪天心血來潮再獨立個主題來寫。">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://static.coderbridge.com/img/MoreCoke/1d485571b8f54bb19694cd7bf55b3ec2.png">
+<meta property="og:image" content="https://static.coderbridge.com/img/MoreCoke/4c8d3700633542fab59569b3f0d2ddf4.png">
+<meta property="og:image" content="https://static.coderbridge.com/img/MoreCoke/9ffce0997d994110931b094cdc389de7.png">
+<meta property="article:published_time" content="2020-06-18T17:33:06.000Z">
+<meta property="article:modified_time" content="2022-12-04T10:07:30.129Z">
+<meta property="article:author" content="MoreCoke">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://static.coderbridge.com/img/MoreCoke/1d485571b8f54bb19694cd7bf55b3ec2.png">
+
+
+<link rel="canonical" href="https://morecoke.github.io/2020/06/18/js101/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-TW","comments":true,"permalink":"https://morecoke.github.io/2020/06/18/js101/","path":"2020/06/18/js101/","title":"JS101 隨筆"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>JS101 隨筆 | MoreCoke Blog</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">MoreCoke Blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">前端嬰兒</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>歸檔</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜尋
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜尋..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#amp-amp-%E7%9A%84%E7%9F%AD%E8%B7%AF%E6%80%A7%E8%B3%AA"><span class="nav-number">2.</span> <span class="nav-text">&amp;&amp; || 的短路性質</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#amp-amp-%E4%B8%94"><span class="nav-number">2.1.</span> <span class="nav-text">&amp;&amp;(且)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%88%96"><span class="nav-number">2.2.</span> <span class="nav-text">||(或)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%88%E5%81%9A%E5%86%8D%E8%AA%AA%EF%BC%9Ado%E2%80%A6while"><span class="nav-number">3.</span> <span class="nav-text">先做再說：do…while</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8-function-%E6%99%82%E7%9A%84%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A0%85"><span class="nav-number">4.</span> <span class="nav-text">使用 function 時的注意事項</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%95%E6%95%B8%EF%BC%88Argument%EF%BC%89%E8%88%87%E5%8F%83%E6%95%B8%EF%BC%88Parameter%EF%BC%89"><span class="nav-number">5.</span> <span class="nav-text">引數（Argument）與參數（Parameter）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#return-%E4%B8%8D-return%EF%BC%8C%E6%9C%89%E5%B7%AE%E5%97%8E%EF%BC%9F"><span class="nav-number">6.</span> <span class="nav-text">return 不 return，有差嗎？</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="MoreCoke"
+      src="https://avatars.githubusercontent.com/u/52279841?v=4">
+  <p class="site-author-name" itemprop="name">MoreCoke</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">24</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/MoreCoke" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;MoreCoke" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://medium.com/@seed45699" title="Medium → https:&#x2F;&#x2F;medium.com&#x2F;@seed45699" rel="noopener" target="_blank"><i class="fa-brands fa-medium fa-fw"></i></a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="回到頂端">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/MoreCoke" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://morecoke.github.io/2020/06/18/js101/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://avatars.githubusercontent.com/u/52279841?v=4">
+      <meta itemprop="name" content="MoreCoke">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MoreCoke Blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="JS101 隨筆 | MoreCoke Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          JS101 隨筆
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">發表於</span>
+
+      <time title="創建時間：2020-06-19 01:33:06" itemprop="dateCreated datePublished" datetime="2020-06-19T01:33:06+08:00">2020-06-19</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新於</span>
+      <time title="修改時間：2022-12-04 18:07:30" itemprop="dateModified" datetime="2022-12-04T18:07:30+08:00">2022-12-04</time>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="文章字數">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">文章字數：</span>
+      <span>2.2k</span>
+    </span>
+    <span class="post-meta-item" title="所需閱讀時間">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">所需閱讀時間 &asymp;</span>
+      <span>2 分鐘</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>簡單紀錄我在這堂課學到甚麼東西，大部分的內容都能往下挖講更深，但我現在的目標是搞懂基礎並能夠運用，所以就不會講太多關於底層的觀念，哪天心血來潮再獨立個主題來寫。</p>
+<span id="more"></span>
+
+<h3 id="amp-amp-的短路性質"><a href="#amp-amp-的短路性質" class="headerlink" title="&amp;&amp; || 的短路性質"></a>&amp;&amp; || 的短路性質</h3><h4 id="amp-amp-且"><a href="#amp-amp-且" class="headerlink" title="&amp;&amp;(且)"></a>&amp;&amp;(且)</h4><p>簡單定義 : 必須左右兩側都是 true，才會回傳 true 。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>( <span class="literal">true</span> &amp;&amp; <span class="literal">true</span>); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<p>在 JS 中這些非布林值的資料(物件、陣列、數字、字串)，在放入判斷式比較時會自動幫你轉成布林值，如果想看值轉 boolean 是 true 還是 false 可以用 JS 內建的 Boolean() 去檢查。下方的 truly 和 falsely 就是說資料的布林值是透過轉型得到的，而非 primitive type (純值) 中的 true 和 false。</p>
+<p>如果左側的值轉 boolean 是 truly 的話，不管右側為 truly 還是 falsey , 會<strong>回傳右側的值</strong>。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">3</span> &amp;&amp; <span class="number">0</span>); <span class="comment">// 0</span></span><br></pre></td></tr></table></figure>
+
+<p>看結果有點難懂，可以想成 &amp;&amp; 在背後有偷偷用 Boolean() 轉型。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">3</span> &amp;&amp; <span class="number">0</span>); <span class="comment">// 0</span></span><br><span class="line">---</span><br><span class="line"><span class="number">3</span> &amp;&amp; <span class="number">0</span> <span class="comment">// 我們看到的</span></span><br><span class="line"><span class="literal">true</span> &amp;&amp; <span class="literal">false</span> <span class="comment">// JS 在背後做的</span></span><br></pre></td></tr></table></figure>
+
+<p>如果左側的值轉 boolean 是 falsely 的話會回傳左側的值，<strong>不會管右邊的值</strong>。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">0</span> &amp;&amp; <span class="number">10</span>); <span class="comment">// 0</span></span><br></pre></td></tr></table></figure>
+
+<p>所以 &amp;&amp; 在做的事情就是看左側的值，如果是 falsely，直接回傳左側的結果；是 truly 的話就回傳右側的結果。</p>
+<h4 id="或"><a href="#或" class="headerlink" title="||(或)"></a>||(或)</h4><p>簡單定義 : 左右側兩側只要有個是 true，就會回傳 true。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>( <span class="literal">false</span> || <span class="literal">true</span>); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<p>如果左側的值轉 boolean 是 truly 的話，直接回傳左側的值，<strong>不會管右邊的值</strong>。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">3</span> || <span class="number">0</span>); <span class="comment">// 3</span></span><br></pre></td></tr></table></figure>
+
+<p>如果左側的值轉 boolean 是 falsely 的話會<strong>回傳右側的值</strong>。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">0</span> || <span class="number">10</span>); <span class="comment">// 10</span></span><br></pre></td></tr></table></figure>
+
+<p>|| 在做的事情一樣先看左側的值，如果是 falsely，直接回傳右側的結果；是 truly 的話就回傳左側的結果。</p>
+<p>仔細看的話 &amp;&amp; 和 || 在背後運作的原理滿像的，都是先看左側的值，再決定要不要繼續看右邊的值。</p>
+<p>短路性質就是在說程式只執行左側沒跑右側的情況。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">0</span> &amp;&amp; <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;hi&#x27;</span>) <span class="comment">// 0</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="先做再說：do…while"><a href="#先做再說：do…while" class="headerlink" title="先做再說：do…while"></a>先做再說：do…while</h3><p>主要是 chrome 的 debug 教學，忘記能回去看。</p>
+<h3 id="使用-function-時的注意事項"><a href="#使用-function-時的注意事項" class="headerlink" title="使用 function 時的注意事項"></a>使用 function 時的注意事項</h3><p>關於 JS 是傳值(pass by value)還是傳參考(pass by reference)每個人都講的不一樣，還有聽過 pass by sharing 這樣的概念，就用例題解釋這個現象吧，這樣最快。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">changeStuff</span>(<span class="params">a, b, c</span>)</span><br><span class="line">&#123;</span><br><span class="line">  a = a * <span class="number">10</span>;</span><br><span class="line">  b.<span class="property">item</span> = <span class="string">&quot;changed&quot;</span>;</span><br><span class="line">  c = &#123;<span class="attr">item</span>: <span class="string">&quot;changed&quot;</span>&#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> num = <span class="number">10</span>;</span><br><span class="line"><span class="keyword">var</span> obj1 = &#123;<span class="attr">item</span>: <span class="string">&quot;unchanged&quot;</span>&#125;;</span><br><span class="line"><span class="keyword">var</span> obj2 = &#123;<span class="attr">item</span>: <span class="string">&quot;unchanged&quot;</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="title function_">changeStuff</span>(num, obj1, obj2);</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(num); <span class="comment">// 10</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj1.<span class="property">item</span>); <span class="comment">// &quot;changed&quot;</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj2.<span class="property">item</span>); <span class="comment">// &quot;unchanged&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>function 的參數會再複製一份參考，參數 a 和參數 c 的觀念差不多，這邊就只說參數 a ，參數 a 複製了 num &#x3D; 10 的參考，只是最後用 <code>a = a * 10</code>，<strong>重新賦值</strong>改變了參數 a 的參考，所以最後才不會改到 num 的值；而參數 b 因為 <code>b.item = &quot;changed&quot;;</code> 直接改到參考的內容，所以最後變異(mutable)了物件內 item 的值。</p>
+<p>等號的話可以想成是<strong>重新賦值</strong>，直接指派一個新的參考給變數，自然不會動到原本指向參考的內容。</p>
+<p>參考資料:<br><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/518000/is-javascript-a-pass-by-reference-or-pass-by-value-language">Is JavaScript a pass-by-reference or pass-by-value language?</a><br><a target="_blank" rel="noopener" href="https://ithelp.ithome.com.tw/articles/10191057">重新認識 JavaScript: Day 05 JavaScript 是「傳值」或「傳址」？</a></p>
+<h3 id="引數（Argument）與參數（Parameter）"><a href="#引數（Argument）與參數（Parameter）" class="headerlink" title="引數（Argument）與參數（Parameter）"></a>引數（Argument）與參數（Parameter）</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">sayhi</span>(<span class="params">name</span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;hi, &#x27;</span>, name);</span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">sayhi</span>(<span class="string">&#x27;MoreCoke&#x27;</span>); <span class="comment">// &#x27;hi, MoreCoke&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>參數就是 function 中的 name，參數是用來告訴使用者這個 function 可以塞甚麼東西。<br>引數就是使用者自己塞進去的東西(‘MoreCoke’)。</p>
+<h3 id="return-不-return，有差嗎？"><a href="#return-不-return，有差嗎？" class="headerlink" title="return 不 return，有差嗎？"></a>return 不 return，有差嗎？</h3><p>在使用 google 開發者檢查工具常搞不懂為什麼會有 undefined。<br>在 function 能看到 :</p>
+<p><img src="https://static.coderbridge.com/img/MoreCoke/1d485571b8f54bb19694cd7bf55b3ec2.png"><br>在 宣告變數也能看到 :</p>
+<p><img src="https://static.coderbridge.com/img/MoreCoke/4c8d3700633542fab59569b3f0d2ddf4.png"></p>
+<p>現在才知道如果沒有 return 值的話，預設會回傳 undefined。</p>
+<p>如果會回傳東西，自然就是印出回傳值了。<br><img src="https://static.coderbridge.com/img/MoreCoke/9ffce0997d994110931b094cdc389de7.png"></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2020/06/14/command-line/" rel="prev" title="CLI 常用指令整理">
+                  <i class="fa fa-chevron-left"></i> CLI 常用指令整理
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2020/07/04/js102/" rel="next" title="JS102 如何輸出和使用模組">
+                  JS102 如何輸出和使用模組 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">MoreCoke</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 強力驅動
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

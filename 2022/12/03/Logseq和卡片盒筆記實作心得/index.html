@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"morecoke.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.11.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜尋...","empty":"我們無法找到任何有關 ${query} 的搜索結果","hits_time":"${hits} 找到 ${time} 個結果","hits":"找到 ${hits} 個結果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="前言從開始工作後，給自己設定了一個小目標要求自己每天都要寫字，梳理自己的想法，剛好 Notion 差不多在那時候開放了個人版免費使用，我成了忠實用戶用到現在，我主要用 Notion 來即時記錄當下的靈感、每天生活的待辦事項、讀書心得有的沒的，隨著頁數的增加，開始出現許多問題。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Logseq和卡片盒筆記實作心得">
+<meta property="og:url" content="https://morecoke.github.io/2022/12/03/Logseq%E5%92%8C%E5%8D%A1%E7%89%87%E7%9B%92%E7%AD%86%E8%A8%98%E5%AF%A6%E4%BD%9C%E5%BF%83%E5%BE%97/index.html">
+<meta property="og:site_name" content="MoreCoke Blog">
+<meta property="og:description" content="前言從開始工作後，給自己設定了一個小目標要求自己每天都要寫字，梳理自己的想法，剛好 Notion 差不多在那時候開放了個人版免費使用，我成了忠實用戶用到現在，我主要用 Notion 來即時記錄當下的靈感、每天生活的待辦事項、讀書心得有的沒的，隨著頁數的增加，開始出現許多問題。">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2022-12-03T17:37:03.000Z">
+<meta property="article:modified_time" content="2022-12-04T10:07:30.129Z">
+<meta property="article:author" content="MoreCoke">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://morecoke.github.io/2022/12/03/Logseq%E5%92%8C%E5%8D%A1%E7%89%87%E7%9B%92%E7%AD%86%E8%A8%98%E5%AF%A6%E4%BD%9C%E5%BF%83%E5%BE%97/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-TW","comments":true,"permalink":"https://morecoke.github.io/2022/12/03/Logseq%E5%92%8C%E5%8D%A1%E7%89%87%E7%9B%92%E7%AD%86%E8%A8%98%E5%AF%A6%E4%BD%9C%E5%BF%83%E5%BE%97/","path":"2022/12/03/Logseq和卡片盒筆記實作心得/","title":"Logseq和卡片盒筆記實作心得"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Logseq和卡片盒筆記實作心得 | MoreCoke Blog</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">MoreCoke Blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">前端嬰兒</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>歸檔</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜尋
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜尋..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%88%91%E5%9C%A8-Notion-%E4%B8%8A%E9%81%87%E5%88%B0%E7%9A%84%E5%95%8F%E9%A1%8C"><span class="nav-number">2.</span> <span class="nav-text">我在 Notion 上遇到的問題</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E9%A1%9E%E5%9B%B0%E9%9B%A3"><span class="nav-number">2.1.</span> <span class="nav-text">分類困難</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9C%A8%E7%95%B6%E5%89%8D%E9%A0%81%E9%9D%A2%E7%84%A1%E6%B3%95%E7%9C%8B%E5%85%B6%E4%BB%96%E9%A0%81%E9%9D%A2%E7%9A%84%E6%96%87%E7%AB%A0"><span class="nav-number">2.2.</span> <span class="nav-text">在當前頁面無法看其他頁面的文章</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Notion-%E7%9A%84%E6%A8%A1%E6%9D%BF%E8%A8%AD%E8%A8%88%E8%B1%90%E5%AF%8C%EF%BC%8C%E7%B5%90%E6%9E%9C%E5%8F%8D%E8%80%8C%E8%8A%B1%E6%9B%B4%E5%A4%9A%E6%99%82%E9%96%93%E8%A8%AD%E8%A8%88%E6%A8%A1%E6%9D%BF%E8%80%8C%E9%9D%9E%E5%AF%AB%E7%AD%86%E8%A8%98"><span class="nav-number">2.3.</span> <span class="nav-text">Notion 的模板設計豐富，結果反而花更多時間設計模板而非寫筆記</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%B9%E6%98%93%E5%88%86%E5%BF%83"><span class="nav-number">2.4.</span> <span class="nav-text">容易分心</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%AD%E6%96%87%E6%90%9C%E5%B0%8B%E4%B8%8D%E5%A4%AA%E6%BA%96%E7%A2%BA"><span class="nav-number">2.5.</span> <span class="nav-text">中文搜尋不太準確</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A9%95%E4%BC%B0%E7%8F%BE%E6%9C%89%E7%9A%84%E7%AD%86%E8%A8%98%E8%BB%9F%E9%AB%94"><span class="nav-number">3.</span> <span class="nav-text">評估現有的筆記軟體</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%86%E8%A7%A3%E8%87%AA%E5%B7%B1%E7%9A%84%E9%9C%80%E6%B1%82"><span class="nav-number">3.1.</span> <span class="nav-text">了解自己的需求</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%88%AC%E6%96%87"><span class="nav-number">3.2.</span> <span class="nav-text">爬文</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8D%A1%E7%89%87%E7%9B%92%E7%AD%86%E8%A8%98"><span class="nav-number">3.3.</span> <span class="nav-text">卡片盒筆記</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E5%80%8B%E6%9C%88%E7%9A%84%E4%BD%BF%E7%94%A8%E5%BF%83%E5%BE%97"><span class="nav-number">4.</span> <span class="nav-text">一個月的使用心得</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="MoreCoke"
+      src="https://avatars.githubusercontent.com/u/52279841?v=4">
+  <p class="site-author-name" itemprop="name">MoreCoke</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">24</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/MoreCoke" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;MoreCoke" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://medium.com/@seed45699" title="Medium → https:&#x2F;&#x2F;medium.com&#x2F;@seed45699" rel="noopener" target="_blank"><i class="fa-brands fa-medium fa-fw"></i></a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="回到頂端">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/MoreCoke" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://morecoke.github.io/2022/12/03/Logseq%E5%92%8C%E5%8D%A1%E7%89%87%E7%9B%92%E7%AD%86%E8%A8%98%E5%AF%A6%E4%BD%9C%E5%BF%83%E5%BE%97/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://avatars.githubusercontent.com/u/52279841?v=4">
+      <meta itemprop="name" content="MoreCoke">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MoreCoke Blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Logseq和卡片盒筆記實作心得 | MoreCoke Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Logseq和卡片盒筆記實作心得
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">發表於</span>
+      
+
+      <time title="創建時間：2022-12-04 01:37:03 / 修改時間：18:07:30" itemprop="dateCreated datePublished" datetime="2022-12-04T01:37:03+08:00">2022-12-04</time>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="文章字數">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">文章字數：</span>
+      <span>2.7k</span>
+    </span>
+    <span class="post-meta-item" title="所需閱讀時間">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">所需閱讀時間 &asymp;</span>
+      <span>2 分鐘</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>從開始工作後，給自己設定了一個小目標要求自己每天都要寫字，梳理自己的想法，剛好 Notion 差不多在那時候開放了個人版免費使用，我成了忠實用戶用到現在，我主要用 Notion 來即時記錄當下的靈感、每天生活的待辦事項、讀書心得有的沒的，隨著頁數的增加，開始出現許多問題。</p>
+<span id="more"></span>
+
+<h2 id="我在-Notion-上遇到的問題"><a href="#我在-Notion-上遇到的問題" class="headerlink" title="我在 Notion 上遇到的問題"></a>我在 Notion 上遇到的問題</h2><h3 id="分類困難"><a href="#分類困難" class="headerlink" title="分類困難"></a>分類困難</h3><p>因為頁面太多，讓我 Notion 左側的側邊欄變得很亂，雖然我一直在重構側邊欄中的分類，但有些新文章還是會不知道該丟進哪個分類，最後索性直接丟在側邊欄。很多時候我都還沒開始寫筆記就在煩惱寫完的文章要放哪，最後就留下只有標題的空白文等待靈感發酵。</p>
+<h3 id="在當前頁面無法看其他頁面的文章"><a href="#在當前頁面無法看其他頁面的文章" class="headerlink" title="在當前頁面無法看其他頁面的文章"></a>在當前頁面無法看其他頁面的文章</h3><p>寫文章想參考自己之前寫過的類似主題時我會利用雙向連結，搭配瀏覽器新開個分頁看，這樣有點麻煩，我還滿想要在右側能有個側邊欄可以看資料，可惜的是目前只有資料庫類型(像是 Table)的格式才有支援該功能。</p>
+<h3 id="Notion-的模板設計豐富，結果反而花更多時間設計模板而非寫筆記"><a href="#Notion-的模板設計豐富，結果反而花更多時間設計模板而非寫筆記" class="headerlink" title="Notion 的模板設計豐富，結果反而花更多時間設計模板而非寫筆記"></a>Notion 的模板設計豐富，結果反而花更多時間設計模板而非寫筆記</h3><p>Notion 的模板真的超美又能高度的客製化，不過在設計上還是有一定難度的，這衍伸出教人使用 Notion 、付費插件、付費模板的商機。我自己也花很多時間在設計適合自己的模板，在過度追求個人特色的同時，我忘記輸出才是最重要的事情。</p>
+<h3 id="容易分心"><a href="#容易分心" class="headerlink" title="容易分心"></a>容易分心</h3><p>這算是前面三個問題造成的結果，因為分類關係，我找資料時常常不小心被其他的資料吸走注意力；在點擊雙向連結資料拖拉頁面的過程中想去看個 YouTube 休息一下；找到想要的舊資料時會想順便更新版塊格式等等。</p>
+<h3 id="中文搜尋不太準確"><a href="#中文搜尋不太準確" class="headerlink" title="中文搜尋不太準確"></a>中文搜尋不太準確</h3><p>這個還能接受，和剛開始相比進步超多，只是有些資料還是沒辦法在第一時間撈出來，需要搭配雙引號做精準搜尋。</p>
+<h2 id="評估現有的筆記軟體"><a href="#評估現有的筆記軟體" class="headerlink" title="評估現有的筆記軟體"></a>評估現有的筆記軟體</h2><h3 id="了解自己的需求"><a href="#了解自己的需求" class="headerlink" title="了解自己的需求"></a>了解自己的需求</h3><p>我只想專心寫，不想煩惱該怎麼分類筆記，同時又想知道筆記之間的關聯，在裝置部分我希望手機和電腦是可以做到輕鬆同步的。</p>
+<h3 id="爬文"><a href="#爬文" class="headerlink" title="爬文"></a>爬文</h3><p>我先去看 Notion 的文件還有其他人分享的的教學，原先想知道現有功能可不可以達成我的目的，找到的分類教學我覺得實作起來有些麻煩，覺得自己這樣沒辦法堅持太久，像是利用表格搭配自定義函數設計，我現在就有一個自己設計過的表格，但我暫時不會想去做第二個了，而且設計新表格違背我的需求，這也讓我去慢慢思考 Notion 的使用邏輯是什麼。</p>
+<p>Notion 設計頁面就像在玩積木，使用者可以利用內建提供的積木蓋出自己的知識城堡，想讓自己的城堡蓋的漂亮必定要花對應的時間來設計城堡的結構，我想這是每個使用者都會經歷的過程，也是 Notion 的特色。</p>
+<h3 id="卡片盒筆記"><a href="#卡片盒筆記" class="headerlink" title="卡片盒筆記"></a>卡片盒筆記</h3><p>發現自己可能需要搭配其他的筆記軟體時，我看到了卡片盒筆記的理念，覺得超酷，這個卡片盒筆記是由德國的教授發明，他認為筆記隨時都可以寫，他將筆記分成三種:<br>靈感筆記: 想到什麼就寫什麼，越簡單越好<br>摘要筆記: 看到一段喜歡的字句抄下來或是用自己的話解釋原文<br>永久筆記: 整理靈感筆記和摘要筆記的結晶</p>
+<p>前面兩種筆記是我一直都有做的，不過最重要的永久筆記我幾乎沒在寫，我都把自己的心得直接寫在靈感和摘要筆記下，所以我相當興奮日後開始寫永久筆記會帶給我什麼改變。</p>
+<p>我找到目前市場和卡片盒筆記相關的軟體有:</p>
+<ol>
+<li>Roam Research</li>
+<li>Heptabase</li>
+<li>Obsidian</li>
+<li>Logseq</li>
+</ol>
+<p>評估下來 Roam Research 是最適合我的，但他的月費超出我的預算，決定等到熟悉卡片盒筆記的模式後嘗試；Heptabase 是視覺化的卡片盒筆記，目前沒有 APP 感覺也不太適合在手機上操作，先觀望；最後在 Obsidian 和 Logseq 這兩個免費軟體中選了後者。兩個都是使用 Markdown 語法，資料部分比較特別，是存在 Local 端，自己的電腦。會選 Logseq 的原因是介面和 Obsidian 相比簡潔很多，裝完 Obsidian 看到左側滿滿的教學資料夾時，我想到 Notion 分類的問題不禁縮了一下；再來 APP，兩邊的 APP 都有些問題 ，我在使用幾天後都先放棄了。Obsidian 的使用體驗不是很好，側邊欄不太好滑；Logseq 有時候打字會消失。資料同步的部分 Obsidian 可以用 iCloud或是付費同步；Logseq 用 GitHub 處理，需要透過 Working Copy 的第三方 APP 幫忙，在搭配 iOS 內建的捷徑設定來完成自動同步。</p>
+<h2 id="一個月的使用心得"><a href="#一個月的使用心得" class="headerlink" title="一個月的使用心得"></a>一個月的使用心得</h2><p>我覺得卡片盒筆記知易行難，和過去存放筆記的思考模式完全不同，傳統作法是樹狀結構，資料間的關聯是階層式的，生物中的界門綱目科屬種就是這樣的分類方式；卡片盒筆記的方式我還是沒有很懂，覺得像是把所有的資料倒在一起，將資料間的關聯縫上一線，最後組成一個堅固的知識網。</p>
+<p>Obsidian 和 Logseq 有個圖像模式會畫出所有資料間的關係，看見自己許多的想法沉睡在圖中的感覺還滿爽的。這種筆記方式我覺得滿像大腦的運作方式，我們每天都會冒出一大堆不相關的想法，許多想法看起來是個獨立事件，但有些事存在著某種關聯。舉個生活上的例子，我可能上一秒還想著待會要去繳停車費，然後下一秒想到回家後要洗衣服，接著在過馬路時被一個硬要切的機車騎士按喇叭，最後走在人行道時我們可能會邊在內心咒罵騎士邊用手機記下前面想到的事情將其加入代辦事項。先前兩個看似無關的事情因為必須要做產生了關聯，紀錄後我們也可以更專注在當下，不用擔心自己會忘記重要的事情，回到家後我只要記得打開代辦事項這個關聯就能快速回想起我要做的事情。</p>
+<p>我們的腦袋非常不擅長記憶細節，但很擅長紀錄所有事物的關聯，現在資訊爆炸的時代，知識也變的碎片化，我相信善用這些筆記軟體可以獲得更多的成長。平常在學習時會喜歡先找出類似的東西幫助了解新知的輪廓，再去比較差異內化知識，其實這個過程就是一種連結方式，能讓學習變得更有趣、輕鬆，也比死記硬背更有效果。<br>最重要的學問是怎麼連結知識，這是我覺得最困難的地方，因為我現在處在腦袋空空、資料量還不夠的階段，還沒有太多類似的東西可以去比較學習。目前擔心的問題是日後資料一多起來要連結資料時會不會有漏網之魚，最後變成寫一堆類似的資料自己卻沒發現，目前想到的做法是隨時回顧現有資料並在寫筆記的當下確實做好雙向連結。</p>
+<p>透過有意識的提取自己覺得有趣的想法並將它貼上這些筆記軟體，就可以很放心的忘記它，減少大腦的負擔，大腦比起記憶更擅長創造。我們只要記住其中的關聯性、關鍵字，搭配過去的筆記就可以幫助自己更快的進入狀況。因為 Logseq 的 APP 現在使用體驗沒有很好，我目前是搭配 Notion 使用，我在 Notion 開了一個暫存的資料夾，把當天所有的靈感和有興趣的事物全部先記到這裡，晚上回家會撥出一點時間過濾和清空暫存，把它整理進 Logseq。Notion 現在比較像是我的秘書，Logseq 像是我的第二大腦。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/08/29/non-serialize-data-in-redux/" rel="prev" title="non-serializable-data-in-redux">
+                  <i class="fa fa-chevron-left"></i> non-serializable-data-in-redux
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">MoreCoke</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 強力驅動
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

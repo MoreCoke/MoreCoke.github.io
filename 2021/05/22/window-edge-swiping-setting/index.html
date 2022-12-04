@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"morecoke.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.11.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜尋...","empty":"我們無法找到任何有關 ${query} 的搜索結果","hits_time":"${hits} 找到 ${time} 個結果","hits":"找到 ${hits} 個結果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="在 windows 10 的觸控模式下想避免使用者利用邊緣滑動叫出工具列可以怎麼做? 可以透過鎖定 windows 的邊緣滑動達到需求。 提醒: 改機碼要萬分小心，要非常清楚自己改什麼，不小心沒弄好是要重灌的!">
+<meta property="og:type" content="article">
+<meta property="og:title" content="windows edge swipe 設定">
+<meta property="og:url" content="https://morecoke.github.io/2021/05/22/window-edge-swiping-setting/index.html">
+<meta property="og:site_name" content="MoreCoke Blog">
+<meta property="og:description" content="在 windows 10 的觸控模式下想避免使用者利用邊緣滑動叫出工具列可以怎麼做? 可以透過鎖定 windows 的邊緣滑動達到需求。 提醒: 改機碼要萬分小心，要非常清楚自己改什麼，不小心沒弄好是要重灌的!">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://static.coderbridge.com/img/MoreCoke/0a49bd25715d453a980c96791a5b928d.png">
+<meta property="og:image" content="https://static.coderbridge.com/img/MoreCoke/91b6e08a6e6c4ddb8d9a3c1d8b5f340b.png">
+<meta property="og:image" content="https://static.coderbridge.com/img/MoreCoke/f8b92e3fc60445f4aa0551cfee3fcd00.png">
+<meta property="og:image" content="https://static.coderbridge.com/img/MoreCoke/60c8ed2eab2a4d29bc3cee89648efe20.png">
+<meta property="og:image" content="https://static.coderbridge.com/img/MoreCoke/221cb75d32fb4da4839c54c0287c3d80.png">
+<meta property="og:image" content="https://static.coderbridge.com/img/MoreCoke/d2b4542a696142efb7fabe994e8980ad.png">
+<meta property="og:image" content="https://static.coderbridge.com/img/MoreCoke/3edb25145c4d4a499c5cf8e305d13201.png">
+<meta property="og:image" content="https://static.coderbridge.com/img/MoreCoke/1d02ec226ef34c29b2dc12d9f6b9bf2a.png">
+<meta property="og:image" content="https://static.coderbridge.com/img/MoreCoke/f65a5638234a4dd8a50703860b35b22b.png">
+<meta property="og:image" content="https://static.coderbridge.com/img/MoreCoke/1db4ef07c46943cabe45bbb1845ede44.png">
+<meta property="og:image" content="https://static.coderbridge.com/img/MoreCoke/ea884e0b8dd0418e90560e8a802cf683.png">
+<meta property="article:published_time" content="2021-05-22T17:33:06.000Z">
+<meta property="article:modified_time" content="2022-12-04T10:07:30.129Z">
+<meta property="article:author" content="MoreCoke">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://static.coderbridge.com/img/MoreCoke/0a49bd25715d453a980c96791a5b928d.png">
+
+
+<link rel="canonical" href="https://morecoke.github.io/2021/05/22/window-edge-swiping-setting/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-TW","comments":true,"permalink":"https://morecoke.github.io/2021/05/22/window-edge-swiping-setting/","path":"2021/05/22/window-edge-swiping-setting/","title":"windows edge swipe 設定"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>windows edge swipe 設定 | MoreCoke Blog</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">MoreCoke Blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">前端嬰兒</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>歸檔</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜尋
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜尋..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8F%90%E9%86%92-%E6%94%B9%E6%A9%9F%E7%A2%BC%E8%A6%81%E8%90%AC%E5%88%86%E5%B0%8F%E5%BF%83%EF%BC%8C%E8%A6%81%E9%9D%9E%E5%B8%B8%E6%B8%85%E6%A5%9A%E8%87%AA%E5%B7%B1%E6%94%B9%E4%BB%80%E9%BA%BC%EF%BC%8C%E4%B8%8D%E5%B0%8F%E5%BF%83%E6%B2%92%E5%BC%84%E5%A5%BD%E6%98%AF%E8%A6%81%E9%87%8D%E7%81%8C%E7%9A%84"><span class="nav-number">1.</span> <span class="nav-text">提醒: 改機碼要萬分小心，要非常清楚自己改什麼，不小心沒弄好是要重灌的!</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%87%B6%E4%BA%BA%E5%8C%85"><span class="nav-number">1.1.</span> <span class="nav-text">懶人包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%8E%E9%BA%BC%E5%81%9A"><span class="nav-number">1.2.</span> <span class="nav-text">怎麼做?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%83%B3%E5%9B%9E%E5%BE%A9%E9%82%8A%E7%B7%A3%E6%BB%91%E5%8B%95%E6%80%8E%E9%BA%BC%E8%BE%A6"><span class="nav-number">1.3.</span> <span class="nav-text">想回復邊緣滑動怎麼辦?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AF%8F%E6%AC%A1%E9%83%BD%E8%A6%81%E9%80%99%E6%A8%A3%E9%BB%9E%E8%B3%87%E6%96%99%E5%A4%BE%E5%BE%88%E9%BA%BB%E7%85%A9%EF%BC%8C%E6%9C%89%E5%81%B7%E6%87%B6%E7%9A%84%E6%96%B9%E5%BC%8F%E5%97%8E"><span class="nav-number">1.4.</span> <span class="nav-text">每次都要這樣點資料夾很麻煩，有偷懶的方式嗎?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%83%E8%80%83%E8%B3%87%E6%96%99"><span class="nav-number">1.5.</span> <span class="nav-text">參考資料</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A3%9C%E5%85%85%E8%B3%87%E6%96%99"><span class="nav-number">1.6.</span> <span class="nav-text">補充資料</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="MoreCoke"
+      src="https://avatars.githubusercontent.com/u/52279841?v=4">
+  <p class="site-author-name" itemprop="name">MoreCoke</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">24</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/MoreCoke" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;MoreCoke" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://medium.com/@seed45699" title="Medium → https:&#x2F;&#x2F;medium.com&#x2F;@seed45699" rel="noopener" target="_blank"><i class="fa-brands fa-medium fa-fw"></i></a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="回到頂端">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/MoreCoke" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://morecoke.github.io/2021/05/22/window-edge-swiping-setting/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://avatars.githubusercontent.com/u/52279841?v=4">
+      <meta itemprop="name" content="MoreCoke">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MoreCoke Blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="windows edge swipe 設定 | MoreCoke Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          windows edge swipe 設定
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">發表於</span>
+
+      <time title="創建時間：2021-05-23 01:33:06" itemprop="dateCreated datePublished" datetime="2021-05-23T01:33:06+08:00">2021-05-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新於</span>
+      <time title="修改時間：2022-12-04 18:07:30" itemprop="dateModified" datetime="2022-12-04T18:07:30+08:00">2022-12-04</time>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="文章字數">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">文章字數：</span>
+      <span>1.4k</span>
+    </span>
+    <span class="post-meta-item" title="所需閱讀時間">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">所需閱讀時間 &asymp;</span>
+      <span>1 分鐘</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>在 windows 10 的觸控模式下想避免使用者利用邊緣滑動叫出工具列可以怎麼做?</p>
+<p>可以透過鎖定 windows 的邊緣滑動達到需求。</p>
+<h2 id="提醒-改機碼要萬分小心，要非常清楚自己改什麼，不小心沒弄好是要重灌的"><a href="#提醒-改機碼要萬分小心，要非常清楚自己改什麼，不小心沒弄好是要重灌的" class="headerlink" title="提醒: 改機碼要萬分小心，要非常清楚自己改什麼，不小心沒弄好是要重灌的!"></a>提醒: 改機碼要萬分小心，要非常清楚自己改什麼，不小心沒弄好是要重灌的!</h2><span id="more"></span>
+
+<h3 id="懶人包"><a href="#懶人包" class="headerlink" title="懶人包"></a>懶人包</h3><p>將以下內容複製到記事本存成 reg 檔，點擊後就能使用。</p>
+<p>關閉 edge swipe:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Windows Registry Editor Version 5.00</span><br><span class="line"></span><br><span class="line">[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\EdgeUI]</span><br><span class="line">&quot;AllowEdgeSwipe&quot;=dword:00000000</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>復原 edge swipe:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Windows Registry Editor Version 5.00</span><br><span class="line"></span><br><span class="line">[-HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\EdgeUI]</span><br></pre></td></tr></table></figure>
+
+<h3 id="怎麼做"><a href="#怎麼做" class="headerlink" title="怎麼做?"></a>怎麼做?</h3><p>方法1:</p>
+<ol>
+<li>到 windows 工具列搜尋 regedit 點開登錄編輯程式。<br><img src="https://static.coderbridge.com/img/MoreCoke/0a49bd25715d453a980c96791a5b928d.png"></li>
+<li>進到這路徑下 HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows 建立 EdgeUI 的機碼。<br><img src="https://static.coderbridge.com/img/MoreCoke/91b6e08a6e6c4ddb8d9a3c1d8b5f340b.png"></li>
+<li>在 EdgeUI 下 新增 AllowEdgeSwipe 的 DWORD(32-bit) Value 檔案。<br><img src="https://static.coderbridge.com/img/MoreCoke/f8b92e3fc60445f4aa0551cfee3fcd00.png"></li>
+<li>確認 AllowEdgeSwipe 是 0 就大功告成了，0 就是 false，這樣就是關閉 edge swipe 了。<br><img src="https://static.coderbridge.com/img/MoreCoke/60c8ed2eab2a4d29bc3cee89648efe20.png"></li>
+<li>這時邊緣滑動已經鎖起來了，如果發現還能透過邊緣滑動叫出工具列，那就重開機試試。</li>
+</ol>
+<h3 id="想回復邊緣滑動怎麼辦"><a href="#想回復邊緣滑動怎麼辦" class="headerlink" title="想回復邊緣滑動怎麼辦?"></a>想回復邊緣滑動怎麼辦?</h3><p>把 EdgeUI 整個資料夾或是 AllowEdgeSwipe 這檔案刪掉就好。</p>
+<h3 id="每次都要這樣點資料夾很麻煩，有偷懶的方式嗎"><a href="#每次都要這樣點資料夾很麻煩，有偷懶的方式嗎" class="headerlink" title="每次都要這樣點資料夾很麻煩，有偷懶的方式嗎?"></a>每次都要這樣點資料夾很麻煩，有偷懶的方式嗎?</h3><p>可以建立 reg 檔。右鍵點 EdgeUI 按匯出。<br><img src="https://static.coderbridge.com/img/MoreCoke/221cb75d32fb4da4839c54c0287c3d80.png"><img src="https://static.coderbridge.com/img/MoreCoke/d2b4542a696142efb7fabe994e8980ad.png"></p>
+<p>這樣就能看到上面懶人包的程式碼了。</p>
+<p>關閉 edge swipe:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Windows Registry Editor Version 5.00</span><br><span class="line"></span><br><span class="line">[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\EdgeUI]</span><br><span class="line">&quot;AllowEdgeSwipe&quot;=dword:00000000</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>對於回復滑動的做法我是直接將 EdgeUI 這機碼整個刪除，所以會看到 <code>HKEY_LOCAL_MACHINE</code> 前多了個減號。</p>
+<p>復原 edge swipe:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Windows Registry Editor Version 5.00</span><br><span class="line"></span><br><span class="line">[-HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\EdgeUI]</span><br></pre></td></tr></table></figure>
+
+<p>方法2:<br>適用版本: windows 10 pro。</p>
+<ol>
+<li><code>win + r</code> 輸入 gpedit.msc 開啟本機群組原則編輯器。<br><img src="https://static.coderbridge.com/img/MoreCoke/3edb25145c4d4a499c5cf8e305d13201.png"><br><img src="https://static.coderbridge.com/img/MoreCoke/1d02ec226ef34c29b2dc12d9f6b9bf2a.png"></li>
+<li>在電腦設定\系統管理範本\Windows 元件\邊緣 UI 點選允許邊緣撥動<br><img src="https://static.coderbridge.com/img/MoreCoke/f65a5638234a4dd8a50703860b35b22b.png"><br><img src="https://static.coderbridge.com/img/MoreCoke/1db4ef07c46943cabe45bbb1845ede44.png"></li>
+<li>設定停用<br><img src="https://static.coderbridge.com/img/MoreCoke/ea884e0b8dd0418e90560e8a802cf683.png"></li>
+</ol>
+<h3 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://support.microsoft.com/zh-tw/windows/%E5%A6%82%E4%BD%95%E5%9C%A8-windows-10-%E4%B8%AD%E9%96%8B%E5%95%9F%E7%99%BB%E9%8C%84%E7%B7%A8%E8%BC%AF%E7%A8%8B%E5%BC%8F-deab38e6-91d6-e0aa-4b7c-8878d9e07b11">如何在 Windows 10 中開啟登錄編輯程式</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.top-password.com/blog/disable-edge-swipe-gesture-in-windows-10/">How to Disable Edge Swipe Gesture on Touch Screen in Windows 10</a></li>
+<li><a target="_blank" rel="noopener" href="https://stackoverflow.com/a/52321420">Electron JS kiosk mode with touch screen</a></li>
+<li><a target="_blank" rel="noopener" href="https://answers.microsoft.com/zh-hant/windows/forum/windows_10-other_settings-winpc/%E6%80%8E%E6%A8%A3%E9%97%9C%E9%96%89-windows-10/48e7cf2b-f62d-4a1c-8df4-c0716ab086e0">怎樣關閉 Windows 10 的邊緣滑動手勢</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.miniasp.com/post/2008/11/30/How-to-add-modify-delete-registry-subkeys-and-values-by-using-a-registration-entries-reg-file">如何使用登錄檔(.reg)進行新增、修改或刪除登錄機碼和值</a></li>
+</ul>
+<h3 id="補充資料"><a href="#補充資料" class="headerlink" title="補充資料"></a>補充資料</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://blog.xuite.net/keryosm/Ts/181938519">登錄編輯程式</a></li>
+<li><a target="_blank" rel="noopener" href="https://superuser.com/questions/961413/what-is-the-difference-between-regedit-and-gpedit-msc">What is the difference between regedit and gpedit.msc?</a></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/05/02/browser-and-cors-introduction/" rel="prev" title="瀏覽器 CORS 與同源政策介紹">
+                  <i class="fa fa-chevron-left"></i> 瀏覽器 CORS 與同源政策介紹
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2021/05/28/rupa-z-and-autojump-setting/" rel="next" title="rupa/z, autojump 設定">
+                  rupa/z, autojump 設定 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">MoreCoke</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 強力驅動
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

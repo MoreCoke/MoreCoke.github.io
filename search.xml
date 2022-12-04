@@ -1,0 +1,1004 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>hexo 教學</title>
+    <url>/2020/04/27/2020-4-28-first-post/</url>
+    <content><![CDATA[<h2 id="hexo-指令"><a href="#hexo-指令" class="headerlink" title="hexo 指令"></a>hexo 指令</h2><h3 id="新增文章"><a href="#新增文章" class="headerlink" title="新增文章"></a>新增文章</h3><figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">hexo new [layout] &lt;<span class="built_in">title</span>&gt;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>layout 是部落格版型，沒設定就會用 _config.yml 中的設定。</li>
+<li>title 是文章名稱。</li>
+</ul>
+<h3 id="建立本地伺服器"><a href="#建立本地伺服器" class="headerlink" title="建立本地伺服器"></a>建立本地伺服器</h3><figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">hexo server</span><br></pre></td></tr></table></figure>
+
+<p>可檢寫成 hexo s。</p>
+<h3 id="清理暫存"><a href="#清理暫存" class="headerlink" title="清理暫存"></a>清理暫存</h3><figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br></pre></td></tr></table></figure>
+
+<p>能簡寫成 hexo cl。</p>
+<p>換主題、上傳文章前先清一次暫存，通常能解決大部分的奇怪問題，清除快取檔案 （db.json）和已產生的靜態檔案（public）。</p>
+<h3 id="產生靜態檔案"><a href="#產生靜態檔案" class="headerlink" title="產生靜態檔案"></a>產生靜態檔案</h3><figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>能簡寫成 hexo g。</p>
+<h3 id="部屬檔案"><a href="#部屬檔案" class="headerlink" title="部屬檔案"></a>部屬檔案</h3><figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>能簡寫成 hex d。</p>
+<span id="more"></span>
+<h2 id="常見問題"><a href="#常見問題" class="headerlink" title="常見問題"></a>常見問題</h2><p><img src="https://i.imgur.com/d8haCa9.png" alt="Imgur"></p>
+<h3 id="塞入網址"><a href="#塞入網址" class="headerlink" title="塞入網址"></a>塞入網址</h3><blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/CfOjPFDp3qi/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"><div style="padding:16px;"> <a href="https://www.instagram.com/reel/CfOjPFDp3qi/?utm_source=ig_embed&amp;utm_campaign=loading" style=" background:#FFFFFF; line-height:0; padding:0 0; text-align:center; text-decoration:none; width:100%;" target="_blank"> <div style=" display: flex; flex-direction: row; align-items: center;"> <div style="background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 40px; margin-right: 14px; width: 40px;"></div> <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center;"> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 100px;"></div> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 60px;"></div></div></div><div style="padding: 19% 0;"></div> <div style="display:block; height:50px; margin:0 auto 12px; width:50px;"><svg width="50px" height="50px" viewBox="0 0 60 60" version="1.1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g transform="translate(-511.000000, -20.000000)" fill="#000000"><g><path d="M556.869,30.41 C554.814,30.41 553.148,32.076 553.148,34.131 C553.148,36.186 554.814,37.852 556.869,37.852 C558.924,37.852 560.59,36.186 560.59,34.131 C560.59,32.076 558.924,30.41 556.869,30.41 M541,60.657 C535.114,60.657 530.342,55.887 530.342,50 C530.342,44.114 535.114,39.342 541,39.342 C546.887,39.342 551.658,44.114 551.658,50 C551.658,55.887 546.887,60.657 541,60.657 M541,33.886 C532.1,33.886 524.886,41.1 524.886,50 C524.886,58.899 532.1,66.113 541,66.113 C549.9,66.113 557.115,58.899 557.115,50 C557.115,41.1 549.9,33.886 541,33.886 M565.378,62.101 C565.244,65.022 564.756,66.606 564.346,67.663 C563.803,69.06 563.154,70.057 562.106,71.106 C561.058,72.155 560.06,72.803 558.662,73.347 C557.607,73.757 556.021,74.244 553.102,74.378 C549.944,74.521 548.997,74.552 541,74.552 C533.003,74.552 532.056,74.521 528.898,74.378 C525.979,74.244 524.393,73.757 523.338,73.347 C521.94,72.803 520.942,72.155 519.894,71.106 C518.846,70.057 518.197,69.06 517.654,67.663 C517.244,66.606 516.755,65.022 516.623,62.101 C516.479,58.943 516.448,57.996 516.448,50 C516.448,42.003 516.479,41.056 516.623,37.899 C516.755,34.978 517.244,33.391 517.654,32.338 C518.197,30.938 518.846,29.942 519.894,28.894 C520.942,27.846 521.94,27.196 523.338,26.654 C524.393,26.244 525.979,25.756 528.898,25.623 C532.057,25.479 533.004,25.448 541,25.448 C548.997,25.448 549.943,25.479 553.102,25.623 C556.021,25.756 557.607,26.244 558.662,26.654 C560.06,27.196 561.058,27.846 562.106,28.894 C563.154,29.942 563.803,30.938 564.346,32.338 C564.756,33.391 565.244,34.978 565.378,37.899 C565.522,41.056 565.552,42.003 565.552,50 C565.552,57.996 565.522,58.943 565.378,62.101 M570.82,37.631 C570.674,34.438 570.167,32.258 569.425,30.349 C568.659,28.377 567.633,26.702 565.965,25.035 C564.297,23.368 562.623,22.342 560.652,21.575 C558.743,20.834 556.562,20.326 553.369,20.18 C550.169,20.033 549.148,20 541,20 C532.853,20 531.831,20.033 528.631,20.18 C525.438,20.326 523.257,20.834 521.349,21.575 C519.376,22.342 517.703,23.368 516.035,25.035 C514.368,26.702 513.342,28.377 512.574,30.349 C511.834,32.258 511.326,34.438 511.181,37.631 C511.035,40.831 511,41.851 511,50 C511,58.147 511.035,59.17 511.181,62.369 C511.326,65.562 511.834,67.743 512.574,69.651 C513.342,71.625 514.368,73.296 516.035,74.965 C517.703,76.634 519.376,77.658 521.349,78.425 C523.257,79.167 525.438,79.673 528.631,79.82 C531.831,79.965 532.853,80.001 541,80.001 C549.148,80.001 550.169,79.965 553.369,79.82 C556.562,79.673 558.743,79.167 560.652,78.425 C562.623,77.658 564.297,76.634 565.965,74.965 C567.633,73.296 568.659,71.625 569.425,69.651 C570.167,67.743 570.674,65.562 570.82,62.369 C570.966,59.17 571,58.147 571,50 C571,41.851 570.966,40.831 570.82,37.631"></path></g></g></g></svg></div><div style="padding-top: 8px;"> <div style=" color:#3897f0; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:550; line-height:18px;">在 Instagram 查看這則貼文</div></div><div style="padding: 12.5% 0;"></div> <div style="display: flex; flex-direction: row; margin-bottom: 14px; align-items: center;"><div> <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(0px) translateY(7px);"></div> <div style="background-color: #F4F4F4; height: 12.5px; transform: rotate(-45deg) translateX(3px) translateY(1px); width: 12.5px; flex-grow: 0; margin-right: 14px; margin-left: 2px;"></div> <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(9px) translateY(-18px);"></div></div><div style="margin-left: 8px;"> <div style=" background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 20px; width: 20px;"></div> <div style=" width: 0; height: 0; border-top: 2px solid transparent; border-left: 6px solid #f4f4f4; border-bottom: 2px solid transparent; transform: translateX(16px) translateY(-4px) rotate(30deg)"></div></div><div style="margin-left: auto;"> <div style=" width: 0px; border-top: 8px solid #F4F4F4; border-right: 8px solid transparent; transform: translateY(16px);"></div> <div style=" background-color: #F4F4F4; flex-grow: 0; height: 12px; width: 16px; transform: translateY(-4px);"></div> <div style=" width: 0; height: 0; border-top: 8px solid #F4F4F4; border-left: 8px solid transparent; transform: translateY(-4px) translateX(8px);"></div></div></div> <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center; margin-bottom: 24px;"> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 224px;"></div> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 144px;"></div></div></a><p style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;"><a href="https://www.instagram.com/reel/CfOjPFDp3qi/?utm_source=ig_embed&amp;utm_campaign=loading" style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none;" target="_blank">ゆでたまご（@yudetamasan）分享的貼文</a></p></div></blockquote> <script async src="//www.instagram.com/embed.js"></script>
+
+
+<h3 id="codepen-測試"><a href="#codepen-測試" class="headerlink" title="codepen 測試"></a>codepen 測試</h3><p>使用 codepen 內建的 embed 功能就可以了，html 或 iframe 都行。</p>
+<p class="codepen" data-height="265" data-theme-id="dark" data-default-tab="js,result" data-user="moreCoke" data-slug-hash="aboPGwB" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="print a number with commas as thousands separators in regular expression">
+  <span>See the Pen <a href="https://codepen.io/moreCoke/pen/aboPGwB">
+  print a number with commas as thousands separators in regular expression</a> by Donkle (<a href="https://codepen.io/moreCoke">@moreCoke</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+
+<h3 id="github-路徑配置"><a href="#github-路徑配置" class="headerlink" title="github 路徑配置"></a>github 路徑配置</h3><p>可參考 <a href="https://hexo.io/zh-tw/docs/configuration#%E7%B6%B2%E5%9D%80">hexo 配置文件</a></p>
+<p>在 _config.yml 下配置 github 路徑。</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">url:</span> <span class="string">https://github.com/MoreCoke</span></span><br><span class="line"><span class="attr">root:</span> <span class="string">/myblog/</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="程式碼的複製功能怎麼做"><a href="#程式碼的複製功能怎麼做" class="headerlink" title="程式碼的複製功能怎麼做?"></a>程式碼的複製功能怎麼做?</h3><p>到 next 的 _config.yml 設定，<a href="https://mtwmt.github.io/hexo/hexo_next_copybutton/">hexo：Next 一鍵複製程式碼</a>。</p>
+<p>在 codeblock 下加入 copy button。</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">codeblock:</span></span><br><span class="line">  <span class="attr">copy_button:</span></span><br><span class="line">      <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">      <span class="comment"># Show text copy result.</span></span><br><span class="line">      <span class="attr">show_result:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+]]></content>
+  </entry>
+  <entry>
+    <title>Git 常忘指令</title>
+    <url>/2021/08/13/Git%E5%B8%B8%E5%BF%98%E6%8C%87%E4%BB%A4/</url>
+    <content><![CDATA[<h3 id="git-rebase"><a href="#git-rebase" class="headerlink" title="git rebase  "></a>git rebase <bugfix> <master></h3><p>不管目前位在哪個分支，把 bugfix 分支移到 master 上，也能用 <code>git checkout master</code> <code>gitrebase bugfix</code> 解決。</p>
+<p><strong>注意</strong> : 別在 master 上用，這樣別人的 git history 會被你影響。</p>
+<span id="more"></span>
+
+<h3 id="合併錯了要怎麼取消"><a href="#合併錯了要怎麼取消" class="headerlink" title="合併錯了要怎麼取消?"></a>合併錯了要怎麼取消?</h3><p>兩種方法</p>
+<ol>
+<li>使用 git reflog 調紀錄，再用 git reset。</li>
+<li>使用 git reset ORIG_HEAD –hard ，ORIG_HEAD 這參數會記錄這類的重大事件。</li>
+</ol>
+<h3 id="git-diff-–cached-HEAD"><a href="#git-diff-–cached-HEAD" class="headerlink" title="git diff –cached HEAD"></a>git diff –cached HEAD</h3><p>比對現在修改了什麼，現在 commit 的狀態和當前 HEAD 內容進行比對，指令也能省略呈 git diff –cached 。</p>
+<h3 id="git-commit-–amend"><a href="#git-commit-–amend" class="headerlink" title="git commit –amend"></a>git commit –amend</h3><p>主要用來修改最新 commit 的內容，有時 -m 的文字內容會打錯，可以用這修改。</p>
+<h3 id="怎麼捨棄目前做的修改"><a href="#怎麼捨棄目前做的修改" class="headerlink" title="怎麼捨棄目前做的修改?"></a>怎麼捨棄目前做的修改?</h3><p>用 git checkout –檔名，把這個檔案目前修改的內容全都捨棄不要了。</p>
+<h3 id="如何更新-master-分支進度"><a href="#如何更新-master-分支進度" class="headerlink" title="如何更新 master 分支進度?"></a>如何更新 master 分支進度?</h3><p>在使用 git rebase 時會發生接上去的分支進度比 master 前面，可以在 master 上用 git merge 分支來觸發 fast forward。</p>
+<h3 id="git-tag-名字-commit節點"><a href="#git-tag-名字-commit節點" class="headerlink" title="git tag 名字 commit節點"></a>git tag 名字 commit節點</h3><p>標上去的 tag 可以用來記錄 commit 的重大事件，假如我想在現在的進度貼個標籤可以這樣做， git tag new_version master，這樣我現在的 commit 節點就會有 new_version 的節點。</p>
+<h3 id="git-describe-commit節點"><a href="#git-describe-commit節點" class="headerlink" title="git describe commit節點"></a>git describe commit節點</h3><p>會找出距離該節點最近的 tag，假如有個 finish 的 tag，這時在 master 上用 git describe master，會得到類似這樣的回覆 finish_3_2jdfe3 ，意思是距離現在 master HEAD 的節點再經過 3 個 commit 會有個 finish 的 tag ，然後它的 SHA 值會是 2jdfe3。</p>
+<h3 id="git-遠端流程"><a href="#git-遠端流程" class="headerlink" title="git 遠端流程"></a>git 遠端流程</h3><p>git fetch + git merge &#x3D; git pull</p>
+<p>git fetch 是用來更新本地儲存庫，在本地端儲存庫遠端的分支會用 o&#x2F;master 來表示， git fetch 就是用來更新這些遠端進度的。</p>
+<p>有時想將本地資料推送到遠端時會失敗是因為 o&#x2F;master 進度不同，這時要先將本地 commit 更新至相同進度。記得要在本地的 master 分支用 pull 才能拉到遠端的 master 分支。想讓 commit 的歷史更好看可以加入 –rebase 參數。</p>
+<ul>
+<li>git push origin 來源(本地):目的地(遠端)。</li>
+<li>git pull origin 來源(遠端):目的地(本地端)。</li>
+<li>git fetch origin 來源(遠端):目的地(本地端)。</li>
+</ul>
+<h3 id="刪除遠端分支"><a href="#刪除遠端分支" class="headerlink" title="刪除遠端分支"></a>刪除遠端分支</h3><p>有兩個方法</p>
+<ol>
+<li>git push origin :分支名，來源不放東西即可。</li>
+<li>git push origin –delete 分支名 。</li>
+</ol>
+<h3 id="把遠端分支抓到本地端"><a href="#把遠端分支抓到本地端" class="headerlink" title="把遠端分支抓到本地端"></a>把遠端分支抓到本地端</h3><p>用 git checkout 遠端分支名 就可以了。</p>
+<h3 id="怎麼改-branch-名稱"><a href="#怎麼改-branch-名稱" class="headerlink" title="怎麼改 branch 名稱"></a>怎麼改 branch 名稱</h3><p>名字不小心打錯藥怎麼改? git checkout 到分支後用 git branch -m 新名字 ，這樣就成功喽。</p>
+<h3 id="和-的差別"><a href="#和-的差別" class="headerlink" title="~ 和 ^ 的差別"></a>~ 和 ^ 的差別</h3><p>都是相對位置的設定，差在哪呢?<br>~ 是往上爬找父 commit。<br>^ 只有一個的話是往上找一個父 commit，如果是像 ^^ 這樣連續使用就是要跨分支，這部分挺抽象的，可以看 <a href="https://stackoverflow.com/questions/2221658/whats-the-difference-between-head-and-head-in-git">What’s the difference between HEAD^ and HEAD~ in Git?</a>。</p>
+<h3 id="如何跟-Lidemy-的儲存庫同步，更新自己遠端的儲存庫"><a href="#如何跟-Lidemy-的儲存庫同步，更新自己遠端的儲存庫" class="headerlink" title="如何跟 Lidemy 的儲存庫同步，更新自己遠端的儲存庫?"></a>如何跟 Lidemy 的儲存庫同步，更新自己遠端的儲存庫?</h3><p>方法 1<br>更改自己 remote 的 url，用 <code>git remote set-url origin 網址</code> 更改，可以使用 <code>git remote -v</code> 確認目前指向的網址，接著 <code>git pull origin master</code>。改完後再 <code>git remote set-url origin 網址</code> 改回自己的網址。</p>
+<p>方法 2<br><code>git pull Lidemy網址 master</code>，接著會跳到 Vim 介面再 <code>:wq</code> 就能離開。</p>
+<p>最後不管用哪個方法都要記得 <code>git push origin master</code> 推回自己的 master 分支上。</p>
+<h3 id="暫存目前進度"><a href="#暫存目前進度" class="headerlink" title="暫存目前進度"></a>暫存目前進度</h3><p>常會有事情做到一半被 PM 通知有 bug 要修，這時可以用 <code>git stash</code> 把現在的進度暫存，之後回來再用 <code>git stash pop</code> 就能繼續處理原本在做的事。</p>
+<h3 id="git-revert-反轉-commit"><a href="#git-revert-反轉-commit" class="headerlink" title="git revert 反轉 commit"></a>git revert 反轉 commit</h3><p>跟 reset 有點像，都是用來取消 commit 用的，差別在 reset 會 <strong>直接清除</strong> 要取消的 commit ，而 revert 會 <strong>保留</strong> 要取消的 commit，並再推出一個新的 commit，這個 commit 用來清除要取消的 commit。<br>revert 在多人開發和需求變動頻繁的情況下滿常用的。</p>
+<h3 id="用-git-bisect-抓-bug"><a href="#用-git-bisect-抓-bug" class="headerlink" title="用 git bisect 抓 bug"></a>用 git bisect 抓 bug</h3><p>遇到一個 bug 但是不知道是哪個 commit 改壞，除了一個個看 commit message 外，還有其他方法嗎?<br>可以透過 <code>git bisect start &lt;bad&gt; &lt;good&gt;</code> 先設定範圍， bad 指的是出現 bug 的 commit，good 是沒有 bug 的 commit，加入這兩個 commit 的 SHA 值後，git 會利用二分搜尋法透過指令 <code>git checkout</code> 到 bad 和 good 中間的 commit，如果這 commit 沒有 bug 就輸入 <code>git bisect good</code>，反之 <code>git bisect bad</code>。最後就能得知 bug 是在哪支 commit 中出現的。如果已經有頭緒知道是哪支 commit 改壞，想提前結束搜尋可以用 <code>git bisect reset</code>，git 會恢復成使用 git bisect 前的狀態。<br>文件: <a href="https://git-scm.com/docs/git-bisect">git bisect 指令</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>JS 時間日期處理</title>
+    <url>/2021/07/24/JS%E6%99%82%E9%96%93%E6%97%A5%E6%9C%9F%E8%99%95%E7%90%86/</url>
+    <content><![CDATA[<h2 id="時間名詞介紹"><a href="#時間名詞介紹" class="headerlink" title="時間名詞介紹"></a>時間名詞介紹</h2><ul>
+<li>UTC: 衛星、航空等等都採用該時間規範。</li>
+<li>GMT: 格林威治時間，基本上一般使用上和 UTC 時間差不多。</li>
+<li>UNIX: 是指 unix系統表示的時間，以 UTC +0 時區 1970 年 1 月 1 日 0 時 0 分 0 秒 開始的<strong>秒</strong>數來記錄時間。</li>
+<li>timestamp: 以 UTC +0 時區 1970 年 1 月 1 日 0 時 0 分 0 秒 開始的<strong>毫秒</strong>數來記錄時間。</li>
+<li>ISO: 日期字串格式。</li>
+</ul>
+<span id="more"></span>
+
+<h3 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h3><p><a href="https://pansci.asia/archives/84978">到底是 GMT+8 還是 UTC+8 ? - PanSci 泛科學</a></p>
+<h2 id="js-Date-物件常用內容"><a href="#js-Date-物件常用內容" class="headerlink" title="js Date 物件常用內容"></a>js Date 物件常用內容</h2><h3 id="new-Date-參數"><a href="#new-Date-參數" class="headerlink" title="new Date() 參數"></a>new Date() 參數</h3><ul>
+<li>能塞毫秒數</li>
+<li>或是時間字串。</li>
+</ul>
+<p>getMonth， getYear 滿多坑的，我也很少用就不說了。要注意的是這些 method 都會把時間轉成<strong>當地時間</strong>。</p>
+<h3 id="new-Date-toISOString"><a href="#new-Date-toISOString" class="headerlink" title="new Date().toISOString()"></a>new Date().toISOString()</h3><p>轉成 ISO 規範的日期字串。</p>
+<h3 id="new-Date-getTime-和-Date-now"><a href="#new-Date-getTime-和-Date-now" class="headerlink" title="new Date().getTime() 和 Date.now()"></a>new Date().getTime() 和 Date.now()</h3><p>都是取得當前毫秒數，以 UTC +0 時區 1970 年 1 月 1 日 0 時 0 分 0 秒 開始的<strong>毫秒</strong>數來記錄時間。</p>
+<h2 id="正確的日期字串格式-ISO-8601"><a href="#正確的日期字串格式-ISO-8601" class="headerlink" title="正確的日期字串格式 ISO 8601"></a>正確的日期字串格式 ISO 8601</h2><p>只要遵守這些規定，在同個時區下使用不同瀏覽器的呈現結果都是一樣的。</p>
+<ul>
+<li>T: 可以想成是時間的開頭。</li>
+<li>Z: 代表 +0 時區(zero hour offset) 。在軍事中使用 Z 代表 UTC 時區，在無線電用語中 Z 代表 Zulu 所以又稱 Zulu time。Z 也能用 +00:00 或 -00:00 的方式表示不同時區的時間。</li>
+<li>sss: 代表毫秒，1000 毫秒等於一秒，記得毫秒前的字串<strong>是點點</strong>不是冒號。</li>
+</ul>
+<p><img src="https://i.imgur.com/5l7LTh4.png"></p>
+<p>關於 Z 的例子:</p>
+<p>現在台灣時間是 2021 年 7 月 25 日下午 4 點 34 分，套用格式會是  <code>2021-07-25T16:34:16.976+08:00</code> ，等同 +0 時區的 2021 年 7 月 25 日早上 8 點 34 分 <code>2021-07-25T08:34:16.976Z</code> 。</p>
+<h3 id="參考資料-1"><a href="#參考資料-1" class="headerlink" title="參考資料:"></a>參考資料:</h3><p><a href="https://262.ecma-international.org/6.0/#sec-date-constructor">ECMAScript 2015 Language Specification - ECMA-262 6th Edition</a></p>
+<p><a href="https://english.bruceli.net/2011/09/utc-gmt-cstzulu-time.html">[已解決] UTC, GMT, CST是什麼的縮寫？Zulu Time又是什麼意思？</a></p>
+<h2 id="日期字串解析慎用"><a href="#日期字串解析慎用" class="headerlink" title="日期字串解析慎用!"></a>日期字串解析慎用!</h2><p>new Date(‘dateString’) 的用法等同 Date.parse(‘dateString’)。文件上說不鼓勵使用，但沒解釋很清楚，意思是說如果你沒使用正確的字串格式在不同瀏覽器上可能會有非預期的結果。</p>
+<p><img src="https://i.imgur.com/xesDJ34.png"></p>
+<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="title class_">Date</span>(<span class="string">&#x27;2021/07/20 13:00&#x27;</span>)</span><br><span class="line"><span class="comment">// 在 chorme 上: Tue Jul 20 2021 13:00:00 GMT+0800 (GMT+08:00)</span></span><br><span class="line"><span class="comment">// 在 safari 上: Invalid Date</span></span><br></pre></td></tr></table></figure>
+
+<p>這字串並不符合正確格式，所以 safari 說是無效日期，而 chrome 之所以能出來是因為它在背後幫我們做了很多事，只要字串不要錯得太離譜都能解析出來。</p>
+<h3 id="參考資料-2"><a href="#參考資料-2" class="headerlink" title="參考資料"></a>參考資料</h3><p><a href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/Date">Date - JavaScript | MDN</a></p>
+<p><a href="https://stackoverflow.com/questions/5619202/converting-a-string-to-a-date-in-javascript">Converting a string to a date in JavaScript</a></p>
+<h2 id="踩到的坑"><a href="#踩到的坑" class="headerlink" title="踩到的坑"></a>踩到的坑</h2><p>所以 chorme 就沒問題嗎?並沒有，像是下方的時間都是 2021 年 7 月 20 日，但是出來的時間居然差了 8 小時?</p>
+<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="title class_">Date</span>(<span class="string">&#x27;2021-07-20&#x27;</span>) <span class="comment">// Tue Jul 20 2021 08:00:00 GMT+0800 (GMT+08:00)</span></span><br><span class="line"><span class="keyword">new</span> <span class="title class_">Date</span>(<span class="string">&#x27;2021/07/20&#x27;</span>) <span class="comment">// Tue Jul 20 2021 00:00:00 GMT+0800 (GMT+08:00)</span></span><br></pre></td></tr></table></figure>
+
+<p>回去翻 Date.parse() 文件在字串格式中有給對應的解釋，如果沒給時區，那麼在時間部分會自動用當地時間。</p>
+<p>第一個字串符合 ISO 格式，台灣是 +8 時區，所以加了 8 小時。</p>
+<p>第二個字串則被當成當地時間來解析。</p>
+<p><img src="https://i.imgur.com/yOD9pWs.png"></p>
+<h3 id="參考資料-3"><a href="#參考資料-3" class="headerlink" title="參考資料"></a>參考資料</h3><p><a href="https://blog.techbridge.cc/2020/12/26/javascript-date-time-and-timezone/">淺談 JavaScript 中的時間與時區處理</a> 標題: 日期時間需注意的地方</p>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/parse#date_time_string_format">Date.parse()</a></p>
+<h2 id="時區處理"><a href="#時區處理" class="headerlink" title="時區處理"></a>時區處理</h2><p>目前還沒遇到，之後再研究。</p>
+<h2 id="其他資料"><a href="#其他資料" class="headerlink" title="其他資料"></a>其他資料</h2><p><a href="https://chupai.github.io/posts/200516_js_date/">竹白記事本: 日期時間</a></p>
+<p><a href="https://blog.miniasp.com/post/2016/09/25/JavaScript-Date-usage-in-details">The Will Will Web</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>Logseq和卡片盒筆記實作心得</title>
+    <url>/2022/12/03/Logseq%E5%92%8C%E5%8D%A1%E7%89%87%E7%9B%92%E7%AD%86%E8%A8%98%E5%AF%A6%E4%BD%9C%E5%BF%83%E5%BE%97/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>從開始工作後，給自己設定了一個小目標要求自己每天都要寫字，梳理自己的想法，剛好 Notion 差不多在那時候開放了個人版免費使用，我成了忠實用戶用到現在，我主要用 Notion 來即時記錄當下的靈感、每天生活的待辦事項、讀書心得有的沒的，隨著頁數的增加，開始出現許多問題。</p>
+<span id="more"></span>
+
+<h2 id="我在-Notion-上遇到的問題"><a href="#我在-Notion-上遇到的問題" class="headerlink" title="我在 Notion 上遇到的問題"></a>我在 Notion 上遇到的問題</h2><h3 id="分類困難"><a href="#分類困難" class="headerlink" title="分類困難"></a>分類困難</h3><p>因為頁面太多，讓我 Notion 左側的側邊欄變得很亂，雖然我一直在重構側邊欄中的分類，但有些新文章還是會不知道該丟進哪個分類，最後索性直接丟在側邊欄。很多時候我都還沒開始寫筆記就在煩惱寫完的文章要放哪，最後就留下只有標題的空白文等待靈感發酵。</p>
+<h3 id="在當前頁面無法看其他頁面的文章"><a href="#在當前頁面無法看其他頁面的文章" class="headerlink" title="在當前頁面無法看其他頁面的文章"></a>在當前頁面無法看其他頁面的文章</h3><p>寫文章想參考自己之前寫過的類似主題時我會利用雙向連結，搭配瀏覽器新開個分頁看，這樣有點麻煩，我還滿想要在右側能有個側邊欄可以看資料，可惜的是目前只有資料庫類型(像是 Table)的格式才有支援該功能。</p>
+<h3 id="Notion-的模板設計豐富，結果反而花更多時間設計模板而非寫筆記"><a href="#Notion-的模板設計豐富，結果反而花更多時間設計模板而非寫筆記" class="headerlink" title="Notion 的模板設計豐富，結果反而花更多時間設計模板而非寫筆記"></a>Notion 的模板設計豐富，結果反而花更多時間設計模板而非寫筆記</h3><p>Notion 的模板真的超美又能高度的客製化，不過在設計上還是有一定難度的，這衍伸出教人使用 Notion 、付費插件、付費模板的商機。我自己也花很多時間在設計適合自己的模板，在過度追求個人特色的同時，我忘記輸出才是最重要的事情。</p>
+<h3 id="容易分心"><a href="#容易分心" class="headerlink" title="容易分心"></a>容易分心</h3><p>這算是前面三個問題造成的結果，因為分類關係，我找資料時常常不小心被其他的資料吸走注意力；在點擊雙向連結資料拖拉頁面的過程中想去看個 YouTube 休息一下；找到想要的舊資料時會想順便更新版塊格式等等。</p>
+<h3 id="中文搜尋不太準確"><a href="#中文搜尋不太準確" class="headerlink" title="中文搜尋不太準確"></a>中文搜尋不太準確</h3><p>這個還能接受，和剛開始相比進步超多，只是有些資料還是沒辦法在第一時間撈出來，需要搭配雙引號做精準搜尋。</p>
+<h2 id="評估現有的筆記軟體"><a href="#評估現有的筆記軟體" class="headerlink" title="評估現有的筆記軟體"></a>評估現有的筆記軟體</h2><h3 id="了解自己的需求"><a href="#了解自己的需求" class="headerlink" title="了解自己的需求"></a>了解自己的需求</h3><p>我只想專心寫，不想煩惱該怎麼分類筆記，同時又想知道筆記之間的關聯，在裝置部分我希望手機和電腦是可以做到輕鬆同步的。</p>
+<h3 id="爬文"><a href="#爬文" class="headerlink" title="爬文"></a>爬文</h3><p>我先去看 Notion 的文件還有其他人分享的的教學，原先想知道現有功能可不可以達成我的目的，找到的分類教學我覺得實作起來有些麻煩，覺得自己這樣沒辦法堅持太久，像是利用表格搭配自定義函數設計，我現在就有一個自己設計過的表格，但我暫時不會想去做第二個了，而且設計新表格違背我的需求，這也讓我去慢慢思考 Notion 的使用邏輯是什麼。</p>
+<p>Notion 設計頁面就像在玩積木，使用者可以利用內建提供的積木蓋出自己的知識城堡，想讓自己的城堡蓋的漂亮必定要花對應的時間來設計城堡的結構，我想這是每個使用者都會經歷的過程，也是 Notion 的特色。</p>
+<h3 id="卡片盒筆記"><a href="#卡片盒筆記" class="headerlink" title="卡片盒筆記"></a>卡片盒筆記</h3><p>發現自己可能需要搭配其他的筆記軟體時，我看到了卡片盒筆記的理念，覺得超酷，這個卡片盒筆記是由德國的教授發明，他認為筆記隨時都可以寫，他將筆記分成三種:<br>靈感筆記: 想到什麼就寫什麼，越簡單越好<br>摘要筆記: 看到一段喜歡的字句抄下來或是用自己的話解釋原文<br>永久筆記: 整理靈感筆記和摘要筆記的結晶</p>
+<p>前面兩種筆記是我一直都有做的，不過最重要的永久筆記我幾乎沒在寫，我都把自己的心得直接寫在靈感和摘要筆記下，所以我相當興奮日後開始寫永久筆記會帶給我什麼改變。</p>
+<p>我找到目前市場和卡片盒筆記相關的軟體有:</p>
+<ol>
+<li>Roam Research</li>
+<li>Heptabase</li>
+<li>Obsidian</li>
+<li>Logseq</li>
+</ol>
+<p>評估下來 Roam Research 是最適合我的，但他的月費超出我的預算，決定等到熟悉卡片盒筆記的模式後嘗試；Heptabase 是視覺化的卡片盒筆記，目前沒有 APP 感覺也不太適合在手機上操作，先觀望；最後在 Obsidian 和 Logseq 這兩個免費軟體中選了後者。兩個都是使用 Markdown 語法，資料部分比較特別，是存在 Local 端，自己的電腦。會選 Logseq 的原因是介面和 Obsidian 相比簡潔很多，裝完 Obsidian 看到左側滿滿的教學資料夾時，我想到 Notion 分類的問題不禁縮了一下；再來 APP，兩邊的 APP 都有些問題 ，我在使用幾天後都先放棄了。Obsidian 的使用體驗不是很好，側邊欄不太好滑；Logseq 有時候打字會消失。資料同步的部分 Obsidian 可以用 iCloud或是付費同步；Logseq 用 GitHub 處理，需要透過 Working Copy 的第三方 APP 幫忙，在搭配 iOS 內建的捷徑設定來完成自動同步。</p>
+<h2 id="一個月的使用心得"><a href="#一個月的使用心得" class="headerlink" title="一個月的使用心得"></a>一個月的使用心得</h2><p>我覺得卡片盒筆記知易行難，和過去存放筆記的思考模式完全不同，傳統作法是樹狀結構，資料間的關聯是階層式的，生物中的界門綱目科屬種就是這樣的分類方式；卡片盒筆記的方式我還是沒有很懂，覺得像是把所有的資料倒在一起，將資料間的關聯縫上一線，最後組成一個堅固的知識網。</p>
+<p>Obsidian 和 Logseq 有個圖像模式會畫出所有資料間的關係，看見自己許多的想法沉睡在圖中的感覺還滿爽的。這種筆記方式我覺得滿像大腦的運作方式，我們每天都會冒出一大堆不相關的想法，許多想法看起來是個獨立事件，但有些事存在著某種關聯。舉個生活上的例子，我可能上一秒還想著待會要去繳停車費，然後下一秒想到回家後要洗衣服，接著在過馬路時被一個硬要切的機車騎士按喇叭，最後走在人行道時我們可能會邊在內心咒罵騎士邊用手機記下前面想到的事情將其加入代辦事項。先前兩個看似無關的事情因為必須要做產生了關聯，紀錄後我們也可以更專注在當下，不用擔心自己會忘記重要的事情，回到家後我只要記得打開代辦事項這個關聯就能快速回想起我要做的事情。</p>
+<p>我們的腦袋非常不擅長記憶細節，但很擅長紀錄所有事物的關聯，現在資訊爆炸的時代，知識也變的碎片化，我相信善用這些筆記軟體可以獲得更多的成長。平常在學習時會喜歡先找出類似的東西幫助了解新知的輪廓，再去比較差異內化知識，其實這個過程就是一種連結方式，能讓學習變得更有趣、輕鬆，也比死記硬背更有效果。<br>最重要的學問是怎麼連結知識，這是我覺得最困難的地方，因為我現在處在腦袋空空、資料量還不夠的階段，還沒有太多類似的東西可以去比較學習。目前擔心的問題是日後資料一多起來要連結資料時會不會有漏網之魚，最後變成寫一堆類似的資料自己卻沒發現，目前想到的做法是隨時回顧現有資料並在寫筆記的當下確實做好雙向連結。</p>
+<p>透過有意識的提取自己覺得有趣的想法並將它貼上這些筆記軟體，就可以很放心的忘記它，減少大腦的負擔，大腦比起記憶更擅長創造。我們只要記住其中的關聯性、關鍵字，搭配過去的筆記就可以幫助自己更快的進入狀況。因為 Logseq 的 APP 現在使用體驗沒有很好，我目前是搭配 Notion 使用，我在 Notion 開了一個暫存的資料夾，把當天所有的靈感和有興趣的事物全部先記到這裡，晚上回家會撥出一點時間過濾和清空暫存，把它整理進 Logseq。Notion 現在比較像是我的秘書，Logseq 像是我的第二大腦。</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>Promise介紹</title>
+    <url>/2021/06/05/Promise%E4%BB%8B%E7%B4%B9/</url>
+    <content><![CDATA[<h3 id="先說-callback-是什麼"><a href="#先說-callback-是什麼" class="headerlink" title="先說 callback 是什麼"></a>先說 callback 是什麼</h3><p>在 js 中，function 的參數也能塞 function，這種被塞入的 function 就叫做回呼函式(callback function)，用來處理我們接下來想做的事，這樣的好處是可以確保執行順序不會被非同步問題給影響。<br>舉例來說，我睡醒賴床十秒然後花五秒去廁所:</p>
+<span id="more"></span>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">wakeup</span>(<span class="params">cb</span>)&#123;</span><br><span class="line">  <span class="built_in">setTimeout</span>(</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;wake up&#x27;</span>);</span><br><span class="line">    <span class="title function_">cb</span>();</span><br><span class="line">  ,<span class="number">1000</span>*<span class="number">10</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">goBathroom</span>(<span class="params"></span>)&#123;</span><br><span class="line">  <span class="built_in">setTimeout</span>(</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;arrive&#x27;</span>);</span><br><span class="line">  ,<span class="number">1000</span>*<span class="number">5</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">wakeup</span>(goBathroom);</span><br></pre></td></tr></table></figure>
+
+<p>利用 callback 我們能確保 <code>wakeup()</code> 等十秒後才會呼叫 <code>goBathroom()</code> 等五秒後到廁所。</p>
+<h3 id="promise-用來幹嘛"><a href="#promise-用來幹嘛" class="headerlink" title="promise 用來幹嘛?"></a>promise 用來幹嘛?</h3><p>promise 是 ES6 提供的新功能，可以用來處理非同步的物件，在過去處理非同步任務時，為了要確保這些非同步任務能按順序執行，我們只能將下一個任務(function)放進上一個任務中(function)，只是這樣程式碼可讀性很差，會出現 callback hell，為了解決這問題，promise 提供了簡潔的語法，我們能透過 <code>then</code> 鍊接來確保任務的執行順序在我們的預期中。</p>
+<p>假設今天有三個非同步任務，在每個非同步所需的時間不定的前提下要怎麼確保任務能按我們所想的順序來執行呢?<br>我想要按照順序將 1、2、3 依序印出該怎麼做?</p>
+<p>這樣子會印出的結果是 -&gt; 3、1、2。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">setTimeout</span>(<span class="function">()=&gt;</span><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">1</span>),<span class="number">300</span>);</span><br><span class="line"><span class="built_in">setTimeout</span>(<span class="function">()=&gt;</span><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">2</span>),<span class="number">500</span>);</span><br><span class="line"><span class="built_in">setTimeout</span>(<span class="function">()=&gt;</span><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">3</span>),<span class="number">100</span>);</span><br></pre></td></tr></table></figure>
+
+<p>過去的作法會將非同步任務一個個包起來:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">setTimeout</span>(<span class="function">()=&gt;</span>&#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">1</span>);</span><br><span class="line">  <span class="built_in">setTimeout</span>(<span class="function">()=&gt;</span>&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">2</span>);</span><br><span class="line">    <span class="built_in">setTimeout</span>(<span class="function">()=&gt;</span>&#123;</span><br><span class="line">      <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">3</span>)</span><br><span class="line">    &#125;,<span class="number">100</span>);</span><br><span class="line">  &#125;,<span class="number">500</span>);</span><br><span class="line">&#125;,<span class="number">300</span>);</span><br></pre></td></tr></table></figure>
+
+<p>使用 promise:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">promise1</span>(<span class="params"></span>)&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function"><span class="params">r</span>=&gt;</span><span class="built_in">setTimeout</span>(<span class="function">()=&gt;</span>&#123;<span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">1</span>);<span class="title function_">r</span>()&#125;,<span class="number">300</span>));</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">promise2</span>(<span class="params"></span>)&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function"><span class="params">r</span>=&gt;</span><span class="built_in">setTimeout</span>(<span class="function">()=&gt;</span>&#123;<span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">2</span>);<span class="title function_">r</span>()&#125;,<span class="number">500</span>));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">promise3</span>(<span class="params"></span>)&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function"><span class="params">r</span>=&gt;</span><span class="built_in">setTimeout</span>(<span class="function">()=&gt;</span>&#123;<span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">3</span>);<span class="title function_">r</span>()&#125;,<span class="number">100</span>));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title function_">promise1</span>().<span class="title function_">then</span>(promise2).<span class="title function_">then</span>(promise3).<span class="title function_">catch</span>(<span class="function"><span class="params">err</span>=&gt;</span><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;peko&#x27;</span>))</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>你會發現用 promise 的可讀性高很多，程式碼也變得好改許多，如果改成想印出 -&gt;1，3，2 的話只要把 promise2 和 promise3 對調就好，而callback hell 的做法要整個拆掉來改。上面的程式碼中你會看到 <code>r()</code> 這個能讓 then 鍊接成功很重要的東西，下文會繼續解釋。</p>
+<p>callback hell 改動:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">setTimeout</span>(<span class="function">()=&gt;</span>&#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">1</span>);</span><br><span class="line">  <span class="built_in">setTimeout</span>(<span class="function">()=&gt;</span>&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">3</span>);</span><br><span class="line">    <span class="built_in">setTimeout</span>(<span class="function">()=&gt;</span>&#123;</span><br><span class="line">      <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">2</span>)</span><br><span class="line">    &#125;,<span class="number">500</span>);</span><br><span class="line">  &#125;,<span class="number">100</span>);</span><br><span class="line">&#125;,<span class="number">300</span>);</span><br></pre></td></tr></table></figure>
+
+<p>promise 做法:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="title function_">promise1</span>().<span class="title function_">then</span>(promise3).<span class="title function_">then</span>(promise2).<span class="title function_">catch</span>(<span class="function"><span class="params">err</span>=&gt;</span><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;peko&#x27;</span>))</span><br></pre></td></tr></table></figure>
+
+<h3 id="promise-的狀態"><a href="#promise-的狀態" class="headerlink" title="promise 的狀態"></a>promise 的狀態</h3><p>promise 物件會有三個狀態:</p>
+<ul>
+<li>pending: 等待中</li>
+<li>fulfill: 完成</li>
+<li>reject: 失敗<br>狀態的轉換會決定 promise 是否要進展到下個鍊接，調用 then 或是 catch 的 callback。<br>試著把 promise 的狀態表達出來吧~</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">promise1</span>(<span class="params"></span>)&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function"><span class="params">r</span>=&gt;</span><span class="built_in">setTimeout</span>(<span class="function">()=&gt;</span>&#123;<span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">1</span>);<span class="title function_">r</span>()&#125;,<span class="number">300</span>));</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">promise2</span>(<span class="params"></span>)&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function"><span class="params">r</span>=&gt;</span><span class="built_in">setTimeout</span>(<span class="function">()=&gt;</span>&#123;<span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">2</span>);<span class="title function_">r</span>()&#125;,<span class="number">500</span>));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">promise3</span>(<span class="params"></span>)&#123;</span><br><span class="line">  <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">Error</span>();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title function_">promise1</span>().<span class="title function_">then</span>(promise2).<span class="title function_">then</span>(promise3).<span class="title function_">catch</span>(<span class="function"><span class="params">err</span>=&gt;</span><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;peko&#x27;</span>))</span><br></pre></td></tr></table></figure>
+
+<p>promise1: pending -&gt; fulfill，程式順利執行，透過 then 開始執行 promise2。<br>promise2: pending -&gt; fulfill，程式順利執行，透過 then 開始執行 promise3。<br>promise3: pending -&gt; reject，程式執行出現錯誤，跳到 catch 執行 catch 相關程式碼。</p>
+<h3 id="then-catch-串接方式"><a href="#then-catch-串接方式" class="headerlink" title="then catch 串接方式"></a>then catch 串接方式</h3><p>then 可以接收兩個東西:</p>
+<ul>
+<li>上個 promise 的 resolve() 括弧中的東西</li>
+<li>透過 return 回傳的值</li>
+</ul>
+<p>catch 用來收:</p>
+<ul>
+<li>promise 的 reject() 括弧中的東西</li>
+<li>錯誤</li>
+</ul>
+<p>在 promise 中，我們會放入一個 callback 並塞入兩個參數，我們習慣稱為 resolve 和 reject，如果 promise 執行成功會呼叫 resolve()，失敗的話會呼叫 reject()，我們能把想往下傳的東西塞入括弧中，在這範例中我想在程式執行成功時印 1，失敗印 2。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> example = <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function">(<span class="params">resolve,reject</span>)=&gt;</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(<span class="literal">true</span>)&#123;</span><br><span class="line">      <span class="title function_">resolve</span>(<span class="number">1</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="title function_">reject</span>(<span class="number">2</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line">example.<span class="title function_">then</span>(<span class="function">(<span class="params">resolve</span>)=&gt;</span><span class="variable language_">console</span>.<span class="title function_">log</span>(resolve)).<span class="title function_">catch</span>(<span class="function">(<span class="params">reject</span>)=&gt;</span><span class="variable language_">console</span>.<span class="title function_">log</span>(reject));</span><br></pre></td></tr></table></figure>
+
+<p>then 會去接收上個 promise 中的 resolve 收到的值，所以在這個例子中會印出 1。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> example = <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function">(<span class="params">resolve,reject</span>)=&gt;</span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(<span class="literal">false</span>)&#123;</span><br><span class="line">    <span class="title function_">resolve</span>(<span class="number">1</span>);</span><br><span class="line">  &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    <span class="title function_">reject</span>(<span class="number">2</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line">example.<span class="title function_">then</span>(<span class="function">(<span class="params">resolve</span>)=&gt;</span><span class="variable language_">console</span>.<span class="title function_">log</span>(resolve)).<span class="title function_">catch</span>(<span class="function">(<span class="params">reject</span>)=&gt;</span><span class="variable language_">console</span>.<span class="title function_">log</span>(reject));</span><br></pre></td></tr></table></figure>
+
+<p>同樣的道理，在 false 的情況下會透過 reject 將值傳給 catch ，所以上面的例子會印出 2。</p>
+<p>再來說 return 的情況，then 也能接收透過 return 回傳的值，不過透過這樣的方式傳值時要注意同步和非同步的問題。可以看看下方的例子，並試著想這樣會印出什麼？</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">promise1</span>(<span class="params"></span>)&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function"><span class="params">r</span>=&gt;</span><span class="built_in">setTimeout</span>(<span class="function">()=&gt;</span><span class="title function_">r</span>(<span class="number">1</span>),<span class="number">300</span>));</span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">promise1</span>().<span class="title function_">then</span>(<span class="function">(<span class="params">r</span>)=&gt;</span>&#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(r); </span><br><span class="line">  <span class="keyword">return</span> <span class="number">2</span>;</span><br><span class="line">&#125;).<span class="title function_">then</span>(<span class="function">(<span class="params">r</span>)=&gt;</span>&#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(r);</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">3</span>);</span><br><span class="line">&#125;).<span class="title function_">catch</span>(<span class="function"><span class="params">err</span>=&gt;</span><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;peko&#x27;</span>))</span><br></pre></td></tr></table></figure>
+
+<p>這樣會印出 123。我再做個變化，想想看這樣會印出什麼：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">promise1</span>(<span class="params"></span>)&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function"><span class="params">r</span>=&gt;</span><span class="built_in">setTimeout</span>(<span class="function">()=&gt;</span><span class="title function_">r</span>(<span class="number">1</span>),<span class="number">300</span>));</span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">promise1</span>().<span class="title function_">then</span>(<span class="function">(<span class="params">r</span>)=&gt;</span>&#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(r);</span><br><span class="line">  <span class="built_in">setTimeout</span>(<span class="function">()=&gt;</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">2</span>;</span><br><span class="line">  &#125;,<span class="number">500</span>);</span><br><span class="line">&#125;).<span class="title function_">then</span>(<span class="function">(<span class="params">r</span>)=&gt;</span>&#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(r);</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">3</span>);</span><br><span class="line">&#125;).<span class="title function_">catch</span>(<span class="function"><span class="params">err</span>=&gt;</span><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;peko&#x27;</span>))</span><br></pre></td></tr></table></figure>
+
+<p>這樣會印出 1 undefined 3，第二個 then 並不會等第一個 then 的 setTimeout 結束，而是直接執行，所以印出 undefined。<br>解決方法就是在 setTimeout 外包 promise 並 return，這樣下個 then 就能接收到了。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">promise1</span>(<span class="params"></span>)&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function"><span class="params">r</span>=&gt;</span><span class="built_in">setTimeout</span>(<span class="function">()=&gt;</span><span class="title function_">r</span>(<span class="number">1</span>),<span class="number">300</span>));</span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">promise1</span>().<span class="title function_">then</span>(<span class="function">(<span class="params">r</span>)=&gt;</span>&#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(r);</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function"><span class="params">r</span>=&gt;</span>&#123;</span><br><span class="line">    <span class="built_in">setTimeout</span>(<span class="function">()=&gt;</span>&#123;</span><br><span class="line">       <span class="title function_">r</span>(<span class="number">2</span>);</span><br><span class="line">    &#125;,<span class="number">500</span>);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;).<span class="title function_">then</span>(<span class="function">(<span class="params">r</span>)=&gt;</span>&#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(r);</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">3</span>);</span><br><span class="line">&#125;).<span class="title function_">catch</span>(<span class="function"><span class="params">err</span>=&gt;</span><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;peko&#x27;</span>))</span><br></pre></td></tr></table></figure>
+
+<p>重點整理：<br>非同步行為要用 promise 包起來並 return，不然 then 是不會等非同步行為，而是會直接接著執行的。<br>也能看看這篇討論 <a href="https://stackoverflow.com/a/43155226">Return from a promise then()</a>。</p>
+<h3 id="promise-method"><a href="#promise-method" class="headerlink" title="promise method"></a>promise method</h3><p>目前還沒用過，先記著以後要用再學。</p>
+<ul>
+<li>all</li>
+<li>race</li>
+<li>allSeltted</li>
+<li>any</li>
+</ul>
+<h3 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h3><ul>
+<li><a href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Guide/Using_promises">使用 Promise</a></li>
+<li><a href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a></li>
+<li><a href="https://ithelp.ithome.com.tw/articles/10251786">JavaScript基本功修練：Day25 - Promise</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/25407758?columnSlug=liril&fbclid=IwAR1Ix7nxCqeNJbQHYbme9klEjAkcvQ4jkz_SCgLVDYfs_Ln7kJwv3Y96GUo">Excuse me？这个前端面试在搞事！</a></li>
+<li><a href="https://betterprogramming.pub/understanding-promises-in-javascript-13d99df067c1">Understanding Promises in JavaScript</a></li>
+<li><a href="https://pjchender.blogspot.com/2017/08/javascript-learn-event-loop-stack-queue.html">[筆記] 理解 JavaScript 中的事件循環、堆疊、佇列和併發模式（Learn event loop, stack, queue, and concurrency mode of JavaScript in depth）</a></li>
+<li><a href="https://blog.huli.tw/2015/08/26/javascript-promise-generator-async-es6/">https://blog.huli.tw/2015/08/26/javascript-promise-generator-async-es6/</a></li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
+    <title>瀏覽器 CORS 與同源政策介紹</title>
+    <url>/2021/05/02/browser-and-cors-introduction/</url>
+    <content><![CDATA[<h3 id="同源政策是用來幹嘛的"><a href="#同源政策是用來幹嘛的" class="headerlink" title="同源政策是用來幹嘛的?"></a>同源政策是用來幹嘛的?</h3><p>用來阻擋不同源網站間的存取，程式碼非同步請求依舊會送出，但是回傳的資料會被瀏覽器給擋下來，造成資料回傳 undefined，程式碼拿不到資料沒辦法做事，最後網頁報錯。</p>
+<p>在瀏覽器中只有同源的網站間在互相存取資料時不會有限制，不同源的網站會被阻擋回應(response)，這樣做是基於資安考量，如果讓任何人可以存取、修改網站資料，是件危險的事，這樣就像大家都有你家的鑰匙，可以隨意進出你家，吃你冰箱內的零食那樣。而同源政策就像你家那能上鎖的大門，在資安上做到第一層防護。</p>
+<span id="more"></span>
+
+<h3 id="同源不同源的定義"><a href="#同源不同源的定義" class="headerlink" title="同源不同源的定義?"></a>同源不同源的定義?</h3><p>同源要看三個地方，如果這三個都一樣才能算是同源:</p>
+<ul>
+<li>協定(protocol)</li>
+<li>主機(host)</li>
+<li>埠號(port)</li>
+</ul>
+<p>因為我不希望網址自動轉成連結，所以加了些空格並在不同的地方加上粗體辨識。</p>
+<table>
+<thead>
+<tr>
+<th>網址 1</th>
+<th>網址 2</th>
+<th>同源嗎?</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>http : &#x2F;&#x2F;morecoke.com&#x2F; <strong>home</strong></td>
+<td>http : &#x2F;&#x2F;morecoke.com&#x2F; <strong>company</strong></td>
+<td>同源</td>
+</tr>
+<tr>
+<td><strong>https</strong> : &#x2F;&#x2F;morecoke.com&#x2F; home</td>
+<td><strong>http</strong> : &#x2F;&#x2F;morecoke.com&#x2F; home</td>
+<td>不同源(協定不同)</td>
+</tr>
+<tr>
+<td>https : &#x2F;&#x2F;<strong>morecoke.com</strong>&#x2F; home</td>
+<td>https : &#x2F;&#x2F;<strong>applecoke.com</strong>&#x2F; home</td>
+<td>不同源(主機不同)</td>
+</tr>
+<tr>
+<td>https : &#x2F;&#x2F;morecoke.com&#x2F; home</td>
+<td>https : &#x2F;&#x2F;morecokes.com**:3000**&#x2F; home</td>
+<td>不同源(埠號不同)</td>
+</tr>
+</tbody></table>
+<h3 id="瀏覽器允許的跨網域存取"><a href="#瀏覽器允許的跨網域存取" class="headerlink" title="瀏覽器允許的跨網域存取"></a>瀏覽器允許的跨網域存取</h3><p>這邊說幾個常用的:<br><code>&lt;script&gt;</code>: 附上連結就能使用該函式庫，不用 npm 下載，像是 React 等等。</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://unpkg.com/react@17/umd/react.development.js&quot;</span> <span class="attr">crossorigin</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://unpkg.com/react-dom@17/umd/react-dom.development.js&quot;</span> <span class="attr">crossorigin</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><code>&lt;link&gt;</code>: 附上連結可以直接使用 css 的 class，像是 Bootstrap。</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css&quot;</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">integrity</span>=<span class="string">&quot;sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6&quot;</span> <span class="attr">crossorigin</span>=<span class="string">&quot;anonymous&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><code>&lt;img&gt;</code>:可以直接插入線上圖片。<br><code>&lt;video&gt;</code>:可以直接插入線上的影片。</p>
+<h3 id="CORS"><a href="#CORS" class="headerlink" title="CORS"></a>CORS</h3><p>是對於跨網域(不同源)網站存取資料所做的規範，存取資料(call api)這件事又分成兩種請求，一種是簡單請求，另一種不是簡單請求(因為在文件上沒看到對這請求的命名，只有說這是有副作用的請求，為求方便我叫它風險請求)。<br>在 CORS 的規範下我們透過瀏覽器送出簡單請求和風險請求，伺服器都會回傳這個 <code>Access-Control-Allow-Origin</code> 東西，告訴瀏覽器伺服器允許哪些網址存取資料。<br><code>Access-Control-Allow-Origin: *</code>: 這是說允許任何網站存取。<br><code>Access-Control-Allow-Origin: https://foo.example</code>: 這意思是只有 foo.example 這網站才能存取。</p>
+<h3 id="預檢請求是什麼"><a href="#預檢請求是什麼" class="headerlink" title="預檢請求是什麼?"></a>預檢請求是什麼?</h3><p>瀏覽器會針對有風險的請求(API)先送出預檢請求跟伺服器打個招呼，伺服器確定這請求沒問題的話會回傳回應(response)給瀏覽器，如果伺服器回應給過，瀏覽器才會送出真正的(有風險的)請求，不然就不會送。<br>預檢請求會利用 http method option 的方式傳送，他會告訴伺服器風險請求的 header 會有什麼和它的 http method 會是什麼，以下是文件提供的範例，<code>Access-Control-Request-Headers: X-PINGOTHER, Content-Type</code> 會告訴伺服器待會要送的風險請求 header 會有 <code>X-PINGOTHER</code> 和 <code>Content-Type</code>，<code>Access-Control-Request-Method</code>  則會說 http method 是 POST。</p>
+<blockquote>
+<p>OPTIONS &#x2F;resources&#x2F;post-here&#x2F; HTTP&#x2F;1.1<br>Host: bar.example<br>Accept: text&#x2F;html,application&#x2F;xhtml+xml,application&#x2F;xml;q&#x3D;0.9,<em>&#x2F;</em>;q&#x3D;0.8<br>Accept-Language: en-us,en;q&#x3D;0.5<br>Accept-Encoding: gzip,deflate<br>Connection: keep-alive<br>Origin: <a href="https://foo.example/">https://foo.example</a><br>Access-Control-Request-Method: POST<br>Access-Control-Request-Headers: X-PINGOTHER, Content-Type</p>
+</blockquote>
+<p>然後伺服器會根據這些資訊回傳這是否為合理的請求，<code>Access-Control-Allow-Headers</code> 說伺服器允許哪些 header，<code>Access-Control-Allow-Methods</code> 說伺服器允許哪些 http method。</p>
+<blockquote>
+<p>HTTP&#x2F;1.1 204 No Content<br>Date: Mon, 01 Dec 2008 01:15:39 GMT<br>Server: Apache&#x2F;2.0.61 (Unix)<br>Access-Control-Allow-Origin: <a href="https://foo.example/">https://foo.example</a><br>Access-Control-Allow-Methods: POST, GET, OPTIONS<br>Access-Control-Allow-Headers: X-PINGOTHER, Content-Type<br>Access-Control-Max-Age: 86400<br>Vary: Accept-Encoding, Origin<br>Keep-Alive: timeout&#x3D;2, max&#x3D;100<br>Connection: Keep-Alive</p>
+</blockquote>
+<h3 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h3><ul>
+<li><a href="https://developer.mozilla.org/zh-TW/docs/Web/Security/Same-origin_policy">同源政策 (Same-origin policy)</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/OPTIONS">OPTIONS</a></li>
+<li><a href="https://developer.mozilla.org/zh-TW/docs/Web/HTTP/CORS">跨來源資源共用（CORS）</a></li>
+<li><a href="https://medium.com/%E7%A8%8B%E5%BC%8F%E7%8C%BF%E5%90%83%E9%A6%99%E8%95%89/same-origin-policy-%E5%90%8C%E6%BA%90%E6%94%BF%E7%AD%96-%E4%B8%80%E5%88%87%E5%AE%89%E5%85%A8%E7%9A%84%E5%9F%BA%E7%A4%8E-36432565a226">網站安全🔒 Same Origin Policy 同源政策 ! 一切安全的基礎</a></li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
+    <title>CLI 常用指令整理</title>
+    <url>/2020/06/14/command-line/</url>
+    <content><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>現在是用 windows 系統， CMD 不支援 ls 阿、 pwd 呀，目前都是用 git bash 來操作，來複習有哪些常用指令吧~</p>
+<ul>
+<li><code>pwd</code>(windows <code>cd</code>) 目前位置。</li>
+<li><code>cat</code>(windows <code>type</code> ，中文會印出亂碼) 可以連接多個檔案印出來，只放一個檔案也行。</li>
+<li><code>ls</code>(windows <code>dir</code>) 查看當前目錄下有哪些檔案。</li>
+<li><code>cd</code> 移動路徑。</li>
+<li><code>touch</code>(windows <code>type nul &gt; your_file.txt</code> 建立 0 byte 檔案) 如果沒有這檔案就建立一個新的，有的話就更新最後的修改時間。</li>
+<li><code>explorer .</code> windows 打開當前資料夾的視窗。</li>
+<li><code>open .</code> mac 打開當前資料夾視窗。</li>
+<li><code>mkdir</code> 新增資料夾。</li>
+<li><code>rmdir</code> 只能刪除空資料夾，資料夾內部沒東西才能刪除成功。</li>
+<li><code>rm</code> 刪除檔案或資料夾。<ul>
+<li><code>rm 檔案</code> 刪除檔案。</li>
+<li><code>rm -r 資料夾</code> 刪除整個資料夾和裡面的東西。</li>
+</ul>
+</li>
+<li><code>-f</code> 強制執行的參數，沒事別亂用。</li>
+<li><code>mv</code> 移動檔案位置或是改檔名。<ul>
+<li>移動位置 : <code>mv 1號 2號</code> 將 <code>1號</code> 檔案移到 <code>2號</code> 位置，<code>2號</code> 可以是資料夾或路徑。</li>
+<li>改檔名 : <code>mv 1號 2號</code> 將 <code>1號</code> 檔案移到 <code>2號</code> 名字。</li>
+</ul>
+</li>
+<li><code>cp</code> 複製檔案。<ul>
+<li><code>mv 1號 2號</code> 將複製的 <code>1號</code> 檔案命名為 <code>2號</code>。</li>
+<li><code>mv -r 1號 2號</code> 將複製的 <code>1號</code> 資料夾命名為 <code>2號</code>。</li>
+</ul>
+</li>
+<li>相對路徑， <code>..</code> 上一頁。</li>
+<li>絕對路徑， 前面有加 <code>/</code> 都是絕對路徑。</li>
+<li><code>grep</code> 在檔案中抓取關鍵字 <code>grep apple a.txt</code> ，如果 a.txt 中有 apple 的關鍵字就把那行全印下來。</li>
+<li><code>wget</code> 下載檔案用的，windows 系統沒有這功能，可以跟著這連結的 <a href="https://gist.github.com/evanwill/0207876c3243bbb6863e65ec5dc3f058">教學</a> 做。</li>
+<li><code>curl</code> 用來發出 request ，加入參數 <code>-I</code> 可以看請求的相關細節。</li>
+<li><code>echo</code> 印出字串。</li>
+<li><code>&gt;</code> 重新導向，可以搭配 <code>echo</code> 指令將想要更改的值導入檔案 ， <code>echo &quot;123&quot; &gt; a.txt</code>，這樣 a.txt 檔中的內容全部會砍掉，然後再改成 123。</li>
+<li><code>&gt;&gt;</code> 也是重新導向，差別在於不會砍掉原本的內容，而是新增在下一行。</li>
+<li><code>|</code> 將左方回傳的結果輸入到右邊去，是指令的組合技</li>
+</ul>
+<span id="more"></span>
+
+<h3 id="Vim-簡單介紹"><a href="#Vim-簡單介紹" class="headerlink" title="Vim 簡單介紹"></a>Vim 簡單介紹</h3><ol>
+<li>按 <code>i</code> 後可以進入編輯模式。</li>
+<li>按 <code>esc</code> 離開編輯模式，這時不能更改檔案，輸入無效。</li>
+<li>在唯讀模式下輸入 <code>:q</code> 能離開 Vim。</li>
+<li>如果想將編輯模式下所做的修改儲存，要在唯讀模式輸入 <code>:wq</code> 才會成功。</li>
+</ol>
+<h3 id="LIOJ-問題"><a href="#LIOJ-問題" class="headerlink" title="LIOJ 問題"></a>LIOJ 問題</h3><p>在 git bash 要使用 node 時記得在前面加 <code>env</code> 像這樣 <code>cat input.txt | env node code.js</code>。</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>React Navigation 設計根目錄</title>
+    <url>/2021/04/04/design-root-file-for-react-navigation/</url>
+    <content><![CDATA[<p>使用版本 5.x</p>
+<h3 id="要在根目錄上做什麼"><a href="#要在根目錄上做什麼" class="headerlink" title="要在根目錄上做什麼?"></a>要在根目錄上做什麼?</h3><p>通常會在 src 的資料夾建 index.js 用來當 react navigation 的根目錄，使用 NavigationContainer 這個組件會把 Navigator 包起來，NavigationContainer 只會在根目錄上用到。</p>
+<span id="more"></span>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title class_">AppStack</span> = <span class="title function_">createStackNavigator</span>();</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">App</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">NavigationContainer</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">AppStack.Navigator</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        xxxxx</span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;/<span class="name">AppStack.Navigator</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">NavigationContainer</span>&gt;</span></span></span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="怎麼分配頁面"><a href="#怎麼分配頁面" class="headerlink" title="怎麼分配頁面?"></a>怎麼分配頁面?</h3><p>需要使用 createNavigator 這個 function 來建立 navigator，它會回傳一個物件裡面有 Screen 和 Navigator 這兩個屬性，Screen 用來處理跟頁面有關的組件，然後這些 Screen 必須包在 Navigator 裡面才能使用 react navigation 提供的功能。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title class_">AppStack</span> = <span class="title function_">createStackNavigator</span>();</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">HomeScreen</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">AppStack.Navigator</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">AppStack.Screen</span> <span class="attr">name</span>=<span class="string">&#123;</span>&#x27;<span class="attr">A</span>&#x27;&#125; <span class="attr">component</span>=<span class="string">&#123;AScreen&#125;/</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">AppStack.Screen</span> <span class="attr">name</span>=<span class="string">&#123;</span>&#x27;<span class="attr">B</span>&#x27;&#125; <span class="attr">component</span>=<span class="string">&#123;BScreen&#125;/</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">AppStack.Navigator</span>&gt;</span></span></span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="注意事項"><a href="#注意事項" class="headerlink" title="注意事項"></a>注意事項</h3><p>Navigator 數量沒有使用的上限，能在現有的 Navigator 裡再使用多個 Navigator，使用起來非常方便，所以要特別小心在設計頁面上盡量避免包太多層的 Navigator ，因為每個 Navigator 都有自己的狀態，能保存導覽的歷史紀錄、設定進場動畫等等，太多巢狀的 Navigator 到最後會弄得腦袋很亂，會很難管理。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title class_">AppStack</span> = <span class="title function_">createStackNavigator</span>();</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">A1Screen</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">AppStack.Navigator</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">AppStack.Screen</span> <span class="attr">name</span>=<span class="string">&#123;</span>&#x27;<span class="attr">Aa</span>&#x27;&#125; <span class="attr">component</span>=<span class="string">&#123;AaScreen&#125;/</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">AppStack.Screen</span> <span class="attr">name</span>=<span class="string">&#123;</span>&#x27;<span class="attr">Ab</span>&#x27;&#125; <span class="attr">component</span>=<span class="string">&#123;AbScreen&#125;/</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">AppStack.Navigator</span>&gt;</span></span></span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">AScreen</span>(<span class="params"></span>)&#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">AppStack.Navigator</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">AppStack.Screen</span> <span class="attr">name</span>=<span class="string">&#123;</span>&#x27;<span class="attr">A1</span>&#x27;&#125; <span class="attr">component</span>=<span class="string">&#123;A1Screen&#125;/</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">AppStack.Screen</span> <span class="attr">name</span>=<span class="string">&#123;</span>&#x27;<span class="attr">A2</span>&#x27;&#125; <span class="attr">component</span>=<span class="string">&#123;A2Screen&#125;/</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">AppStack.Navigator</span>&gt;</span></span></span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">HomeScreen</span>(<span class="params"></span>)&#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">AppStack.Navigator</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">AppStack.Screen</span> <span class="attr">name</span>=<span class="string">&#123;</span>&#x27;<span class="attr">A</span>&#x27;&#125; <span class="attr">component</span>=<span class="string">&#123;AScreen&#125;/</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">AppStack.Screen</span> <span class="attr">name</span>=<span class="string">&#123;</span>&#x27;<span class="attr">B</span>&#x27;&#125; <span class="attr">component</span>=<span class="string">&#123;BScreen&#125;/</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">AppStack.Navigator</span>&gt;</span></span></span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>根據上面程式碼的結構會長這樣:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">-<span class="title class_">Home</span></span><br><span class="line">  -<span class="title class_">AScreen</span></span><br><span class="line">    -A1Screen</span><br><span class="line">      -<span class="title class_">AaScreen</span></span><br><span class="line">      -<span class="title class_">AbScreen</span></span><br><span class="line">    -A2Screen</span><br><span class="line">  -<span class="title class_">BScreen</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>其實可以簡化成這樣:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title class_">AppStack</span> = <span class="title function_">createStackNavigator</span>();</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">HomeScreen</span>(<span class="params"></span>)&#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">      <span class="language-xml"><span class="tag">&lt;<span class="name">AppStack.Navigator</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">AppStack.Screen</span> <span class="attr">name</span>=<span class="string">&#123;</span>&#x27;<span class="attr">A</span>&#x27;&#125; <span class="attr">component</span>=<span class="string">&#123;AScreen&#125;/</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">AppStack.Screen</span> <span class="attr">name</span>=<span class="string">&#123;</span>&#x27;<span class="attr">A1</span>&#x27;&#125; <span class="attr">component</span>=<span class="string">&#123;A1Screen&#125;/</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">AppStack.Screen</span> <span class="attr">name</span>=<span class="string">&#123;</span>&#x27;<span class="attr">Aa</span>&#x27;&#125; <span class="attr">component</span>=<span class="string">&#123;AaScreen&#125;/</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">AppStack.Screen</span> <span class="attr">name</span>=<span class="string">&#123;</span>&#x27;<span class="attr">Ab</span>&#x27;&#125; <span class="attr">component</span>=<span class="string">&#123;AbScreen&#125;/</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">AppStack.Screen</span> <span class="attr">name</span>=<span class="string">&#123;</span>&#x27;<span class="attr">A2</span>&#x27;&#125; <span class="attr">component</span>=<span class="string">&#123;A2Screen&#125;/</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">AppStack.Screen</span> <span class="attr">name</span>=<span class="string">&#123;</span>&#x27;<span class="attr">B</span>&#x27;&#125; <span class="attr">component</span>=<span class="string">&#123;BScreen&#125;/</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;/<span class="name">AppStack.Navigator</span>&gt;</span></span></span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>整理後的結構長這樣:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">-Home</span><br><span class="line">  -AScreen</span><br><span class="line">  -A1Screen</span><br><span class="line">  -AaScreen</span><br><span class="line">  -AbScreen</span><br><span class="line">  -A2Screen</span><br><span class="line">  -BScreen</span><br></pre></td></tr></table></figure>
+
+<p>巢狀頁面我通常都會用來處理 Tab 或 Drawer 頁面。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title class_">AppStack</span> = <span class="title function_">createStackNavigator</span>();</span><br><span class="line"><span class="keyword">const</span> <span class="title class_">AppTab</span> = <span class="title function_">createBottomTabNavigator</span>();</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">AScreen</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">AppTab.Navigator</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">AppTab.Screen</span> <span class="attr">name</span>=<span class="string">&#123;</span>&#x27;<span class="attr">A1</span>&#x27;&#125;/&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">AppTab.Screen</span> <span class="attr">name</span>=<span class="string">&#123;</span>&#x27;<span class="attr">A2</span>&#x27;&#125;/&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">AppTab.Navigator</span>&gt;</span></span></span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">HomeScreen</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">      <span class="language-xml"><span class="tag">&lt;<span class="name">AppStack.Navigator</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">AppStack.Screen</span> <span class="attr">name</span>=<span class="string">&#123;</span>&#x27;<span class="attr">A</span>&#x27;&#125; <span class="attr">component</span>=<span class="string">&#123;AScreen&#125;/</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">AppStack.Screen</span> <span class="attr">name</span>=<span class="string">&#123;</span>&#x27;<span class="attr">B</span>&#x27;&#125; <span class="attr">component</span>=<span class="string">&#123;BScreen&#125;/</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;/<span class="name">AppStack.Navigator</span>&gt;</span></span></span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+  </entry>
+  <entry>
+    <title>git author 設定</title>
+    <url>/2020/08/18/git-author-setting/</url>
+    <content><![CDATA[<h3 id="在用不同電腦操作時常遇到的問題就是-git-送出-commit-時的使用者問題"><a href="#在用不同電腦操作時常遇到的問題就是-git-送出-commit-時的使用者問題" class="headerlink" title="在用不同電腦操作時常遇到的問題就是 git 送出 commit 時的使用者問題"></a>在用不同電腦操作時常遇到的問題就是 git 送出 commit 時的使用者問題</h3><p>git config user.name 名字<br>git config user.email 郵件<br>以上設定都只是區域設定，這些設定只會保留在當前專案部會改到全域的設定。</p>
+<span id="more"></span>
+
+<p>檢查全域設定</p>
+<p>git config –global user.name<br>git config –global user.email</p>
+<p>在 commit 時設定使用者</p>
+<p>git commit –author&#x3D;”MoreCoke <my email>“ -m “my commit”</p>
+<p>在這專案設定一次就好，之後的 commit 會以設定的 author 為主。</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>Git cherry pick 實戰</title>
+    <url>/2021/08/12/git-cherry-pick/</url>
+    <content><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>我在提交 wee7 作業時，發現自己過去不小心在分支上混到 master 的 commit，原本想說要按照 MTR04 的教學影片暴力解移檔案，但後來發現這樣做會洗掉自己過去的 commit，因為自己的 commit 有些訂正紀錄想留下來日後忘了能回去看，所以就去找 git 有沒有什麼方法能解，就找到 cherry pick 了。</p>
+<span id="more"></span>
+
+<p><a href="https://github.com/Lidemy/mentor-program-4th-MoreCoke/pull/9">pr 混到 master commit 的網址</a></p>
+<p><img src="https://static.coderbridge.com/img/MoreCoke/e6ffe19f5407483cbae598c0e98b1d61.png"></p>
+<h3 id="首先"><a href="#首先" class="headerlink" title="首先"></a>首先</h3><p>我先切回 master 分支，更新到最新進度。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git pull https://github.com/Lidemy/mentor-program-4th.git master</span><br><span class="line">git push origin master</span><br></pre></td></tr></table></figure>
+
+<p>刪除剛推的遠端分支。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git push origin :week7</span><br></pre></td></tr></table></figure>
+
+<h3 id="接著"><a href="#接著" class="headerlink" title="接著"></a>接著</h3><p>開個新分支叫 week7-v2。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git checkout -b week7-v2</span><br></pre></td></tr></table></figure>
+
+<p>用 sha 值挑出你要的櫻桃(commit)。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git cherry-pick 96742ce b30854f 226d433 4367007 d36c054 b32de27 134e3a0 f090cc5</span><br></pre></td></tr></table></figure>
+
+<p>關於 sha 值的查找可以用 <code>git reflog</code> 去查。</p>
+<h3 id="最後"><a href="#最後" class="headerlink" title="最後"></a>最後</h3><p>把 week7-v2 推上遠端!</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git push origin week-v2</span><br></pre></td></tr></table></figure>
+
+<h3 id="稍等片刻"><a href="#稍等片刻" class="headerlink" title="稍等片刻"></a>稍等片刻</h3><p><img src="https://static.coderbridge.com/img/MoreCoke/486094d6646947a6b04afd440d173f7f.jpg"></p>
+<h3 id="成功啦"><a href="#成功啦" class="headerlink" title="成功啦~"></a>成功啦~</h3><p>建立 week7-v2 的 PR，再次檢查就會只剩下自己的 commit 喽!</p>
+<p><a href="https://github.com/Lidemy/mentor-program-4th-MoreCoke/pull/10">成功網址</a></p>
+<p><img src="https://static.coderbridge.com/img/MoreCoke/cf25985ff03b4a1f9efee99fc1bf17a3.png"></p>
+<p>最後確認無誤後就能把本地的 week7 分支刪掉了，因為該分支的 commit 還沒 push 到遠端，所以要強制刪除。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git branch -D week7</span><br></pre></td></tr></table></figure>
+
+<h3 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h3><p><a href="https://gitbook.tw/chapters/faq/cherry-pick.html">【狀況題】如果你只想要某個分支的某幾個 Commit？</a><br><a href="https://cythilya.github.io/2018/05/30/git-cherry-pick/">Git: Cherry-pick - 選擇某個分支的某些提交記錄</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>JS Execution Context</title>
+    <url>/2022/05/28/js-execution-context/</url>
+    <content><![CDATA[<h2 id="簡介"><a href="#簡介" class="headerlink" title="簡介"></a>簡介</h2><p>JS 的執行環境(Execution Context)<br>分成兩種:</p>
+<ol>
+<li>Global Execution Context，在讀取 script 標籤時建立，只會有一個</li>
+<li>Function Execution Context，在建立 function 時建立，會有多個</li>
+</ol>
+<p>在執行環境中會有兩個階段:</p>
+<ol>
+<li>Creation Pharse，建立 variable object，建立範疇鍊，建立 this，將宣告的變數和函式提升</li>
+<li>Execution Pharse，逐行執行，定義 this，取決於怎麼呼叫的，變數賦值</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">let</span> b = <span class="number">2</span>;</span><br><span class="line"><span class="variable language_">window</span>.<span class="property">a</span> <span class="comment">// 1</span></span><br><span class="line"><span class="variable language_">window</span>.<span class="property">b</span> <span class="comment">// undefined</span></span><br></pre></td></tr></table></figure>
+
+<p>用 var 宣告的變數如果是出現在函式命名外會被加進 global object，let 不會。</p>
+<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><p><a href="https://medium.com/itsems-frontend/javascript-execution-context-and-call-stack-e36e7f77152e">[JavaScript] Javascript 的執行環境 (Execution context) 與堆疊 (Stack)</a><br><a href="https://medium.com/itsems-frontend/javascript-scope-and-scope-chain-ca17a1068c96">[JavaScript] Javascript 的作用域 (Scope) 與範圍鏈 (Scope Chain)：往外找</a><br><a href="https://hackmd.io/@s_jpXuNwRQiUuGCOQAOZuA/S175l74wY">[week 16] JavaScript 進階 - 什麼是閉包？探討 Closure &amp; Scope Chain</a><br><a href="https://www.freecodecamp.org/news/execution-context-how-javascript-works-behind-the-scenes/">JavaScript Execution Context – How JS Works Behind The Scenes</a><br><a href="https://hackmd.io/@s_jpXuNwRQiUuGCOQAOZuA/S175l74wY">[JavaScript] 執行環境（Execution Context）與堆疊（Stack）</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>JS input 事件介紹</title>
+    <url>/2021/03/27/js-input-event/</url>
+    <content><![CDATA[<p>光是一個 input 就有好多種類型，這篇主要是討論 <code>input type=&#39;text&#39;</code> 的情況。</p>
+<br/>
+事件觸發順序為 keydown => keypress(過時) => beforeinput => input => keyup => change
+<br/>
+
+<span id="more"></span>
+
+<h3 id="事件觸發條件"><a href="#事件觸發條件" class="headerlink" title="事件觸發條件"></a>事件觸發條件</h3><ul>
+<li>keydown: 按下鍵盤時觸發。</li>
+<li>keypress: 按著鍵盤時觸發(過時事件，官方不建議使用)。</li>
+<li>beforeinput: 在 input 事件開始前觸發。</li>
+<li>input: 只要 input 內的值改變就會觸發。</li>
+<li>keyup: 手指離開鍵盤時觸發。</li>
+<li>change: 在 input 輸入完字串後，離開(blur) input 或是在 input 內(focus)按下 enter 時觸發。</li>
+</ul>
+<p>除了 change 事件外，其他事件只要敲鍵盤就會觸發，敲幾次就觸發幾次。<br>input 會有兩種狀態，分別是 focus 和 blur，focus 指目前聚焦在 input 上，會看到一閃一閃的直線(caret)，想成是可以打字的狀態； blur 是離開 input ，此時不會看到一閃一閃的直線。</p>
+<h3 id="其中最常用的事件有三個"><a href="#其中最常用的事件有三個" class="headerlink" title="其中最常用的事件有三個"></a>其中最常用的事件有三個</h3><ul>
+<li>input: 用這事件可以得知目前 input 內的 value 變化和當前的 value。</li>
+<li>change: 只想知道 input 最後一次編輯時的 value 是什麼就用這事件。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> input = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;input&#x27;</span>);</span><br><span class="line">input.<span class="title function_">addEventListener</span>(<span class="string">&#x27;input&#x27;</span>,showValue);</span><br><span class="line"></span><br><span class="line">input.<span class="title function_">addEventListener</span>(<span class="string">&#x27;change&#x27;</span>,showValue);</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">showValue</span>(<span class="params">e</span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(e.<span class="property">target</span>.<span class="property">value</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>keydown(或 keyup): 通常用這事件是想針對特定按鍵像是空白鍵或是刪除鍵進行額外處理。<br>這兩個事件可以接收 keyboardEvent 的物件，物件內有很多東西，其中有兩個超常用到，分別是 key 和 code，兩個都是對應手指按到的鍵，只是回傳的東西有點不太一樣。<br>舉例來說，按 k 時 key 會回傳 <code>k</code> 而 code 會回傳 <code>KeyK</code>；按 1 時 key 會回傳 <code>1</code> 而 code 會回傳 <code>Digit1</code>，其他特殊鍵的話 key 和 code 回傳的幾乎都一樣像是刪除鍵都是回傳 <code>Backspace</code>，不過空白鍵的話 key 會回傳 &#96;&#96; 一個空字元，而 code 會回傳 <code>Space</code>。</li>
+</ul>
+<p>大概知道這幾個就好，其他的可以 <a href="https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/code">查表</a>。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> input = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;input&#x27;</span>);</span><br><span class="line"></span><br><span class="line">input.<span class="title function_">addEventListener</span>(<span class="string">&#x27;keydown&#x27;</span>, <span class="function">(<span class="params">e</span>)=&gt;</span><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`<span class="subst">$&#123;e.key&#125;</span> <span class="subst">$&#123;e.code&#125;</span>`</span>));</span><br></pre></td></tr></table></figure>
+
+<h3 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h3><p><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input">The Input (Form Input) element</a><br><a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/change_event">HTMLElement: change event</a><br><a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/keydown_event">Document: keydown event</a><br><a href="https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent">KeyboardEvent</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>JS try catch 使用方式</title>
+    <url>/2021/03/02/js-try-catch/</url>
+    <content><![CDATA[<h3 id="try-catch-的用途"><a href="#try-catch-的用途" class="headerlink" title="try catch 的用途"></a>try catch 的用途</h3><p>try catch 的使用時機就是避免程式碼出錯造成網頁或是 app crash 的緊急處理，所以也會有人稱 try catch 為錯誤處理，但我個人並沒有很喜歡這個稱呼，我覺得叫做「例外處理」比較貼切，至於原因下面會說。</p>
+<span id="more"></span>
+
+<h3 id="介紹-try-catch-語法"><a href="#介紹-try-catch-語法" class="headerlink" title="介紹 try catch 語法"></a>介紹 try catch 語法</h3><figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line"> 要做的事情</span><br><span class="line">&#125; <span class="keyword">catch</span>(e) &#123;</span><br><span class="line"> 例外處理</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>這個語法會先將 try 區塊中的程式碼執行一次，如果裡面的程式碼有問題就會立刻中止執行，執行步驟會直接跳到 catch 區塊的程式碼，如果 catch 的程式碼又有問題，那網頁就會跳錯。</p>
+<h3 id="介紹-throw"><a href="#介紹-throw" class="headerlink" title="介紹 throw"></a>介紹 throw</h3><p>上面說到如果程式碼遇到問題會終止執行，而這個問題大部分都是我們在瀏覽器上看到的編譯錯誤，最常看到的錯誤有:</p>
+<ul>
+<li>js 的語法錯誤(SyntaxError)，像是 <code>Unexpected token.</code>。</li>
+<li>變數名稱拼錯(ReferenceError)，像是   <code>xxx is undefined.</code>。</li>
+<li>找不到 function(TypeError)，像是 <code>xxx is not a function.</code>。</li>
+</ul>
+<p>瀏覽器會將這些編譯成 Error 物件， 這個物件會被自動拋出(就算不加 throw 也會被拋出)，終止編譯，然後我們就會看到網頁一片空白，開發者工具出現錯誤提示。</p>
+<p>所以就算在 try catch 中不用 throw 丟出 Error 物件， catch 也能捕捉到。</p>
+<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">  <span class="keyword">new</span> <span class="title class_">Error</span>(<span class="string">&#x27;hi&#x27;</span>);</span><br><span class="line">&#125;<span class="keyword">catch</span>(e)&#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(e); <span class="comment">// Error: hi</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>throw 不是只能丟 Error 物件而已，他能丟任何東西，丟 string 、function 等等都行，所以不要誤會了，覺得 try catch 錯誤處理這樣念起來很順口，就覺得他只會處理 Error 物件而已，任何你認為是例外的東西，都能透過 throw 丟出來讓 try catch 處理。</p>
+<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">  <span class="keyword">throw</span> <span class="number">123</span>;</span><br><span class="line">&#125;<span class="keyword">catch</span>(e)&#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(e); <span class="comment">// 123</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="throw-和-return-的差別"><a href="#throw-和-return-的差別" class="headerlink" title="throw 和 return 的差別"></a>throw 和 return 的差別</h3><p>兩者都能中斷程式碼執行，那是不是用哪個都沒差呢?</p>
+<p>先說 return ，只能在 function 中使用，用來回傳值並中斷 function 執行。</p>
+<p>回傳值。</p>
+<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">test</span>(<span class="params"></span>)&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">123</span>;</span><br><span class="line">  xxxxxx <span class="comment">// 這邊不會執行</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">test</span>(); <span class="comment">//123</span></span><br></pre></td></tr></table></figure>
+
+<p>如果沒寫會回傳 undefined。</p>
+<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">test</span>(<span class="params"></span>)&#123;</span><br><span class="line">  <span class="keyword">return</span>;</span><br><span class="line">  xxxx <span class="comment">//這邊不會執行</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">test</span>(); <span class="comment">// undefined</span></span><br></pre></td></tr></table></figure>
+
+<p>再來是 throw，任何地方都能用，用來拋出例外並中斷程式碼執行。在瀏覽器會用紅色來呈現例外。</p>
+<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="keyword">throw</span> <span class="number">123</span>; <span class="comment">// Uncaught 123</span></span><br></pre></td></tr></table></figure>
+
+<p>不能單獨使用，一定要丟出東西，不然會出錯。</p>
+<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="keyword">throw</span>; <span class="comment">// Uncaught SyntaxError: Unexpected token &#x27;;&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>最後來整理一下:</p>
+<ul>
+<li>兩者都能中斷程式碼。</li>
+<li>return 只能在 function 中使用， throw 沒限制。</li>
+<li>return 後面可以不用寫值， throw 後面一定要有值。</li>
+</ul>
+<h3 id="finally-語法"><a href="#finally-語法" class="headerlink" title="finally 語法"></a>finally 語法</h3><p>接在 try catch 後面，可加可不加，在執行 try 或 catch 區塊後的程式碼執行，如果在 try 或 catch 中使用 return 並不會中斷程式碼執行，而是將 try 或 catch 裡的 return 移到 finally 區塊的程式碼最後面執行，看 code 會比較清楚:</p>
+<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">test</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">try</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">	&#125;<span class="keyword">catch</span>(e)&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">111</span>;</span><br><span class="line">	&#125;<span class="keyword">finally</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">222</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">test</span>();</span><br></pre></td></tr></table></figure>
+
+<p>最後會回傳的內容是 222，對 finally 來說，程式碼會長這樣:</p>
+<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="keyword">finally</span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">222</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="跟-if-else-的差別"><a href="#跟-if-else-的差別" class="headerlink" title="跟 if else 的差別"></a>跟 if else 的差別</h3><p>只單看文字的話可以很清楚的知道 if else 和 try catch 是完全不同的，if else 單純的是非判斷， try catch 則是對於意料外的行為所做的處理。</p>
+<p>然而我還滿常搞混的，我覺得這兩個有時候用起來很像，因為我有時寫 if else 時的想法是 if 用來處理可預期的行為， else 用來處理其他沒考慮到的問題。</p>
+<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span>(如果我想的事成真的話)&#123;</span><br><span class="line">  做這些事...</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  做其他事...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>這樣的想法也能用 try catch 寫，但盡量不要這樣: </p>
+<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">  <span class="keyword">if</span>(如果我想的事沒有成真) &#123;</span><br><span class="line">		<span class="keyword">throw</span> <span class="string">&#x27;例外&#x27;</span>;</span><br><span class="line">  &#125;</span><br><span class="line">	做這些事...</span><br><span class="line">&#125; <span class="keyword">catch</span>(e) &#123;</span><br><span class="line">	做其他事...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>不要這樣處理已知的行為流程，如果在專案裡面狂用 try catch 可能要停下來想想自己是不是還沒有真正搞懂哪些功能的行為是屬於正常情況，哪些又是不想讓它發生的例外。在處理非同步、打 api 有時會用到 try catch 避免網頁 crash，這時就要多花點時間想想這方面的問題。</p>
+<p>再舉個實務上的例子，錯誤處理交給前端做，假設今天有個新增 todo list 的 api，如果新增空字串會跳錯，按上面的寫法再做一次:</p>
+<p>這種可解決的錯誤，可以用 if 來擋。</p>
+<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span>(inputValue)&#123;</span><br><span class="line">  打 api</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  提醒用戶不能用留空</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">  打 api</span><br><span class="line">&#125; <span class="keyword">catch</span>(e) &#123;</span><br><span class="line">	提醒用戶不能用留空</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>兩種方法都行。</p>
+<p>那再加一個條件呢? 如果新增重複的內容會跳錯，會丟 Error，可以怎麼改?</p>
+<p>單純的 if else 好像就做不到了，要怎麼知道目前新增的 todo 有沒有重複?</p>
+<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span>(inputValue || 沒有重複的 todo)&#123;</span><br><span class="line">  打 api</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  提醒用戶不能用留空</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>這時就能用 try catch 了。</p>
+<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line"> <span class="keyword">if</span>(!inputValue) <span class="keyword">return</span>;</span><br><span class="line"> 打 api;</span><br><span class="line">&#125; <span class="keyword">catch</span>(e) &#123;</span><br><span class="line"> 提醒已經有重複的內容了</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="結論"><a href="#結論" class="headerlink" title="結論"></a>結論</h3><p>if else 用來處理正確、可預期的流程， try catch 用來應對例外的問題，至於哪些是正確的流程，這個判斷就只能用經驗去累積了。例外之所以是例外就是因為沒想到會有這情況呀!</p>
+<p>對於例外的定義:</p>
+<ul>
+<li>隕石需求。</li>
+<li>不該發生的特殊情況。</li>
+<li>未知的問題。</li>
+</ul>
+<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><ul>
+<li><a href="https://levelup.gitconnected.com/the-definite-guide-to-handling-errors-gracefully-in-javascript-58424d9c60e6">Handling Errors in JavaScript: The Definitive Guide</a></li>
+<li><a href="https://ithelp.ithome.com.tw/articles/10208079">過度焦慮的 try-catch</a></li>
+<li><a href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Guide/Control_flow_and_error_handling">流程控制與例外處理</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error">Error</a></li>
+<li><a href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Statements/return">return</a></li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
+    <title>JS101 隨筆</title>
+    <url>/2020/06/18/js101/</url>
+    <content><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>簡單紀錄我在這堂課學到甚麼東西，大部分的內容都能往下挖講更深，但我現在的目標是搞懂基礎並能夠運用，所以就不會講太多關於底層的觀念，哪天心血來潮再獨立個主題來寫。</p>
+<span id="more"></span>
+
+<h3 id="amp-amp-的短路性質"><a href="#amp-amp-的短路性質" class="headerlink" title="&amp;&amp; || 的短路性質"></a>&amp;&amp; || 的短路性質</h3><h4 id="amp-amp-且"><a href="#amp-amp-且" class="headerlink" title="&amp;&amp;(且)"></a>&amp;&amp;(且)</h4><p>簡單定義 : 必須左右兩側都是 true，才會回傳 true 。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>( <span class="literal">true</span> &amp;&amp; <span class="literal">true</span>); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<p>在 JS 中這些非布林值的資料(物件、陣列、數字、字串)，在放入判斷式比較時會自動幫你轉成布林值，如果想看值轉 boolean 是 true 還是 false 可以用 JS 內建的 Boolean() 去檢查。下方的 truly 和 falsely 就是說資料的布林值是透過轉型得到的，而非 primitive type (純值) 中的 true 和 false。</p>
+<p>如果左側的值轉 boolean 是 truly 的話，不管右側為 truly 還是 falsey , 會<strong>回傳右側的值</strong>。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">3</span> &amp;&amp; <span class="number">0</span>); <span class="comment">// 0</span></span><br></pre></td></tr></table></figure>
+
+<p>看結果有點難懂，可以想成 &amp;&amp; 在背後有偷偷用 Boolean() 轉型。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">3</span> &amp;&amp; <span class="number">0</span>); <span class="comment">// 0</span></span><br><span class="line">---</span><br><span class="line"><span class="number">3</span> &amp;&amp; <span class="number">0</span> <span class="comment">// 我們看到的</span></span><br><span class="line"><span class="literal">true</span> &amp;&amp; <span class="literal">false</span> <span class="comment">// JS 在背後做的</span></span><br></pre></td></tr></table></figure>
+
+<p>如果左側的值轉 boolean 是 falsely 的話會回傳左側的值，<strong>不會管右邊的值</strong>。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">0</span> &amp;&amp; <span class="number">10</span>); <span class="comment">// 0</span></span><br></pre></td></tr></table></figure>
+
+<p>所以 &amp;&amp; 在做的事情就是看左側的值，如果是 falsely，直接回傳左側的結果；是 truly 的話就回傳右側的結果。</p>
+<h4 id="或"><a href="#或" class="headerlink" title="||(或)"></a>||(或)</h4><p>簡單定義 : 左右側兩側只要有個是 true，就會回傳 true。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>( <span class="literal">false</span> || <span class="literal">true</span>); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<p>如果左側的值轉 boolean 是 truly 的話，直接回傳左側的值，<strong>不會管右邊的值</strong>。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">3</span> || <span class="number">0</span>); <span class="comment">// 3</span></span><br></pre></td></tr></table></figure>
+
+<p>如果左側的值轉 boolean 是 falsely 的話會<strong>回傳右側的值</strong>。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">0</span> || <span class="number">10</span>); <span class="comment">// 10</span></span><br></pre></td></tr></table></figure>
+
+<p>|| 在做的事情一樣先看左側的值，如果是 falsely，直接回傳右側的結果；是 truly 的話就回傳左側的結果。</p>
+<p>仔細看的話 &amp;&amp; 和 || 在背後運作的原理滿像的，都是先看左側的值，再決定要不要繼續看右邊的值。</p>
+<p>短路性質就是在說程式只執行左側沒跑右側的情況。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="number">0</span> &amp;&amp; <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;hi&#x27;</span>) <span class="comment">// 0</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="先做再說：do…while"><a href="#先做再說：do…while" class="headerlink" title="先做再說：do…while"></a>先做再說：do…while</h3><p>主要是 chrome 的 debug 教學，忘記能回去看。</p>
+<h3 id="使用-function-時的注意事項"><a href="#使用-function-時的注意事項" class="headerlink" title="使用 function 時的注意事項"></a>使用 function 時的注意事項</h3><p>關於 JS 是傳值(pass by value)還是傳參考(pass by reference)每個人都講的不一樣，還有聽過 pass by sharing 這樣的概念，就用例題解釋這個現象吧，這樣最快。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">changeStuff</span>(<span class="params">a, b, c</span>)</span><br><span class="line">&#123;</span><br><span class="line">  a = a * <span class="number">10</span>;</span><br><span class="line">  b.<span class="property">item</span> = <span class="string">&quot;changed&quot;</span>;</span><br><span class="line">  c = &#123;<span class="attr">item</span>: <span class="string">&quot;changed&quot;</span>&#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> num = <span class="number">10</span>;</span><br><span class="line"><span class="keyword">var</span> obj1 = &#123;<span class="attr">item</span>: <span class="string">&quot;unchanged&quot;</span>&#125;;</span><br><span class="line"><span class="keyword">var</span> obj2 = &#123;<span class="attr">item</span>: <span class="string">&quot;unchanged&quot;</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="title function_">changeStuff</span>(num, obj1, obj2);</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(num); <span class="comment">// 10</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj1.<span class="property">item</span>); <span class="comment">// &quot;changed&quot;</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj2.<span class="property">item</span>); <span class="comment">// &quot;unchanged&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>function 的參數會再複製一份參考，參數 a 和參數 c 的觀念差不多，這邊就只說參數 a ，參數 a 複製了 num &#x3D; 10 的參考，只是最後用 <code>a = a * 10</code>，<strong>重新賦值</strong>改變了參數 a 的參考，所以最後才不會改到 num 的值；而參數 b 因為 <code>b.item = &quot;changed&quot;;</code> 直接改到參考的內容，所以最後變異(mutable)了物件內 item 的值。</p>
+<p>等號的話可以想成是<strong>重新賦值</strong>，直接指派一個新的參考給變數，自然不會動到原本指向參考的內容。</p>
+<p>參考資料:<br><a href="https://stackoverflow.com/questions/518000/is-javascript-a-pass-by-reference-or-pass-by-value-language">Is JavaScript a pass-by-reference or pass-by-value language?</a><br><a href="https://ithelp.ithome.com.tw/articles/10191057">重新認識 JavaScript: Day 05 JavaScript 是「傳值」或「傳址」？</a></p>
+<h3 id="引數（Argument）與參數（Parameter）"><a href="#引數（Argument）與參數（Parameter）" class="headerlink" title="引數（Argument）與參數（Parameter）"></a>引數（Argument）與參數（Parameter）</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">sayhi</span>(<span class="params">name</span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;hi, &#x27;</span>, name);</span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">sayhi</span>(<span class="string">&#x27;MoreCoke&#x27;</span>); <span class="comment">// &#x27;hi, MoreCoke&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>參數就是 function 中的 name，參數是用來告訴使用者這個 function 可以塞甚麼東西。<br>引數就是使用者自己塞進去的東西(‘MoreCoke’)。</p>
+<h3 id="return-不-return，有差嗎？"><a href="#return-不-return，有差嗎？" class="headerlink" title="return 不 return，有差嗎？"></a>return 不 return，有差嗎？</h3><p>在使用 google 開發者檢查工具常搞不懂為什麼會有 undefined。<br>在 function 能看到 :</p>
+<p><img src="https://static.coderbridge.com/img/MoreCoke/1d485571b8f54bb19694cd7bf55b3ec2.png"><br>在 宣告變數也能看到 :</p>
+<p><img src="https://static.coderbridge.com/img/MoreCoke/4c8d3700633542fab59569b3f0d2ddf4.png"></p>
+<p>現在才知道如果沒有 return 值的話，預設會回傳 undefined。</p>
+<p>如果會回傳東西，自然就是印出回傳值了。<br><img src="https://static.coderbridge.com/img/MoreCoke/9ffce0997d994110931b094cdc389de7.png"></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>JS102 如何輸出和使用模組</title>
+    <url>/2020/07/04/js102/</url>
+    <content><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言 :"></a>前言 :</h3><p>為了方便日後的維護，我們會將一個 js 檔案中的功能切割成許多 js 的檔案，每個檔案負責不同的功能，假設現在我有個用來處理數字運算的檔案叫做 <code>all.js</code> ，我可以在將這個檔案依功能細切成不同檔案，負責加法運算的就叫 <code>plus.js</code>，負責減法的叫 <code>minus.js</code>，這樣子切檔案的過程就是模組化，我們之後可以根據自己的需求載相對應的模組，如果今天只要用加法運算那載入 <code>plus.js</code> 就好，不用全部 <code>all.js</code> 都載進來，且各功能互相獨立不會被彼此影響，要 debug 也會容易許多。</p>
+<span id="more"></span>
+
+<h3 id="怎麼做"><a href="#怎麼做" class="headerlink" title="怎麼做?"></a>怎麼做?</h3><p>已上方的例子為例，我今天想在作業 <code>hw1.js</code> 使用加法功能，那我只要載入 <code>plus.js</code> 就好。<br>在 <code>plus.js</code> 輸出 add 這個 function <code>module.exports = add;</code></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// plus.js</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">add</span>(<span class="params">a, b</span>) &#123;</span><br><span class="line">	<span class="keyword">return</span> a + b;</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = add;</span><br></pre></td></tr></table></figure>
+
+<p>在 <code>hw1.js</code> 載入 add 這個 function 來用 <code>const myAdd = require(&#39;./plus.js&#39;);</code></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// hw1.js</span></span><br><span class="line"><span class="keyword">const</span> myAdd = <span class="built_in">require</span>(<span class="string">&#x27;./plus.js&#x27;</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;add&#x27;</span>, <span class="title function_">myAdd</span>(<span class="number">4</span>,<span class="number">5</span>));  <span class="comment">// add 9</span></span><br></pre></td></tr></table></figure>
+
+<p>在 <code>plus.js</code> 也能使用不同的方式輸出，這樣是以<strong>物件</strong>的方式輸出。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// plus.js</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">add</span>(<span class="params">a, b</span>) &#123;</span><br><span class="line">	<span class="keyword">return</span> a + b;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">exports</span>.<span class="property">add</span> = add;</span><br></pre></td></tr></table></figure>
+
+<p>所以在 <code>hw1.js</code> 中引用方式也要更改</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// hw1.js</span></span><br><span class="line"><span class="keyword">const</span> myAdd = <span class="built_in">require</span>(<span class="string">&#x27;./plus.js&#x27;</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;add&#x27;</span>, myAdd.<span class="title function_">add</span>(<span class="number">4</span>,<span class="number">5</span>));  <span class="comment">// add 9</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="想使用-plus-js-全部的加法功能要怎麼做"><a href="#想使用-plus-js-全部的加法功能要怎麼做" class="headerlink" title="想使用 plus.js 全部的加法功能要怎麼做?"></a>想使用 <code>plus.js</code> 全部的加法功能要怎麼做?</h3><p>我們可以將輸入內容寫成物件。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// plus.js</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">add</span>(<span class="params">a, b</span>) &#123;</span><br><span class="line">	<span class="keyword">return</span> a + b;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">threeAdd</span>(<span class="params">a, b, c</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> a + b + c;</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">    <span class="attr">add</span>: add,</span><br><span class="line">    <span class="attr">threeAdd</span>: threeAdd</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 也能這樣寫</span></span><br><span class="line"><span class="comment">// module.exports = &#123;</span></span><br><span class="line"><span class="comment">//     add,</span></span><br><span class="line"><span class="comment">//     threeAdd</span></span><br><span class="line"><span class="comment">// &#125;;</span></span><br></pre></td></tr></table></figure>
+
+<p>輸入時也能安心使用。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// hw1.js</span></span><br><span class="line"><span class="keyword">const</span> myAdd = <span class="built_in">require</span>(<span class="string">&#x27;./plus.js&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;add&#x27;</span>, myAdd.<span class="title function_">add</span>(<span class="number">3</span>,<span class="number">4</span>));</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;threeAdd&#x27;</span>, myAdd.<span class="title function_">threeAdd</span>(<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>));</span><br></pre></td></tr></table></figure>
+
+<h3 id="安裝-babel-node-，在-node-js-中使用-ES6-的前置步驟"><a href="#安裝-babel-node-，在-node-js-中使用-ES6-的前置步驟" class="headerlink" title="安裝 babel-node ，在 node.js 中使用 ES6 的前置步驟"></a>安裝 babel-node ，在 node.js 中使用 ES6 的前置步驟</h3><p>由於 node.js 還沒有支援 <code>import</code> 的新語法，要使用的話需要再安裝 babel-node 來運行， babel 這個工具會將程式碼中新語法的部分轉成舊的語法，這樣可以確保在大部分的環境下(像是 IE 瀏覽器)都能運行。</p>
+<p>這部分想知道更清楚的部分可以去看 <strong>Babel 使用簡介與基本使用方法</strong> 的章節還有 Babel 的文件，這邊就簡單紀錄流程，如何建立環境。</p>
+<p>我們先在本地初始化 npm 用 <code>npm init</code>，接著使用 <code>npm install --save-dev @babel/core @babel/node @babel/preset-env</code> 下載相關套件，接著依 <code>@babel/preset-env</code> 這個套件來設定環境，我們再新增一個 <code>.babelrc</code> 的檔案，加入內容。</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">// .babelrc</span><br><span class="line">&#123;</span><br><span class="line">	&quot;presets&quot;: [&quot;@babel/preset-env&quot;]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>這樣我們就能在 node.js 環境中運行 <code>import</code> 或是 ES6 以上的新語法，指令為 <code>npx babel-node 檔案名</code>。</p>
+<h3 id="使用-ES6-import-語法"><a href="#使用-ES6-import-語法" class="headerlink" title="使用 ES6 import 語法"></a>使用 ES6 import 語法</h3><p>我們前面用 <code>require</code> 和 <code>module.exports</code> 載入語法，我們現在來用 <code>import</code> 試試。</p>
+<p>在 <code>plus.js</code> 中輸出改成在想輸出的東西前加入 <code>export</code> 就好。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// plus.js</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">function</span> <span class="title function_">add</span>(<span class="params">a, b</span>) &#123;</span><br><span class="line">	<span class="keyword">return</span> a + b;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">function</span> <span class="title function_">threeAdd</span>(<span class="params">a, b, c</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> a + b + c;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>或是說統一輸出 <code>export &#123;&#125;</code> 。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// plus.js</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">add</span>(<span class="params">a, b</span>) &#123;</span><br><span class="line">	<span class="keyword">return</span> a + b;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">threeAdd</span>(<span class="params">a, b, c</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> a + b + c;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> &#123;</span><br><span class="line">    add,</span><br><span class="line">    threeAdd</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>要注意的是這邊 <code>export</code> 中的東西(<code>&#123;&#125;</code>) <strong>不是物件</strong>，這樣寫會報錯。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">export</span> &#123;</span><br><span class="line">    <span class="attr">add</span>: add,</span><br><span class="line">    <span class="attr">threeAdd</span>: threeAdd</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如果想要重新幫功能命名的話請用 <code>as</code> 來做。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">export</span> &#123;</span><br><span class="line">    add <span class="keyword">as</span> addFunction,</span><br><span class="line">    threeAdd <span class="keyword">as</span> threeAddFunction</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>這裡也記得用新名字 <code>addFunction</code> 和 <code>threeAddFunction</code> 載入。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// hw1.js</span></span><br><span class="line"><span class="keyword">import</span> &#123;addFunction, threeAddFunction&#125; <span class="keyword">from</span> <span class="string">&#x27;./plus.js&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;myAdd&#x27;</span>, <span class="title function_">addFunction</span>(<span class="number">3</span>,<span class="number">4</span>));</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;myAdd&#x27;</span>, <span class="title function_">threeAddFunction</span>(<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>));</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>可以想成這是一份<strong>輸出清單</strong>，將 <code>add</code> 和 <code>threeAdd</code> 這類需要輸出的東西放進 <code>&#123;&#125;</code> 清單中，英文是寫說 <strong>a list of exported variables</strong>。</p>
+<p>而 <code>import &#123;addFunction, threeAddFunction&#125; from &#39;./plus.js&#39;;</code> 這句意思是說從 <code>plus.js</code> 中載入 <code>addFunction</code> 和 <code>threeAddFunction</code> 來用。**<code>&#123;add, threeAdd&#125;</code> 這是解構賦值的寫法。**</p>
+<p> 想直接載入全部的東西可以用 <code>* as myAdd</code> ， * 代表載入 <code>plus.js</code> 內全部 <code>export</code> 的東西，並將這些東西的<strong>清單</strong>命名為 <code>myAdd</code>。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// hw1.js</span></span><br><span class="line"><span class="keyword">import</span> * <span class="keyword">as</span> myAdd <span class="keyword">from</span> <span class="string">&#x27;./plus.js&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;myAdd&#x27;</span>, myAdd.<span class="title function_">add</span>(<span class="number">3</span>,<span class="number">4</span>));</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;myAdd&#x27;</span>, myAdd.<span class="title function_">threeAdd</span>(<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>));</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>我對這部分沒什麼概念，一開始 Google 也不知道怎麼下關鍵字，我輸入 export {} not object but block js，這些關鍵字後看到 stackoverflow 的討論後才有些頭緒，雖然討論主題不太一樣，但是在討論串的回答有幫到我。</p>
+<p>參考資料:<br><a href="https://developer.mozilla.org/en-US/docs/web/javascript/reference/statements/export">export mdn</a><br><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/block">block mdn</a><br><a href="https://javascript.info/import-export">Export and Import</a><br><a href="https://stackoverflow.com/questions/45447083/re-exporting-modules-does-not-work-with-object-spread">Re-exporting modules does not work with object spread</a></p>
+<p>最後一個用法是 <code>export default</code> 這個用法是預設輸出的內容。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// plus.js</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">function</span> <span class="title function_">add</span>(<span class="params">a, b</span>) &#123;</span><br><span class="line">	<span class="keyword">return</span> a + b;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">function</span> <span class="title function_">threeAdd</span>(<span class="params">a, b, c</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> a + b + c;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>這樣的意思就是預設輸出 <code>add</code> 這個函式。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// hw1.js</span></span><br><span class="line"><span class="keyword">import</span> myAdd, &#123;threeAdd&#125; <span class="keyword">from</span> <span class="string">&#x27;./plus.js&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;myAdd&#x27;</span>, <span class="title function_">myAdd</span>(<span class="number">3</span>,<span class="number">4</span>));</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;myAdd&#x27;</span>, <span class="title function_">threeAdd</span>(<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>));</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>這樣子 <code>myAdd</code> 就會是預設的 <code>add</code> 函式。</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>non-serializable-data-in-redux</title>
+    <url>/2022/08/29/non-serialize-data-in-redux/</url>
+    <content><![CDATA[<h1 id="non-serializable-data-in-redux"><a href="#non-serializable-data-in-redux" class="headerlink" title="non serializable data in redux"></a>non serializable data in redux</h1><p>在 redux 中處理資料要去思考資料能否序列化(serialization)，這些資料能否在取用時轉換成自己需要的格式，並在使用後回復成原本的資料格式。</p>
+<p>在 redux 的官方文件中建議我們設計 store 的變數時盡量用 array 、 object 或是 primitive type value 進行管理。</p>
+<span id="more"></span>
+<h3 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h3><ul>
+<li><a href="https://zh.m.wikipedia.org/zh-tw/%E5%BA%8F%E5%88%97%E5%8C%96">序列化 維基百科</a></li>
+<li><a href="https://redux.js.org/faq/organizing-state#can-i-put-functions-promises-or-other-non-serializable-items-in-my-store-state">Can I put functions, promises, or other non-serializable items in my store state?</a></li>
+<li><a href="https://github.com/reduxjs/redux/issues/1248">Is it ok and possible to store a react component inside a reducer?</a></li>
+<li><a href="http://web.archive.org/web/20150419023006/http://facebook.github.io/react/docs/interactivity-and-dynamic-uis.html#what-should-go-in-state">What Should Go in State?</a></li>
+<li><a href="https://stackoverflow.com/questions/64205930/what-are-the-actual-risks-of-storing-non-serializable-data-items-in-redux-store">What are the actual risks of storing non-serializable data items in Redux store?</a></li>
+</ul>
+<h2 id="non-serializable-data-和-serializable-data-差別"><a href="#non-serializable-data-和-serializable-data-差別" class="headerlink" title="non serializable data 和 serializable data 差別"></a>non serializable data 和 serializable data 差別</h2><ul>
+<li>serializable data</li>
+</ul>
+<p>資料從物件轉成純文字後再轉回物件不會遺失內容，ex: <code>data2 = JSON.parse(JSON.stringify(data))</code> ，從 data 深拷貝過來的 data2 能保留內容，不過還是有例外的情況，如果物件中有 method 會遺失。</p>
+<blockquote>
+<p>data can be converted to pure text without losing information.</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> obj = &#123;</span><br><span class="line">  <span class="attr">a</span>: <span class="number">1</span>,</span><br><span class="line">  <span class="attr">b</span>: <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">2</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> obj2 = <span class="title class_">JSON</span>.<span class="title function_">parse</span>(<span class="title class_">JSON</span>.<span class="title function_">stringify</span>(obj));</span><br><span class="line"></span><br><span class="line"><span class="comment">// obj2: &#123;</span></span><br><span class="line"><span class="comment">// a: 1</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>non serializable data</li>
+</ul>
+<p>像是 Map&#x2F;Set, Promise, Class 等等。</p>
+<h4 id="參考資料-1"><a href="#參考資料-1" class="headerlink" title="參考資料"></a>參考資料</h4><ul>
+<li><a href="https://hashnode.com/post/what-is-the-difference-between-serializable-and-non-serializable-data-civ6ljzwm0eyc2a53v9le803a">What is the difference between serializable and non-serializable data?</a></li>
+<li><a href="https://redux.js.org/style-guide/#do-not-put-non-serializable-values-in-state-or-actions">Do Not Put Non-Serializable Values in State or Actions</a></li>
+</ul>
+<h2 id="遇到問題的情境"><a href="#遇到問題的情境" class="headerlink" title="遇到問題的情境"></a>遇到問題的情境</h2><p>在 接 API 拿資料時使用了 class 物件來整理資料，出現了 non-serializable data 的錯誤，於是將 class 物件改成 function 的方式來處理。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">const</span> data = <span class="keyword">yield</span> <span class="title function_">call</span>(fetchAPI, arg);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> list = data.<span class="title function_">map</span>(<span class="function"><span class="params">d</span> =&gt;</span> <span class="keyword">new</span> <span class="title class_">Model</span>(d));</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Model</span>&#123;</span><br><span class="line">  <span class="title function_">constructor</span>(<span class="params">params</span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">a</span> = params.<span class="property">a</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">get</span> <span class="title function_">aText</span>() &#123;</span><br><span class="line">    <span class="keyword">return</span> a.<span class="title function_">toString</span>();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title function_">_convertA</span> = (<span class="params">num</span>) =&gt; num.<span class="title function_">toString</span>();</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">model</span>(<span class="params">params</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    <span class="attr">a</span>: params.<span class="property">a</span>,</span><br><span class="line">    <span class="attr">aText</span>: <span class="title function_">_convertA</span>(params.<span class="property">a</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="參考資料-2"><a href="#參考資料-2" class="headerlink" title="參考資料"></a>參考資料</h4><ul>
+<li><a href="https://redux-toolkit.js.org/usage/usage-guide#working-with-non-serializable-data">work with serializable data</a></li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
+    <title>React 用 key 強迫 component 重新渲染</title>
+    <url>/2021/04/28/react-force-render-by-key/</url>
+    <content><![CDATA[<p>這應該不是好做法，因為在官方文件上並沒有看到相關的用法，不過這用法很方便就是…。<br>除了 React 外，Vue 也能這樣玩，Angular 沒用過不知道。</p>
+<span id="more"></span>
+
+<h3 id="key-的用法"><a href="#key-的用法" class="headerlink" title="key 的用法"></a>key 的用法</h3><p>我們經常會用陣列的資料搭配 map 來做出多個 component 列表，並在這些 component 都加上 key 用來辨識，日後重新 render 列表時 React 就能透過這些 key 來追蹤哪些 component 沒動過，哪些有被改到，決定是否要保留現有的 DOM 元素要對它更新就好，還是說要砍掉該 DOM 元素再另外建個新的，進而提升渲染的效率。</p>
+<h3 id="為什麼能提升效率"><a href="#為什麼能提升效率" class="headerlink" title="為什麼能提升效率?"></a>為什麼能提升效率?</h3><p>因為在重新 render 時 React 會比較更新過的 state 資料，來更新 Virtual DOM tree 最後才去改 DOM tree，會使用遞迴去檢查內部的東西有沒有改變，這時就可以透過 key 進行初步判斷，先快速找到新舊陣列間兩個新舊元素之間的關聯，最後再將差異反映在 DOM 元素上，而不是每次重新渲染直接把 DOM 元素刪掉後再重做個新的。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 假設改資料前的陣列是 =&gt; [&#123;name:&#x27;apple&#x27;,id:&#x27;a&#x27;&#125;,&#123;name:&#x27;banana&#x27;,id:&#x27;b&#x27;&#125;]</span></span><br><span class="line"><span class="comment">// 透過 setState 改陣列資料後是 =&gt; [&#123;name:&#x27;apple&#x27;,id:&#x27;a&#x27;&#125;,&#123;name:&#x27;pineapple&#x27;,id:&#x27;p&#x27;&#125;]</span></span><br><span class="line">&lt;ul&gt;</span><br><span class="line"> &#123;</span><br><span class="line">   array.<span class="title function_">map</span>(<span class="function"><span class="params">e</span>=&gt;</span><span class="language-xml"><span class="tag">&lt;<span class="name">li</span> <span class="attr">key</span>=<span class="string">&#123;e.id&#125;</span>&gt;</span>&#123;e.name&#125;<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span>)</span><br><span class="line"> &#125;</span><br><span class="line">&lt;/ul&gt;</span><br></pre></td></tr></table></figure>
+
+<p>DOM 的前後變化:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">// 改資料前的樣子</span><br><span class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span> <span class="attr">key</span>=<span class="string">&#x27;a&#x27;</span>&gt;</span>apple<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span> <span class="attr">key</span>=<span class="string">&#x27;banana&#x27;</span>&gt;</span>banana<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"></span><br><span class="line">// 改資料後的樣子</span><br><span class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span> <span class="attr">key</span>=<span class="string">&#x27;a&#x27;</span>&gt;</span>apple<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span> <span class="attr">key</span>=<span class="string">&#x27;p&#x27;</span>&gt;</span>pineapple<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>如果沒有 key，React 看到上面這情況會使用遞迴去看 li 中的內容(children, 也就是 apple 和 banana)所對應到陣列中的哪個元素，有了 key 的幫忙可以更快找到新舊 DOM 元素之間的關係，可以更快知道 <code>key=&#39;a&#39;</code> 這值沒變，直接把舊的 Virtual DOM tree 上的 <code>&lt;li key=&#39;a&#39;&gt;apple&lt;/li&gt;</code> 移到新的 Virtual DOM tree 就好； <code>key=&#39;b&#39;</code> 不見了，舊的 Virtual DOM tree 上的 <code>&lt;li key=&#39;b&#39;&gt;banana&lt;/li&gt;</code> 就不會移到新的 Virtual DOM tree；多了一個新的 <code>key=&#39;p&#39;</code>，在新的 Virtual DOM tree 上建一個新的 <code>&lt;li key=&#39;p&#39;&gt;pineapple&lt;/li&gt;</code>。</p>
+<h3 id="key-的更動代表什麼"><a href="#key-的更動代表什麼" class="headerlink" title="key 的更動代表什麼?"></a>key 的更動代表什麼?</h3><p>相信大家都知道，如果map 出來的列表是會變動的，key 不要綁索引值，這樣 key 無法讓新舊的 Virtual DOM 元素產生對應， key 的變動都會讓 DOM 元素新增或刪除。</p>
+<ul>
+<li>多了新的 key: 建立一個新的 DOM 元素。</li>
+<li>少了一個 key: 把跟該 key 相關的 DOM 元素刪掉。</li>
+</ul>
+<h3 id="用-key-強迫更新"><a href="#用-key-強迫更新" class="headerlink" title="用 key 強迫更新"></a>用 key 強迫更新</h3><p>其實任何 DOM 元素都能加 key，利用更新 key 的方式就能重新 render 該 DOM 元素。當我們更動 key 就相當於:</p>
+<ul>
+<li>舊的 key 不見了 &#x3D;&gt; React 把這個 DOM 元素刪掉(unmount)。</li>
+<li>發現新的 key &#x3D;&gt; React 替這個 key 新增一個 DOM 元素(mount)。</li>
+</ul>
+<h3 id="範例"><a href="#範例" class="headerlink" title="範例"></a>範例</h3><p>我今天有個 video，我想在這個 video播完影片後就去播下個影片，我可以怎麼做?</p>
+<p>我在影片結束時呼叫 onEnded 用來播下個影片，在 source 插入動態連結，這樣有個問題，第一個影片播完後就不會播了，雖然 source 有變，但 react 繼續復用 video 這個 DOM 導致影片連結更新但沒有反應。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> videoNames = [</span><br><span class="line">  <span class="string">&quot;https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm&quot;</span>,</span><br><span class="line">  <span class="string">&quot;https://www.w3schools.com/tags/movie.ogg&quot;</span></span><br><span class="line">];</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">function</span> <span class="title function_">StandbyVideo</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> [videoIdx, setVideoIdx] = <span class="title function_">useState</span>(<span class="number">0</span>);</span><br><span class="line">  <span class="keyword">const</span> <span class="title function_">playNextVideo</span> = (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">    <span class="keyword">const</span> nextVideoIdx = (videoIdx + <span class="number">1</span>) % videoNames.<span class="property">length</span>;</span><br><span class="line">    <span class="title function_">setVideoIdx</span>(nextVideoIdx);</span><br><span class="line">  &#125;;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">video</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">        <span class="attr">className</span>=<span class="string">&#123;css(styles.videoContainer)&#125;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">        <span class="attr">autoPlay</span>=<span class="string">&#123;true&#125;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">        <span class="attr">onEnded</span>=<span class="string">&#123;playNextVideo&#125;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">        <span class="attr">controls</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">      &gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">source</span> <span class="attr">src</span>=<span class="string">&#123;videoNames[videoIdx]&#125;</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;/<span class="name">video</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>加入 key 後就能解決問題了，這樣的意思是每次我的 videoIdx 變了，React 就會把舊的 video 給刪掉(unmount)，再重生一個 video (mount)。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&lt;video</span><br><span class="line">  key=&#123;videoIdx&#125;</span><br><span class="line">  className=&#123;<span class="title function_">css</span>(styles.<span class="property">videoContainer</span>)&#125;</span><br><span class="line">  autoPlay=&#123;<span class="literal">true</span>&#125;</span><br><span class="line">  onEnded=&#123;playNextVideo&#125;</span><br><span class="line">  controls</span><br><span class="line">&gt;</span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">source</span> <span class="attr">src</span>=<span class="string">&#123;videoNames[videoIdx]&#125;</span> /&gt;</span></span></span><br><span class="line">&lt;/video&gt;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>題外話，不用 source 直接將 src 寫在 video 上也能解決需求，因為我想展示 key 重新 render 的效果，所以才這樣寫。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&lt;video</span><br><span class="line">  className=&#123;<span class="title function_">css</span>(styles.<span class="property">videoContainer</span>)&#125;</span><br><span class="line">  autoPlay=&#123;<span class="literal">true</span>&#125;</span><br><span class="line">  onEnded=&#123;playNextVideo&#125;</span><br><span class="line">  src=&#123;videoNames[videoIdx]&#125;</span><br><span class="line">  controls</span><br><span class="line">&gt;</span><br><span class="line">&lt;/video&gt;</span><br></pre></td></tr></table></figure>
+
+<p>附上 <a href="https://codesandbox.io/s/vigorous-ives-t962q?file=/src/StandbyVideo.js:520-784">codesnadbox</a></p>
+<h3 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h3><p><a href="https://zhuanlan.zhihu.com/p/57974487">Virtual Dom &amp;&amp; Diff原理，极简版</a><br><a href="https://ithelp.ithome.com.tw/articles/10234155">[Day 04] 理解React Virtual DOM</a><br><a href="https://zh-hant.reactjs.org/docs/reconciliation.html">Reconciliation</a><br><a href="https://reactjs.org/docs/faq-internals.html#what-is-react-fiber">Virtual DOM and Internals</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>React Native AppState 狀態介紹</title>
+    <url>/2021/03/08/react-native-app-state/</url>
+    <content><![CDATA[<h3 id="手機-app-的行為"><a href="#手機-app-的行為" class="headerlink" title="手機 app 的行為"></a>手機 app 的行為</h3><p>在手機 app 運行時會有兩種狀態，分為前台模式和後台模式，從使用者的角度來說這兩個的差別就是看不看的到。前台模式就是你螢幕顯示 app 的狀態，後台模式就是你沒看到這 app 在執行，可能是你在用其他的 app 或是關掉手機螢幕，如果你沒有強制關閉 app 進到手機的多工模式把 app 往上滑的話，這個 app 其實還是在運作的，所以稱為後台模式，也能把這行為想成是 app 的待機模式。</p>
+<span id="more"></span>
+
+<h3 id="怎麼用"><a href="#怎麼用" class="headerlink" title="怎麼用"></a>怎麼用</h3><p>在 RN 提供了三個 app state:</p>
+<ul>
+<li>active: 前台模式，目前正在使用這個 app</li>
+<li>background: 後台模式，離開 app 到 home 頁面或是改用其他 app 等等</li>
+<li>inactive: 只有 iOS 才有的多工模式，前台模式和後台模式的過渡頁面，如圖</li>
+</ul>
+<p><img src="https://static.coderbridge.com/img/MoreCoke/c6816c2c011b425cb567bb61367b038b.png"><br>圖片取自 <a href="https://mrmad.com.tw/iphone-x-multitasking">[教學] iPhone X 刪除多工處理後台 APP 技巧</a><br><br/></p>
+<p>我們會掛上監聽事件 <code>addEventListener</code>，搭配事件類型 <code>change</code> 取得目前最新的狀況。可以透過 <code>AppState</code> 的 <code>currentState</code> 取得最新的狀態:</p>
+<p>class component</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="title class_">React</span>, &#123;<span class="title class_">Component</span>&#125; <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123;<span class="title class_">AppState</span>&#125; <span class="keyword">from</span> <span class="string">&#x27;react-native&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Test</span> <span class="keyword">extends</span> <span class="title class_ inherited__">Component</span> &#123;</span><br><span class="line">  state = &#123;</span><br><span class="line">    <span class="attr">appState</span>: <span class="title class_">AppState</span>.<span class="property">currentState</span></span><br><span class="line">  &#125;;</span><br><span class="line">  </span><br><span class="line">  <span class="title function_">updateState</span>(<span class="params">newState</span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="title function_">setState</span>(&#123;</span><br><span class="line">      <span class="attr">appState</span>: newState;</span><br><span class="line">    &#125;,<span class="function">()=&gt;</span> <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;Current state: &#x27;</span>,<span class="variable language_">this</span>.<span class="property">state</span>.<span class="property">appState</span>););</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="title function_">componentDidMount</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="title class_">AppState</span>.<span class="title function_">addEventListener</span>(<span class="string">&#x27;change&#x27;</span>,<span class="variable language_">this</span>.<span class="property">updateState</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="title function_">componentWillUnmount</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="title class_">AppState</span>.<span class="title function_">removeEventListener</span>(<span class="string">&#x27;change&#x27;</span>,<span class="variable language_">this</span>.<span class="property">updateState</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>記得要清除監聽事件，不然會有記憶體殘留的問題。</p>
+<p>function component</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="title class_">React</span>, &#123;useState, useEffect&#125; <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123;<span class="title class_">AppState</span>&#125; <span class="keyword">from</span> <span class="string">&#x27;react-native&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">Test</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> [appState, setAppState] = <span class="title function_">useState</span>(<span class="title class_">AppState</span>.<span class="property">currentState</span>);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> <span class="title function_">updateState</span> = (<span class="params">newState</span>) =&gt; &#123;</span><br><span class="line">    <span class="title function_">setAppState</span>(newState);</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;Current state: &#x27;</span>, newState);</span><br><span class="line">  &#125;;</span><br><span class="line">  <span class="title function_">useEffect</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="title class_">AppState</span>.<span class="title function_">addEventListener</span>(<span class="string">&#x27;change&#x27;</span>,updateState);</span><br><span class="line">    <span class="keyword">return</span> <span class="function">() =&gt;</span> &#123;</span><br><span class="line">      <span class="title class_">AppState</span>.<span class="title function_">removeEventListener</span>(<span class="string">&#x27;change&#x27;</span>,updateState);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,[]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h3><p><a href="https://reactnative.dev/docs/appstate">AppState</a></p>
+<p><a href="https://rossbulat.medium.com/working-with-app-state-and-event-listeners-in-react-native-ffa9bba8f6b7">Working with App State and Event Listeners in React Native</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>React Native 手動換字型</title>
+    <url>/2021/03/11/react-native-change-font-family/</url>
+    <content><![CDATA[<p>使用版本: 0.63<br>適用版本: 0.6 以上</p>
+<p>React Native 在 0.6 版本後就不再支援 react-native link，所以要用其他方法換字型。</p>
+<p>我是跟著這篇文章(<a href="https://medium.com/@mehrankhandev/ultimate-guide-to-use-custom-fonts-in-react-native-77fcdf859cf4">Ultimate guide to use custom fonts in react native</a>)手動部分的教學做的，但還是遇到文章沒提到的問題，所以再另外寫這篇出來。</p>
+<p>遇到的地雷:</p>
+<ul>
+<li>使用自訂字型後<a href="https://github.com/facebook/react-native/issues/25852#issuecomment-646469383">不能使用 fontWeight</a>或其他<a href="https://stackoverflow.com/a/58765980">會改變字體形狀的 style 可能也不行</a>，不然無法套入字型</li>
+<li>字型用 ttf 格式比較穩， otf 有時無法套入?</li>
+<li>關於 Xcode 上介面操作問題，如果資料夾顏色是藍色而非黃色，代表 Xcode 沒有成功追蹤到該資料夾，字型會無法套入。(下面附圖和流程)</li>
+</ul>
+<span id="more"></span>
+
+<p>教學:<br>先去下載字型。</p>
+<p>安卓部分滿簡單的，進到 <code>android/app/src/mains</code> 目錄下， 加入資料夾就能用了，我這裡建了兩層資料夾 <code>assets/fonts</code>。<br><img src="https://static.coderbridge.com/img/MoreCoke/e100ed8677c34c04a5691e82e03eeec5.png"></p>
+<p>iOS 的話比較麻煩，要到 Xcode 上面改，打開 ios 資料夾，點選 <code>.xcodeproj</code> 結尾的檔案。<br><img src="https://static.coderbridge.com/img/MoreCoke/75bef777879743d6bf7ce75a93cde90d.png"></p>
+<p>雖然 <a href="https://developer.apple.com/documentation/uikit/text_display_and_fonts/adding_a_custom_font_to_your_app">Apple 開發者文件</a>說可以用拖曳檔案的方式加入，但我這樣做檔案沒辦法追蹤。<br><img src="https://static.coderbridge.com/img/MoreCoke/2cfaaf0f723e49f0b864531cdaf7cfc1.png"><br>拖曳到 SampleProject 裡。<br><img src="https://static.coderbridge.com/img/MoreCoke/bdc903fa871c4e8eaba4e71d0e7b5779.png"></p>
+<p>資料夾顏色還是藍色的，代表 Xcode 沒有追蹤成功。<br><img src="https://static.coderbridge.com/img/MoreCoke/32a22779ada247f1846a6ee57eb39acd.png"></p>
+<p>把這個檔案刪掉重用。<br><img src="https://static.coderbridge.com/img/MoreCoke/d8680f53b5ef461a98dbf054ac4fc9a7.png"></p>
+<p><img src="https://static.coderbridge.com/img/MoreCoke/fe8156bb2d894a65be759ac822c930c8.png"></p>
+<p>用加入 <code>New group</code> 方式最穩最安全，只要資料夾顏色是黃色就代表成功了。<br><img src="https://static.coderbridge.com/img/MoreCoke/b9b53330816d494882138ca537373612.png"></p>
+<p>可以在右側欄位改資料夾名字。<br><img src="https://static.coderbridge.com/img/MoreCoke/a5f21744a3eb4eddb0ab69716f60b6ef.png"></p>
+<p>這時可以看到 fonts 的資料夾變成黃色的，代表成功被 Xcode 追蹤了。接著我們對這資料夾按右建再將字型檔案加入。</p>
+<p><img src="https://static.coderbridge.com/img/MoreCoke/1479a9e5dac54c19bec86e835daab35b.png"><br><img src="https://static.coderbridge.com/img/MoreCoke/3fe1a96e96334f5ea67a0d41e5e9b667.png"></p>
+<p>接著麻煩的地方來了，找出 <code>Info.plist</code> 這個檔案。<br><img src="https://static.coderbridge.com/img/MoreCoke/21fb6f95a1b5421198229d7c2772feec.png"></p>
+<p>會進到這個列表，點選 + 號的按紐。<br><img src="https://static.coderbridge.com/img/MoreCoke/2549c75d98384971b530bbcb1d22ce6f.png"></p>
+<p>新增這個欄位 <code>Fonts provided by application</code>， 然後再把字體的檔案名打上去。<br><img src="https://static.coderbridge.com/img/MoreCoke/dc51e44656534334a64e94e3c0e135c3.png"></p>
+<p>回到 vscode 會看到以下的更改:</p>
+<p><img src="https://static.coderbridge.com/img/MoreCoke/8ee3bbfd0aab4c9e8476147156769c8b.png"></p>
+<p><img src="https://static.coderbridge.com/img/MoreCoke/cf1d6ce72ca447beb77089fb5479a7ee.png"></p>
+<p>通常 <code>cmd + r</code> 重新整理就能看到新的字體了，沒有的話就關掉模擬器重跑 <code>react-native run-ios --simulator=&#39;iPhone 12 Pro&#39;</code>。安卓也是同樣道理，可以先到 android 資料夾使用指令清空暫存 <code>./gradlew clean</code> ，如果不行再重開 <code>react-native run android</code>。</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>rupa/z, autojump 設定</title>
+    <url>/2021/05/28/rupa-z-and-autojump-setting/</url>
+    <content><![CDATA[<p>這兩個套件可以幫我們記憶透過 <code>cd</code> 切換的目錄資料夾，讓我們可以不用打一長串路徑，無形中省下不少時間。</p>
+<h3 id="rupa-x2F-z"><a href="#rupa-x2F-z" class="headerlink" title="rupa&#x2F;z"></a>rupa&#x2F;z</h3><p>ex:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cd documents/test/subtest</span><br><span class="line">z subtest</span><br></pre></td></tr></table></figure>
+
+<span id="more"></span>
+
+<p>看你想把 z 的檔案放哪，我是習慣放 $HOME 目錄下。<br>首先打開 iTerms，接著到官網 <a href="https://github.com/rupa/z">rupa&#x2F;z</a> 下載專案。<br><code>git clone https://github.com/rupa/z.git</code></p>
+<p><img src="https://static.coderbridge.com/img/MoreCoke/f2aedfebeb524bb98668b4bd47fbbbd9.png"></p>
+<p>打開你的 .zshrc，這個檔案是用來設定所有 zsh 相關的文字檔。<br><code>open .zshrc</code><br><img src="https://static.coderbridge.com/img/MoreCoke/0c88083436f545bf8b6b9ffd798a3b11.png"></p>
+<p>將 <code>source ~/z/z.sh</code> 貼上去，<code>source</code> 等於 <code>.</code> ，用來執行 shell command。<br><img src="https://static.coderbridge.com/img/MoreCoke/87e39f696ee94532b8044fdb73f1da82.png"></p>
+<p>接著回到 iTerms 執行 <code>source .zshrc</code> 或是 <code>. .zshrc</code>，如果用 <code>.</code> 執行你會發現 command line 找不到相關的目錄。<br><img src="https://static.coderbridge.com/img/MoreCoke/e43e4054472c4f1fb66ef3fd303a53cb.png"><br>用 <code>.</code> 路徑要寫清楚點算是個坑要注意些，<code>. ~/z/z.sh</code> 或 <code>. ./z/z.sh</code>。<br><img src="https://static.coderbridge.com/img/MoreCoke/cce05bf37009464bb2c4ba9a40be7491.png"></p>
+<p>這樣用 cd 切換目錄幾次後就能抓到該目錄了，直接輸入 <code>z 目錄名</code> 就好了。</p>
+<h3 id="autojump"><a href="#autojump" class="headerlink" title="autojump"></a>autojump</h3><p>我個人比較喜歡這套件，一樣先到 <a href="https://github.com/wting/autojump">github</a> 將專案 clone 下來，我的話一樣放在 $HOME 目錄下。<br><code>git clone https://github.com/wting/autojump.git</code><br><img src="https://static.coderbridge.com/img/MoreCoke/7cc11c288b3640a7afe7358e39baf4aa.png"></p>
+<p>接著照 <code>READ.md</code> 的指令做，移動到 autojump 資料夾執行 <code>.install.py</code>。</p>
+<p>打開 <code>.zshrc</code> 設定路徑，你可以在 autojump 的 bin 資料夾看到 <code>autojump.zsh</code> 這檔案，把這路徑寫進去，<code>source ~/autojump/bin/autojump.zsh</code>。<br><img src="https://static.coderbridge.com/img/MoreCoke/7acc1b4a4c0e4973ba2cea712a56fcec.png"></p>
+<p>回到 iTerms 執行 <code>source .zshrc</code>，一樣 cd 切換目錄幾次後就能透過 <code>j</code> 這指令來切換目錄了。<br>ex:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cd documents/test/subtest</span><br><span class="line">j subtest</span><br><span class="line">/Users/xxx/documents/test/subtest</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://static.coderbridge.com/img/MoreCoke/cf0092ef8d124566a826f7db0b659117.png"></p>
+<p>跟 z 不同的是 autojump 會有紅字提醒說這完整路徑是什麼，不確定 z 有沒有提供，不過我懶得研究了。我用 z 有時候會有抓不到相關路徑的問題讓我挺困擾的，目前也找不到原因。</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>target=&quot;_blank&quot; 風險問題處理，加入 rel=&quot;noreferrer noopener&quot;</title>
+    <url>/2020/10/19/target-_blank/</url>
+    <content><![CDATA[<p>target 是 <a> 標籤的屬性，點擊此連結會再新開一個分頁。在處理 eslint 提供的警告時，看到了這個。</p>
+<p><img src="https://static.coderbridge.com/img/MoreCoke/a2e73b0f540849aebdf05faf048898d0.png"></p>
+<p>爬文後得知加入 <code>rel=&quot;noreferrer noopener&quot;</code> 可以避免原本的網站被重新導向,如果沒加，有心人士可以在新開的分頁寫 js 用 <code>window.opener.location.href=&#39;網址&#39;</code> 把原本的網址重新導向。記得網址要加 <code>https://</code>，不然會被視為網址參數的。</p>
+<span id="more"></span>
+
+<p>目前想到可以用來作釣魚網站，有看過澳門首家賭場的老司機就會知道，點擊的影片會導入新分頁而不是在原本的頁面播放，然後原本的頁面會重新載入到奇怪的遊戲網頁。</p>
+<p>寫了個簡單的 <a href="https://codesandbox.io/s/relnoreferrer-noopener-36c0t">code</a> <a href="https://36c0t.csb.app/">demo</a></p>
+<h3 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h3><p><a href="https://stackoverflow.com/questions/35254564/javascript-window-location-not-working">javascript window.location not working
+</a><br><a href="https://pjchender.blogspot.com/2020/05/relnoreferrer-targetblank.html">[掘竅] 為什麼要使用 rel&#x3D;”noreferrer noopener”，談 target&#x3D;”_blank” 的安全性風險</a><br><a href="https://yungke.me/rel-noopener/">rel&#x3D;noopener 這回事</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>querySelector 和 getElement 差別</title>
+    <url>/2021/04/11/the-difference-between-query-selector-and-get-element/</url>
+    <content><![CDATA[<p>querySelector 取得的 NodeList 是靜態的， getElement 取得的 NodeList 是動態的。</p>
+<span id="more"></span>
+
+<h3 id="以下這兩段寫法會得到什麼結果呢"><a href="#以下這兩段寫法會得到什麼結果呢" class="headerlink" title="以下這兩段寫法會得到什麼結果呢?"></a>以下這兩段寫法會得到什麼結果呢?</h3><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> list = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;ul&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> listChild = list.<span class="title function_">querySelectorAll</span>(<span class="string">&#x27;li&#x27;</span>);</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; listChild.<span class="property">length</span>; i++)&#123;</span><br><span class="line">  <span class="keyword">const</span> li = <span class="variable language_">document</span>.<span class="title function_">createElement</span>(<span class="string">&quot;li&quot;</span>);</span><br><span class="line">    list.<span class="title function_">appendChild</span>(li);</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(i);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Ans: 只跑一次迴圈。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> list = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;ul&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> listChild = list.<span class="title function_">getElementsByTagName</span>(<span class="string">&#x27;li&#x27;</span>);</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; listChild.<span class="property">length</span>; i++)&#123;</span><br><span class="line">  <span class="keyword">const</span> li = <span class="variable language_">document</span>.<span class="title function_">createElement</span>(<span class="string">&quot;li&quot;</span>);</span><br><span class="line">    list.<span class="title function_">appendChild</span>(li);</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(i);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Ans: 無窮迴圈。</p>
+<p>基本上 NodeList 是會動態變化的，透過 querySelector 的方式可取得靜態的 NodeList，可以想成存在 <code>var listChild</code> 變數內的資料 <code>list.querySelectorAll(&#39;li&#39;)</code> 會是取得當下的狀態，當時 ul 下只有一個 li，所以長度只會是 1；用 getElement 系列的方式會直接取得動態的 NodeList，所以每跑完一次迴圈時， listChild.length 也會加 1，進而造成無窮迴圈。</p>
+<p>附上 <a href="https://codepen.io/moreCoke/pen/ZELrOqv?editors=1111">codepen</a>。</p>
+<h3 id="題外話-跟-querySelector-和-getElement-無關，這樣寫會怎麼樣呢"><a href="#題外話-跟-querySelector-和-getElement-無關，這樣寫會怎麼樣呢" class="headerlink" title="題外話~跟 querySelector 和 getElement 無關，這樣寫會怎麼樣呢?"></a>題外話~跟 querySelector 和 getElement 無關，這樣寫會怎麼樣呢?</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> list = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;ul&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> listLength = list.<span class="title function_">querySelectorAll</span>(<span class="string">&quot;li&quot;</span>).<span class="property">length</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; listLength; i++)&#123;</span><br><span class="line">  <span class="keyword">const</span> li = <span class="variable language_">document</span>.<span class="title function_">createElement</span>(<span class="string">&quot;li&quot;</span>);</span><br><span class="line">    list.<span class="title function_">appendChild</span>(li);</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(i);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Ans: 只跑一次迴圈。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> list = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;ul&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> listLength = list.<span class="title function_">getElementsByTagName</span>(<span class="string">&#x27;li&#x27;</span>).<span class="property">length</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; listLength; i++)&#123;</span><br><span class="line">  <span class="keyword">const</span> li = <span class="variable language_">document</span>.<span class="title function_">createElement</span>(<span class="string">&quot;li&quot;</span>);</span><br><span class="line">    list.<span class="title function_">appendChild</span>(li);</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(i);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Ans: 只跑一次迴圈。</p>
+<p>用 getElement 不是會動態產生 NodeList 嗎?怎麼不會跑無窮迴圈?<br>其實跟這無關，這是存變數的問題，這樣寫是因為我們事先將 ul 中 所有 li 的長度記錄起來了，當時存變數時長度就是 1。<br>所以想避免無窮迴圈的話也能透過改變存變數的方式避免無窮迴圈。</p>
+<p>一開始我這樣寫 code 想試著讓 getElement 跑出無窮迴圈結果都沒有，找了很久都不知到哪裡有問題，紀念一下這錯誤，花了我兩個小時 debug。</p>
+<h3 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h3><p><a href="https://www.zhihu.com/question/24702250">querySelectorAll 方法相比 getElementsBy 系列方法有什么区别？</a></p>
+<p><a href="https://ithelp.ithome.com.tw/articles/10191765">重新認識 JavaScript: Day 12 透過 DOM API 查找節點</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>為什麼寫在 label 上的 click 事件會觸發兩次?</title>
+    <url>/2021/04/16/why-click-event-triggers-twice/</url>
+    <content><![CDATA[<p>這是我在寫 react 時遇到的問題，不過這問題跟 react 無關，簡化後的程式碼長這樣。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&lt;label onClick=&#123;<span class="function">() =&gt;</span> <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;label trigger&#x27;</span>)&#125;&gt;</span><br><span class="line">    render <span class="keyword">from</span> react &lt;input type=<span class="string">&quot;checkbox&quot;</span> /&gt;</span><br><span class="line">&lt;/label&gt;</span><br></pre></td></tr></table></figure>
+
+<span id="more"></span>
+
+<p>觸發點擊事件後 console.log 印了兩次，當時一直搞不懂為什麼，就先把 onClick 事件移到 input 去，解決了重複觸發事件的問題。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&lt;label&gt;</span><br><span class="line">    render <span class="keyword">from</span> react &lt;input type=<span class="string">&quot;checkbox&quot;</span>  onClick=&#123;<span class="function">() =&gt;</span> <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;label trigger&#x27;</span>)&#125; /&gt;</span><br><span class="line">&lt;/label&gt;</span><br></pre></td></tr></table></figure>
+
+<p>或是在 label 上把 onClick 事件加上 stopPropagation 也行。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&lt;label onClick=&#123;<span class="function">(<span class="params">e</span>) =&gt;</span>&#123;</span><br><span class="line">  e.<span class="title function_">stopPropagation</span>();</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;label trigger&#x27;</span>)</span><br><span class="line">&#125;&#125;&gt;</span><br><span class="line">    render <span class="keyword">from</span> react &lt;input type=<span class="string">&quot;checkbox&quot;</span> /&gt;</span><br><span class="line">&lt;/label&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="為什麼會這樣"><a href="#為什麼會這樣" class="headerlink" title="為什麼會這樣?"></a>為什麼會這樣?</h3><p>真的想破頭搞不懂，去 google 後看到 stackoverflow 也有人問了一樣的問題 <a href="https://stackoverflow.com/questions/24501497/why-the-onclick-element-will-trigger-twice-for-label-element">Why the onclick element will trigger twice for label element
+</a>。<br>解答是說在觸發 label 上的點擊事件時也會將這 click 事件傳到跟這 label 有關的 input 去，然後 input 出現冒泡事件才會讓寫在 label 上的 click 事件被觸發兩次。</p>
+<p>當時還是不太懂意思又跑去看 label 的 <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/label">mdn 文件</a>，在 <strong>其他使用事項</strong> 有看到解釋，在 label 上的事件也會連帶觸發相關標籤(input) 的事件。</p>
+<h3 id="複習事件捕獲和冒泡"><a href="#複習事件捕獲和冒泡" class="headerlink" title="複習事件捕獲和冒泡"></a>複習事件捕獲和冒泡</h3><p>當時看完 stackoverflow 後大概知道跟冒泡事件有關，但我那時還是不知道為什麼 label 的點擊事件會往下傳給 input，難道捕獲事件不是停在 label 而是繼續往下傳嗎?</p>
+<p>當時我對事件捕獲和冒泡的想法:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&lt;label onClick=&#123;<span class="function">()=&gt;</span><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;label click&#x27;</span>)&#125;&gt;</span><br><span class="line"> render <span class="keyword">from</span> react &lt;input type=<span class="string">&quot;checkbox&quot;</span>&gt;</span><br><span class="line">&lt;/label&gt;</span><br></pre></td></tr></table></figure>
+
+<p>捕獲順序: document -&gt; label<br>冒泡順序: label -&gt; document</p>
+<p>前面有說到因為 label 的特性也會連帶觸發 input 的事件，所以我們能拆成兩件事來看。可以想成我們點 label 的同時也在點 input。</p>
+<p>先從 label 來看，捕獲冒泡順序:<br>捕獲順序: document-&gt; label<br>冒泡順序: label -&gt; document<br>這邊我們沒有理解錯誤。</p>
+<p>再來是 input 的捕獲冒泡順序:<br>捕獲順序: document -&gt; label -&gt; input<br>冒泡順序: input -&gt; label -&gt; document</p>
+<p>我們在 label 觸發點擊事件時印出了 label click，與此同時 input 也開始它自己的點擊事件，然後 input 事件開始冒泡到 label 時又會再次觸發到 label 的點擊事件，所以我們會看到 label click 印了兩次。</p>
+<p>為了方便理解我們在 input 內多加個點擊事件就能更了解來龍去脈了。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&lt;label onClick=&#123;<span class="function">()=&gt;</span><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;label click&#x27;</span>)&#125;&gt;</span><br><span class="line"> render <span class="keyword">from</span> react &lt;input type=<span class="string">&quot;checkbox&quot;</span> onClick=&#123;<span class="function">()=&gt;</span><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;input click&#x27;</span>)&#125;&gt;</span><br><span class="line">&lt;/label&gt;</span><br></pre></td></tr></table></figure>
+
+<p>點擊 label 的字 <code>render from react</code> 這樣印出的結果會是這樣:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">label click</span><br><span class="line">input click</span><br><span class="line">label click</span><br></pre></td></tr></table></figure>
+
+<p>如果是直接點擊 input 會印出這樣的結果:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">input click</span><br><span class="line">label click</span><br></pre></td></tr></table></figure>
+
+<p>覺得這地雷滿可怕的，沒注意到的話，真的會搞不懂為什麼有時候點擊 label 會觸發兩次，為什麼有時候又會正常只觸發一次，其實差別就是在點字 <code>render from react</code> 或是直接點 input。</p>
+<h3 id="額外補充"><a href="#額外補充" class="headerlink" title="額外補充"></a>額外補充</h3><p>事件傳遞的順序是先捕獲再冒泡，那在觸發事件的 label 上是先捕獲還是先冒泡?<br>這要看監聽事件的先後順序。</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">label</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>這樣會先印 capture 再來是 bubble。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">input.<span class="title function_">addEventListener</span>(<span class="string">&#x27;click&#x27;</span>,<span class="function">()=&gt;</span><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;capture&#x27;</span>),<span class="literal">true</span>);</span><br><span class="line">input.<span class="title function_">addEventListener</span>(<span class="string">&#x27;click&#x27;</span>,<span class="function">()=&gt;</span><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;bubble&#x27;</span>));</span><br></pre></td></tr></table></figure>
+
+<p>這樣會先印 bubble 再來是 capture。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">input.<span class="title function_">addEventListener</span>(<span class="string">&#x27;click&#x27;</span>,<span class="function">()=&gt;</span><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;bubble&#x27;</span>));</span><br><span class="line">input.<span class="title function_">addEventListener</span>(<span class="string">&#x27;click&#x27;</span>,<span class="function">()=&gt;</span><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;capture&#x27;</span>),<span class="literal">true</span>);</span><br></pre></td></tr></table></figure>
+
+<p>不過在 react 的話都是先捕獲再冒泡。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&lt;label&gt;</span><br><span class="line">        render <span class="keyword">from</span> react &lt;input type=<span class="string">&quot;checkbox&quot;</span> onClick=&#123;<span class="function">() =&gt;</span> <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;label bubble trigger&#x27;</span>)&#125; onClickCapture=&#123;<span class="function">() =&gt;</span> <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;label capture trigger&#x27;</span>)&#125;/&gt; </span><br><span class="line">    &lt;/label&gt;</span><br></pre></td></tr></table></figure>
+
+<p>腦洞大開換 props 順序也是一樣。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&lt;label&gt;</span><br><span class="line">        render <span class="keyword">from</span> react &lt;input type=<span class="string">&quot;checkbox&quot;</span> onClickCapture=&#123;<span class="function">() =&gt;</span> <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;label capture trigger&#x27;</span>)&#125; onClick=&#123;<span class="function">() =&gt;</span> <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;label bubble trigger&#x27;</span>)&#125;/&gt; </span><br><span class="line">    &lt;/label&gt;</span><br></pre></td></tr></table></figure>
+
+<p>都是先印 capture 再來 bubble。</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>windows edge swipe 設定</title>
+    <url>/2021/05/22/window-edge-swiping-setting/</url>
+    <content><![CDATA[<p>在 windows 10 的觸控模式下想避免使用者利用邊緣滑動叫出工具列可以怎麼做?</p>
+<p>可以透過鎖定 windows 的邊緣滑動達到需求。</p>
+<h2 id="提醒-改機碼要萬分小心，要非常清楚自己改什麼，不小心沒弄好是要重灌的"><a href="#提醒-改機碼要萬分小心，要非常清楚自己改什麼，不小心沒弄好是要重灌的" class="headerlink" title="提醒: 改機碼要萬分小心，要非常清楚自己改什麼，不小心沒弄好是要重灌的!"></a>提醒: 改機碼要萬分小心，要非常清楚自己改什麼，不小心沒弄好是要重灌的!</h2><span id="more"></span>
+
+<h3 id="懶人包"><a href="#懶人包" class="headerlink" title="懶人包"></a>懶人包</h3><p>將以下內容複製到記事本存成 reg 檔，點擊後就能使用。</p>
+<p>關閉 edge swipe:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Windows Registry Editor Version 5.00</span><br><span class="line"></span><br><span class="line">[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\EdgeUI]</span><br><span class="line">&quot;AllowEdgeSwipe&quot;=dword:00000000</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>復原 edge swipe:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Windows Registry Editor Version 5.00</span><br><span class="line"></span><br><span class="line">[-HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\EdgeUI]</span><br></pre></td></tr></table></figure>
+
+<h3 id="怎麼做"><a href="#怎麼做" class="headerlink" title="怎麼做?"></a>怎麼做?</h3><p>方法1:</p>
+<ol>
+<li>到 windows 工具列搜尋 regedit 點開登錄編輯程式。<br><img src="https://static.coderbridge.com/img/MoreCoke/0a49bd25715d453a980c96791a5b928d.png"></li>
+<li>進到這路徑下 HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows 建立 EdgeUI 的機碼。<br><img src="https://static.coderbridge.com/img/MoreCoke/91b6e08a6e6c4ddb8d9a3c1d8b5f340b.png"></li>
+<li>在 EdgeUI 下 新增 AllowEdgeSwipe 的 DWORD(32-bit) Value 檔案。<br><img src="https://static.coderbridge.com/img/MoreCoke/f8b92e3fc60445f4aa0551cfee3fcd00.png"></li>
+<li>確認 AllowEdgeSwipe 是 0 就大功告成了，0 就是 false，這樣就是關閉 edge swipe 了。<br><img src="https://static.coderbridge.com/img/MoreCoke/60c8ed2eab2a4d29bc3cee89648efe20.png"></li>
+<li>這時邊緣滑動已經鎖起來了，如果發現還能透過邊緣滑動叫出工具列，那就重開機試試。</li>
+</ol>
+<h3 id="想回復邊緣滑動怎麼辦"><a href="#想回復邊緣滑動怎麼辦" class="headerlink" title="想回復邊緣滑動怎麼辦?"></a>想回復邊緣滑動怎麼辦?</h3><p>把 EdgeUI 整個資料夾或是 AllowEdgeSwipe 這檔案刪掉就好。</p>
+<h3 id="每次都要這樣點資料夾很麻煩，有偷懶的方式嗎"><a href="#每次都要這樣點資料夾很麻煩，有偷懶的方式嗎" class="headerlink" title="每次都要這樣點資料夾很麻煩，有偷懶的方式嗎?"></a>每次都要這樣點資料夾很麻煩，有偷懶的方式嗎?</h3><p>可以建立 reg 檔。右鍵點 EdgeUI 按匯出。<br><img src="https://static.coderbridge.com/img/MoreCoke/221cb75d32fb4da4839c54c0287c3d80.png"><img src="https://static.coderbridge.com/img/MoreCoke/d2b4542a696142efb7fabe994e8980ad.png"></p>
+<p>這樣就能看到上面懶人包的程式碼了。</p>
+<p>關閉 edge swipe:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Windows Registry Editor Version 5.00</span><br><span class="line"></span><br><span class="line">[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\EdgeUI]</span><br><span class="line">&quot;AllowEdgeSwipe&quot;=dword:00000000</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>對於回復滑動的做法我是直接將 EdgeUI 這機碼整個刪除，所以會看到 <code>HKEY_LOCAL_MACHINE</code> 前多了個減號。</p>
+<p>復原 edge swipe:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Windows Registry Editor Version 5.00</span><br><span class="line"></span><br><span class="line">[-HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\EdgeUI]</span><br></pre></td></tr></table></figure>
+
+<p>方法2:<br>適用版本: windows 10 pro。</p>
+<ol>
+<li><code>win + r</code> 輸入 gpedit.msc 開啟本機群組原則編輯器。<br><img src="https://static.coderbridge.com/img/MoreCoke/3edb25145c4d4a499c5cf8e305d13201.png"><br><img src="https://static.coderbridge.com/img/MoreCoke/1d02ec226ef34c29b2dc12d9f6b9bf2a.png"></li>
+<li>在電腦設定\系統管理範本\Windows 元件\邊緣 UI 點選允許邊緣撥動<br><img src="https://static.coderbridge.com/img/MoreCoke/f65a5638234a4dd8a50703860b35b22b.png"><br><img src="https://static.coderbridge.com/img/MoreCoke/1db4ef07c46943cabe45bbb1845ede44.png"></li>
+<li>設定停用<br><img src="https://static.coderbridge.com/img/MoreCoke/ea884e0b8dd0418e90560e8a802cf683.png"></li>
+</ol>
+<h3 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h3><ul>
+<li><a href="https://support.microsoft.com/zh-tw/windows/%E5%A6%82%E4%BD%95%E5%9C%A8-windows-10-%E4%B8%AD%E9%96%8B%E5%95%9F%E7%99%BB%E9%8C%84%E7%B7%A8%E8%BC%AF%E7%A8%8B%E5%BC%8F-deab38e6-91d6-e0aa-4b7c-8878d9e07b11">如何在 Windows 10 中開啟登錄編輯程式</a></li>
+<li><a href="https://www.top-password.com/blog/disable-edge-swipe-gesture-in-windows-10/">How to Disable Edge Swipe Gesture on Touch Screen in Windows 10</a></li>
+<li><a href="https://stackoverflow.com/a/52321420">Electron JS kiosk mode with touch screen</a></li>
+<li><a href="https://answers.microsoft.com/zh-hant/windows/forum/windows_10-other_settings-winpc/%E6%80%8E%E6%A8%A3%E9%97%9C%E9%96%89-windows-10/48e7cf2b-f62d-4a1c-8df4-c0716ab086e0">怎樣關閉 Windows 10 的邊緣滑動手勢</a></li>
+<li><a href="https://blog.miniasp.com/post/2008/11/30/How-to-add-modify-delete-registry-subkeys-and-values-by-using-a-registration-entries-reg-file">如何使用登錄檔(.reg)進行新增、修改或刪除登錄機碼和值</a></li>
+</ul>
+<h3 id="補充資料"><a href="#補充資料" class="headerlink" title="補充資料"></a>補充資料</h3><ul>
+<li><a href="https://blog.xuite.net/keryosm/Ts/181938519">登錄編輯程式</a></li>
+<li><a href="https://superuser.com/questions/961413/what-is-the-difference-between-regedit-and-gpedit-msc">What is the difference between regedit and gpedit.msc?</a></li>
+</ul>
+]]></content>
+  </entry>
+</search>

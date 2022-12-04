@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"morecoke.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.11.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜尋...","empty":"我們無法找到任何有關 ${query} 的搜索結果","hits_time":"${hits} 找到 ${time} 個結果","hits":"找到 ${hits} 個結果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="try catch 的用途try catch 的使用時機就是避免程式碼出錯造成網頁或是 app crash 的緊急處理，所以也會有人稱 try catch 為錯誤處理，但我個人並沒有很喜歡這個稱呼，我覺得叫做「例外處理」比較貼切，至於原因下面會說。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JS try catch 使用方式">
+<meta property="og:url" content="https://morecoke.github.io/2021/03/02/js-try-catch/index.html">
+<meta property="og:site_name" content="MoreCoke Blog">
+<meta property="og:description" content="try catch 的用途try catch 的使用時機就是避免程式碼出錯造成網頁或是 app crash 的緊急處理，所以也會有人稱 try catch 為錯誤處理，但我個人並沒有很喜歡這個稱呼，我覺得叫做「例外處理」比較貼切，至於原因下面會說。">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2021-03-02T17:33:06.000Z">
+<meta property="article:modified_time" content="2022-12-04T10:07:30.129Z">
+<meta property="article:author" content="MoreCoke">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://morecoke.github.io/2021/03/02/js-try-catch/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-TW","comments":true,"permalink":"https://morecoke.github.io/2021/03/02/js-try-catch/","path":"2021/03/02/js-try-catch/","title":"JS try catch 使用方式"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>JS try catch 使用方式 | MoreCoke Blog</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">MoreCoke Blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">前端嬰兒</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>歸檔</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜尋
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜尋..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#try-catch-%E7%9A%84%E7%94%A8%E9%80%94"><span class="nav-number">1.</span> <span class="nav-text">try catch 的用途</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%8B%E7%B4%B9-try-catch-%E8%AA%9E%E6%B3%95"><span class="nav-number">2.</span> <span class="nav-text">介紹 try catch 語法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%8B%E7%B4%B9-throw"><span class="nav-number">3.</span> <span class="nav-text">介紹 throw</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#throw-%E5%92%8C-return-%E7%9A%84%E5%B7%AE%E5%88%A5"><span class="nav-number">4.</span> <span class="nav-text">throw 和 return 的差別</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#finally-%E8%AA%9E%E6%B3%95"><span class="nav-number">5.</span> <span class="nav-text">finally 語法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B7%9F-if-else-%E7%9A%84%E5%B7%AE%E5%88%A5"><span class="nav-number">6.</span> <span class="nav-text">跟 if else 的差別</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B5%90%E8%AB%96"><span class="nav-number">7.</span> <span class="nav-text">結論</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%83%E8%80%83%E8%B3%87%E6%96%99"><span class="nav-number"></span> <span class="nav-text">參考資料</span></a></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="MoreCoke"
+      src="https://avatars.githubusercontent.com/u/52279841?v=4">
+  <p class="site-author-name" itemprop="name">MoreCoke</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">24</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/MoreCoke" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;MoreCoke" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://medium.com/@seed45699" title="Medium → https:&#x2F;&#x2F;medium.com&#x2F;@seed45699" rel="noopener" target="_blank"><i class="fa-brands fa-medium fa-fw"></i></a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="回到頂端">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/MoreCoke" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://morecoke.github.io/2021/03/02/js-try-catch/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://avatars.githubusercontent.com/u/52279841?v=4">
+      <meta itemprop="name" content="MoreCoke">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MoreCoke Blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="JS try catch 使用方式 | MoreCoke Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          JS try catch 使用方式
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">發表於</span>
+
+      <time title="創建時間：2021-03-03 01:33:06" itemprop="dateCreated datePublished" datetime="2021-03-03T01:33:06+08:00">2021-03-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新於</span>
+      <time title="修改時間：2022-12-04 18:07:30" itemprop="dateModified" datetime="2022-12-04T18:07:30+08:00">2022-12-04</time>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="文章字數">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">文章字數：</span>
+      <span>2.8k</span>
+    </span>
+    <span class="post-meta-item" title="所需閱讀時間">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">所需閱讀時間 &asymp;</span>
+      <span>3 分鐘</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h3 id="try-catch-的用途"><a href="#try-catch-的用途" class="headerlink" title="try catch 的用途"></a>try catch 的用途</h3><p>try catch 的使用時機就是避免程式碼出錯造成網頁或是 app crash 的緊急處理，所以也會有人稱 try catch 為錯誤處理，但我個人並沒有很喜歡這個稱呼，我覺得叫做「例外處理」比較貼切，至於原因下面會說。</p>
+<span id="more"></span>
+
+<h3 id="介紹-try-catch-語法"><a href="#介紹-try-catch-語法" class="headerlink" title="介紹 try catch 語法"></a>介紹 try catch 語法</h3><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line"> 要做的事情</span><br><span class="line">&#125; <span class="keyword">catch</span>(e) &#123;</span><br><span class="line"> 例外處理</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>這個語法會先將 try 區塊中的程式碼執行一次，如果裡面的程式碼有問題就會立刻中止執行，執行步驟會直接跳到 catch 區塊的程式碼，如果 catch 的程式碼又有問題，那網頁就會跳錯。</p>
+<h3 id="介紹-throw"><a href="#介紹-throw" class="headerlink" title="介紹 throw"></a>介紹 throw</h3><p>上面說到如果程式碼遇到問題會終止執行，而這個問題大部分都是我們在瀏覽器上看到的編譯錯誤，最常看到的錯誤有:</p>
+<ul>
+<li>js 的語法錯誤(SyntaxError)，像是 <code>Unexpected token.</code>。</li>
+<li>變數名稱拼錯(ReferenceError)，像是   <code>xxx is undefined.</code>。</li>
+<li>找不到 function(TypeError)，像是 <code>xxx is not a function.</code>。</li>
+</ul>
+<p>瀏覽器會將這些編譯成 Error 物件， 這個物件會被自動拋出(就算不加 throw 也會被拋出)，終止編譯，然後我們就會看到網頁一片空白，開發者工具出現錯誤提示。</p>
+<p>所以就算在 try catch 中不用 throw 丟出 Error 物件， catch 也能捕捉到。</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">  <span class="keyword">new</span> <span class="title class_">Error</span>(<span class="string">&#x27;hi&#x27;</span>);</span><br><span class="line">&#125;<span class="keyword">catch</span>(e)&#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(e); <span class="comment">// Error: hi</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>throw 不是只能丟 Error 物件而已，他能丟任何東西，丟 string 、function 等等都行，所以不要誤會了，覺得 try catch 錯誤處理這樣念起來很順口，就覺得他只會處理 Error 物件而已，任何你認為是例外的東西，都能透過 throw 丟出來讓 try catch 處理。</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">  <span class="keyword">throw</span> <span class="number">123</span>;</span><br><span class="line">&#125;<span class="keyword">catch</span>(e)&#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(e); <span class="comment">// 123</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="throw-和-return-的差別"><a href="#throw-和-return-的差別" class="headerlink" title="throw 和 return 的差別"></a>throw 和 return 的差別</h3><p>兩者都能中斷程式碼執行，那是不是用哪個都沒差呢?</p>
+<p>先說 return ，只能在 function 中使用，用來回傳值並中斷 function 執行。</p>
+<p>回傳值。</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">test</span>(<span class="params"></span>)&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">123</span>;</span><br><span class="line">  xxxxxx <span class="comment">// 這邊不會執行</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">test</span>(); <span class="comment">//123</span></span><br></pre></td></tr></table></figure>
+
+<p>如果沒寫會回傳 undefined。</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">test</span>(<span class="params"></span>)&#123;</span><br><span class="line">  <span class="keyword">return</span>;</span><br><span class="line">  xxxx <span class="comment">//這邊不會執行</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">test</span>(); <span class="comment">// undefined</span></span><br></pre></td></tr></table></figure>
+
+<p>再來是 throw，任何地方都能用，用來拋出例外並中斷程式碼執行。在瀏覽器會用紅色來呈現例外。</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">throw</span> <span class="number">123</span>; <span class="comment">// Uncaught 123</span></span><br></pre></td></tr></table></figure>
+
+<p>不能單獨使用，一定要丟出東西，不然會出錯。</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">throw</span>; <span class="comment">// Uncaught SyntaxError: Unexpected token &#x27;;&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>最後來整理一下:</p>
+<ul>
+<li>兩者都能中斷程式碼。</li>
+<li>return 只能在 function 中使用， throw 沒限制。</li>
+<li>return 後面可以不用寫值， throw 後面一定要有值。</li>
+</ul>
+<h3 id="finally-語法"><a href="#finally-語法" class="headerlink" title="finally 語法"></a>finally 語法</h3><p>接在 try catch 後面，可加可不加，在執行 try 或 catch 區塊後的程式碼執行，如果在 try 或 catch 中使用 return 並不會中斷程式碼執行，而是將 try 或 catch 裡的 return 移到 finally 區塊的程式碼最後面執行，看 code 會比較清楚:</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">test</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">try</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">	&#125;<span class="keyword">catch</span>(e)&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">111</span>;</span><br><span class="line">	&#125;<span class="keyword">finally</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">222</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">test</span>();</span><br></pre></td></tr></table></figure>
+
+<p>最後會回傳的內容是 222，對 finally 來說，程式碼會長這樣:</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">finally</span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">222</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="跟-if-else-的差別"><a href="#跟-if-else-的差別" class="headerlink" title="跟 if else 的差別"></a>跟 if else 的差別</h3><p>只單看文字的話可以很清楚的知道 if else 和 try catch 是完全不同的，if else 單純的是非判斷， try catch 則是對於意料外的行為所做的處理。</p>
+<p>然而我還滿常搞混的，我覺得這兩個有時候用起來很像，因為我有時寫 if else 時的想法是 if 用來處理可預期的行為， else 用來處理其他沒考慮到的問題。</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(如果我想的事成真的話)&#123;</span><br><span class="line">  做這些事...</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  做其他事...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>這樣的想法也能用 try catch 寫，但盡量不要這樣: </p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">  <span class="keyword">if</span>(如果我想的事沒有成真) &#123;</span><br><span class="line">		<span class="keyword">throw</span> <span class="string">&#x27;例外&#x27;</span>;</span><br><span class="line">  &#125;</span><br><span class="line">	做這些事...</span><br><span class="line">&#125; <span class="keyword">catch</span>(e) &#123;</span><br><span class="line">	做其他事...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>不要這樣處理已知的行為流程，如果在專案裡面狂用 try catch 可能要停下來想想自己是不是還沒有真正搞懂哪些功能的行為是屬於正常情況，哪些又是不想讓它發生的例外。在處理非同步、打 api 有時會用到 try catch 避免網頁 crash，這時就要多花點時間想想這方面的問題。</p>
+<p>再舉個實務上的例子，錯誤處理交給前端做，假設今天有個新增 todo list 的 api，如果新增空字串會跳錯，按上面的寫法再做一次:</p>
+<p>這種可解決的錯誤，可以用 if 來擋。</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(inputValue)&#123;</span><br><span class="line">  打 api</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  提醒用戶不能用留空</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">  打 api</span><br><span class="line">&#125; <span class="keyword">catch</span>(e) &#123;</span><br><span class="line">	提醒用戶不能用留空</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>兩種方法都行。</p>
+<p>那再加一個條件呢? 如果新增重複的內容會跳錯，會丟 Error，可以怎麼改?</p>
+<p>單純的 if else 好像就做不到了，要怎麼知道目前新增的 todo 有沒有重複?</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(inputValue || 沒有重複的 todo)&#123;</span><br><span class="line">  打 api</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  提醒用戶不能用留空</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>這時就能用 try catch 了。</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line"> <span class="keyword">if</span>(!inputValue) <span class="keyword">return</span>;</span><br><span class="line"> 打 api;</span><br><span class="line">&#125; <span class="keyword">catch</span>(e) &#123;</span><br><span class="line"> 提醒已經有重複的內容了</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="結論"><a href="#結論" class="headerlink" title="結論"></a>結論</h3><p>if else 用來處理正確、可預期的流程， try catch 用來應對例外的問題，至於哪些是正確的流程，這個判斷就只能用經驗去累積了。例外之所以是例外就是因為沒想到會有這情況呀!</p>
+<p>對於例外的定義:</p>
+<ul>
+<li>隕石需求。</li>
+<li>不該發生的特殊情況。</li>
+<li>未知的問題。</li>
+</ul>
+<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://levelup.gitconnected.com/the-definite-guide-to-handling-errors-gracefully-in-javascript-58424d9c60e6">Handling Errors in JavaScript: The Definitive Guide</a></li>
+<li><a target="_blank" rel="noopener" href="https://ithelp.ithome.com.tw/articles/10208079">過度焦慮的 try-catch</a></li>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Guide/Control_flow_and_error_handling">流程控制與例外處理</a></li>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error">Error</a></li>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Statements/return">return</a></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2020/10/19/target-_blank/" rel="prev" title="target="_blank" 風險問題處理，加入 rel="noreferrer noopener"">
+                  <i class="fa fa-chevron-left"></i> target="_blank" 風險問題處理，加入 rel="noreferrer noopener"
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2021/03/08/react-native-app-state/" rel="next" title="React Native AppState 狀態介紹">
+                  React Native AppState 狀態介紹 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">MoreCoke</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 強力驅動
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

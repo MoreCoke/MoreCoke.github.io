@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"morecoke.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.11.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜尋...","empty":"我們無法找到任何有關 ${query} 的搜索結果","hits_time":"${hits} 找到 ${time} 個結果","hits":"找到 ${hits} 個結果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="這應該不是好做法，因為在官方文件上並沒有看到相關的用法，不過這用法很方便就是…。除了 React 外，Vue 也能這樣玩，Angular 沒用過不知道。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="React 用 key 強迫 component 重新渲染">
+<meta property="og:url" content="https://morecoke.github.io/2021/04/28/react-force-render-by-key/index.html">
+<meta property="og:site_name" content="MoreCoke Blog">
+<meta property="og:description" content="這應該不是好做法，因為在官方文件上並沒有看到相關的用法，不過這用法很方便就是…。除了 React 外，Vue 也能這樣玩，Angular 沒用過不知道。">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2021-04-28T17:33:06.000Z">
+<meta property="article:modified_time" content="2022-12-04T10:07:30.129Z">
+<meta property="article:author" content="MoreCoke">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://morecoke.github.io/2021/04/28/react-force-render-by-key/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-TW","comments":true,"permalink":"https://morecoke.github.io/2021/04/28/react-force-render-by-key/","path":"2021/04/28/react-force-render-by-key/","title":"React 用 key 強迫 component 重新渲染"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>React 用 key 強迫 component 重新渲染 | MoreCoke Blog</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">MoreCoke Blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">前端嬰兒</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>歸檔</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜尋
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜尋..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#key-%E7%9A%84%E7%94%A8%E6%B3%95"><span class="nav-number">1.</span> <span class="nav-text">key 的用法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%82%BA%E4%BB%80%E9%BA%BC%E8%83%BD%E6%8F%90%E5%8D%87%E6%95%88%E7%8E%87"><span class="nav-number">2.</span> <span class="nav-text">為什麼能提升效率?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#key-%E7%9A%84%E6%9B%B4%E5%8B%95%E4%BB%A3%E8%A1%A8%E4%BB%80%E9%BA%BC"><span class="nav-number">3.</span> <span class="nav-text">key 的更動代表什麼?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%A8-key-%E5%BC%B7%E8%BF%AB%E6%9B%B4%E6%96%B0"><span class="nav-number">4.</span> <span class="nav-text">用 key 強迫更新</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AF%84%E4%BE%8B"><span class="nav-number">5.</span> <span class="nav-text">範例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%83%E8%80%83%E8%B3%87%E6%96%99"><span class="nav-number">6.</span> <span class="nav-text">參考資料</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="MoreCoke"
+      src="https://avatars.githubusercontent.com/u/52279841?v=4">
+  <p class="site-author-name" itemprop="name">MoreCoke</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">24</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/MoreCoke" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;MoreCoke" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://medium.com/@seed45699" title="Medium → https:&#x2F;&#x2F;medium.com&#x2F;@seed45699" rel="noopener" target="_blank"><i class="fa-brands fa-medium fa-fw"></i></a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="回到頂端">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/MoreCoke" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://morecoke.github.io/2021/04/28/react-force-render-by-key/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://avatars.githubusercontent.com/u/52279841?v=4">
+      <meta itemprop="name" content="MoreCoke">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MoreCoke Blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="React 用 key 強迫 component 重新渲染 | MoreCoke Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          React 用 key 強迫 component 重新渲染
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">發表於</span>
+
+      <time title="創建時間：2021-04-29 01:33:06" itemprop="dateCreated datePublished" datetime="2021-04-29T01:33:06+08:00">2021-04-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新於</span>
+      <time title="修改時間：2022-12-04 18:07:30" itemprop="dateModified" datetime="2022-12-04T18:07:30+08:00">2022-12-04</time>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="文章字數">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">文章字數：</span>
+      <span>3.2k</span>
+    </span>
+    <span class="post-meta-item" title="所需閱讀時間">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">所需閱讀時間 &asymp;</span>
+      <span>3 分鐘</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>這應該不是好做法，因為在官方文件上並沒有看到相關的用法，不過這用法很方便就是…。<br>除了 React 外，Vue 也能這樣玩，Angular 沒用過不知道。</p>
+<span id="more"></span>
+
+<h3 id="key-的用法"><a href="#key-的用法" class="headerlink" title="key 的用法"></a>key 的用法</h3><p>我們經常會用陣列的資料搭配 map 來做出多個 component 列表，並在這些 component 都加上 key 用來辨識，日後重新 render 列表時 React 就能透過這些 key 來追蹤哪些 component 沒動過，哪些有被改到，決定是否要保留現有的 DOM 元素要對它更新就好，還是說要砍掉該 DOM 元素再另外建個新的，進而提升渲染的效率。</p>
+<h3 id="為什麼能提升效率"><a href="#為什麼能提升效率" class="headerlink" title="為什麼能提升效率?"></a>為什麼能提升效率?</h3><p>因為在重新 render 時 React 會比較更新過的 state 資料，來更新 Virtual DOM tree 最後才去改 DOM tree，會使用遞迴去檢查內部的東西有沒有改變，這時就可以透過 key 進行初步判斷，先快速找到新舊陣列間兩個新舊元素之間的關聯，最後再將差異反映在 DOM 元素上，而不是每次重新渲染直接把 DOM 元素刪掉後再重做個新的。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 假設改資料前的陣列是 =&gt; [&#123;name:&#x27;apple&#x27;,id:&#x27;a&#x27;&#125;,&#123;name:&#x27;banana&#x27;,id:&#x27;b&#x27;&#125;]</span></span><br><span class="line"><span class="comment">// 透過 setState 改陣列資料後是 =&gt; [&#123;name:&#x27;apple&#x27;,id:&#x27;a&#x27;&#125;,&#123;name:&#x27;pineapple&#x27;,id:&#x27;p&#x27;&#125;]</span></span><br><span class="line">&lt;ul&gt;</span><br><span class="line"> &#123;</span><br><span class="line">   array.<span class="title function_">map</span>(<span class="function"><span class="params">e</span>=&gt;</span><span class="language-xml"><span class="tag">&lt;<span class="name">li</span> <span class="attr">key</span>=<span class="string">&#123;e.id&#125;</span>&gt;</span>&#123;e.name&#125;<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span>)</span><br><span class="line"> &#125;</span><br><span class="line">&lt;/ul&gt;</span><br></pre></td></tr></table></figure>
+
+<p>DOM 的前後變化:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">// 改資料前的樣子</span><br><span class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span> <span class="attr">key</span>=<span class="string">&#x27;a&#x27;</span>&gt;</span>apple<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span> <span class="attr">key</span>=<span class="string">&#x27;banana&#x27;</span>&gt;</span>banana<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"></span><br><span class="line">// 改資料後的樣子</span><br><span class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span> <span class="attr">key</span>=<span class="string">&#x27;a&#x27;</span>&gt;</span>apple<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span> <span class="attr">key</span>=<span class="string">&#x27;p&#x27;</span>&gt;</span>pineapple<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>如果沒有 key，React 看到上面這情況會使用遞迴去看 li 中的內容(children, 也就是 apple 和 banana)所對應到陣列中的哪個元素，有了 key 的幫忙可以更快找到新舊 DOM 元素之間的關係，可以更快知道 <code>key=&#39;a&#39;</code> 這值沒變，直接把舊的 Virtual DOM tree 上的 <code>&lt;li key=&#39;a&#39;&gt;apple&lt;/li&gt;</code> 移到新的 Virtual DOM tree 就好； <code>key=&#39;b&#39;</code> 不見了，舊的 Virtual DOM tree 上的 <code>&lt;li key=&#39;b&#39;&gt;banana&lt;/li&gt;</code> 就不會移到新的 Virtual DOM tree；多了一個新的 <code>key=&#39;p&#39;</code>，在新的 Virtual DOM tree 上建一個新的 <code>&lt;li key=&#39;p&#39;&gt;pineapple&lt;/li&gt;</code>。</p>
+<h3 id="key-的更動代表什麼"><a href="#key-的更動代表什麼" class="headerlink" title="key 的更動代表什麼?"></a>key 的更動代表什麼?</h3><p>相信大家都知道，如果map 出來的列表是會變動的，key 不要綁索引值，這樣 key 無法讓新舊的 Virtual DOM 元素產生對應， key 的變動都會讓 DOM 元素新增或刪除。</p>
+<ul>
+<li>多了新的 key: 建立一個新的 DOM 元素。</li>
+<li>少了一個 key: 把跟該 key 相關的 DOM 元素刪掉。</li>
+</ul>
+<h3 id="用-key-強迫更新"><a href="#用-key-強迫更新" class="headerlink" title="用 key 強迫更新"></a>用 key 強迫更新</h3><p>其實任何 DOM 元素都能加 key，利用更新 key 的方式就能重新 render 該 DOM 元素。當我們更動 key 就相當於:</p>
+<ul>
+<li>舊的 key 不見了 &#x3D;&gt; React 把這個 DOM 元素刪掉(unmount)。</li>
+<li>發現新的 key &#x3D;&gt; React 替這個 key 新增一個 DOM 元素(mount)。</li>
+</ul>
+<h3 id="範例"><a href="#範例" class="headerlink" title="範例"></a>範例</h3><p>我今天有個 video，我想在這個 video播完影片後就去播下個影片，我可以怎麼做?</p>
+<p>我在影片結束時呼叫 onEnded 用來播下個影片，在 source 插入動態連結，這樣有個問題，第一個影片播完後就不會播了，雖然 source 有變，但 react 繼續復用 video 這個 DOM 導致影片連結更新但沒有反應。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> videoNames = [</span><br><span class="line">  <span class="string">&quot;https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm&quot;</span>,</span><br><span class="line">  <span class="string">&quot;https://www.w3schools.com/tags/movie.ogg&quot;</span></span><br><span class="line">];</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">function</span> <span class="title function_">StandbyVideo</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> [videoIdx, setVideoIdx] = <span class="title function_">useState</span>(<span class="number">0</span>);</span><br><span class="line">  <span class="keyword">const</span> <span class="title function_">playNextVideo</span> = (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">    <span class="keyword">const</span> nextVideoIdx = (videoIdx + <span class="number">1</span>) % videoNames.<span class="property">length</span>;</span><br><span class="line">    <span class="title function_">setVideoIdx</span>(nextVideoIdx);</span><br><span class="line">  &#125;;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">video</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">        <span class="attr">className</span>=<span class="string">&#123;css(styles.videoContainer)&#125;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">        <span class="attr">autoPlay</span>=<span class="string">&#123;true&#125;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">        <span class="attr">onEnded</span>=<span class="string">&#123;playNextVideo&#125;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">        <span class="attr">controls</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">      &gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">source</span> <span class="attr">src</span>=<span class="string">&#123;videoNames[videoIdx]&#125;</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;/<span class="name">video</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>加入 key 後就能解決問題了，這樣的意思是每次我的 videoIdx 變了，React 就會把舊的 video 給刪掉(unmount)，再重生一個 video (mount)。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;video</span><br><span class="line">  key=&#123;videoIdx&#125;</span><br><span class="line">  className=&#123;<span class="title function_">css</span>(styles.<span class="property">videoContainer</span>)&#125;</span><br><span class="line">  autoPlay=&#123;<span class="literal">true</span>&#125;</span><br><span class="line">  onEnded=&#123;playNextVideo&#125;</span><br><span class="line">  controls</span><br><span class="line">&gt;</span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">source</span> <span class="attr">src</span>=<span class="string">&#123;videoNames[videoIdx]&#125;</span> /&gt;</span></span></span><br><span class="line">&lt;/video&gt;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>題外話，不用 source 直接將 src 寫在 video 上也能解決需求，因為我想展示 key 重新 render 的效果，所以才這樣寫。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;video</span><br><span class="line">  className=&#123;<span class="title function_">css</span>(styles.<span class="property">videoContainer</span>)&#125;</span><br><span class="line">  autoPlay=&#123;<span class="literal">true</span>&#125;</span><br><span class="line">  onEnded=&#123;playNextVideo&#125;</span><br><span class="line">  src=&#123;videoNames[videoIdx]&#125;</span><br><span class="line">  controls</span><br><span class="line">&gt;</span><br><span class="line">&lt;/video&gt;</span><br></pre></td></tr></table></figure>
+
+<p>附上 <a target="_blank" rel="noopener" href="https://codesandbox.io/s/vigorous-ives-t962q?file=/src/StandbyVideo.js:520-784">codesnadbox</a></p>
+<h3 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h3><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/57974487">Virtual Dom &amp;&amp; Diff原理，极简版</a><br><a target="_blank" rel="noopener" href="https://ithelp.ithome.com.tw/articles/10234155">[Day 04] 理解React Virtual DOM</a><br><a target="_blank" rel="noopener" href="https://zh-hant.reactjs.org/docs/reconciliation.html">Reconciliation</a><br><a target="_blank" rel="noopener" href="https://reactjs.org/docs/faq-internals.html#what-is-react-fiber">Virtual DOM and Internals</a></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/04/16/why-click-event-triggers-twice/" rel="prev" title="為什麼寫在 label 上的 click 事件會觸發兩次?">
+                  <i class="fa fa-chevron-left"></i> 為什麼寫在 label 上的 click 事件會觸發兩次?
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2021/05/02/browser-and-cors-introduction/" rel="next" title="瀏覽器 CORS 與同源政策介紹">
+                  瀏覽器 CORS 與同源政策介紹 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">MoreCoke</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 強力驅動
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
